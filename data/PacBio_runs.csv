@@ -1,7 +1,7 @@
 library,bg,run,ccs
-pool1,EG5,240207,/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240207_Omicron-BA286-EG5-FLip-PacBio/lib92-BA-2-86-r1.r64296e214941B01.hifireads.fastq.gz
-pool2,EG5,240207,/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240207_Omicron-BA286-EG5-FLip-PacBio/lib93-BA-2-86-r2.r64296e214941B01.hifireads.fastq.gz
-pool1,FLip,240207,/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240207_Omicron-BA286-EG5-FLip-PacBio/lib94-EG-5-r1.r64296e214941B01.hifireads.fastq.gz
-pool2,FLip,240207,/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240207_Omicron-BA286-EG5-FLip-PacBio/lib95-EG-5-r2.r64296e214941B01.hifireads.fastq.gz
-pool1,BA286,240207,/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240207_Omicron-BA286-EG5-FLip-PacBio/lib96-FLip-r1.r64296e214941B01.hifireads.fastq.gz
-pool2,BA286,240207,/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240207_Omicron-BA286-EG5-FLip-PacBio/lib97-FLip-r2.r64296e214941B01.hifireads.fastq.gz
+pool1,BA286,240207,/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240207_Omicron-BA286-EG5-FLip-PacBio/lib92-BA-2-86-r1.r64296e214941B01.hifireads.fastq.gz
+pool2,BA286,240207,/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240207_Omicron-BA286-EG5-FLip-PacBio/lib93-BA-2-86-r2.r64296e214941B01.hifireads.fastq.gz
+pool1,EG5,240207,/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240207_Omicron-BA286-EG5-FLip-PacBio/lib94-EG-5-r1.r64296e214941B01.hifireads.fastq.gz
+pool2,EG5,240207,/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240207_Omicron-BA286-EG5-FLip-PacBio/lib95-EG-5-r2.r64296e214941B01.hifireads.fastq.gz
+pool1,FLip,240207,/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240207_Omicron-BA286-EG5-FLip-PacBio/lib96-FLip-r1.r64296e214941B01.hifireads.fastq.gz
+pool2,FLip,240207,/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240207_Omicron-BA286-EG5-FLip-PacBio/lib97-FLip-r2.r64296e214941B01.hifireads.fastq.gz

@@ -482,47 +482,47 @@ display(HTML(aligned_df.head().to_html(index=False)))
   <tbody>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/1/ccs</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A G265A C266A C267A C344A A358G T365G G378C T453A del456to458 G460A C461A T462A T468A C479T T480C</td>
-      <td>1.0</td>
-      <td>ATAAGAATGAAAGTAA</td>
-      <td>1.0</td>
+      <td>m64296e_240202_130733/12/ccs</td>
+      <td>T205G C206A C207T ins299C</td>
+      <td>0.999730</td>
+      <td>CTTGCGGTAAATGAGG</td>
+      <td>0.999988</td>
       <td>EG5</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/14/ccs</td>
-      <td>A4C T5A C6T C47G T48A A77C G78T A112T T114G G218A G318A C344A A358G T365G G378C T453A del456to458 G460A C461A T462A T468A C479T T480C</td>
-      <td>1.0</td>
-      <td>TACCACAAACGAAAGT</td>
-      <td>1.0</td>
+      <td>m64296e_240202_130733/59/ccs</td>
+      <td></td>
+      <td>1.000000</td>
+      <td>TCGATAACACGGTTAC</td>
+      <td>1.000000</td>
       <td>EG5</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/21/ccs</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G T155C G218A C344A A358G T365G G378C T453A del456to458 G460A C461A T462A T468A C479T T480C</td>
-      <td>1.0</td>
-      <td>ATGTATATTGAACGTG</td>
-      <td>1.0</td>
+      <td>m64296e_240202_130733/133/ccs</td>
+      <td>del510to510 del565to567</td>
+      <td>0.999334</td>
+      <td>TGAACCTTACATCACC</td>
+      <td>1.000000</td>
       <td>EG5</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/34/ccs</td>
-      <td>A4G C6T T16C G17A T18A C47G T48A A77C G78T A112T T114G G218A C344A A358G T365G G378C T453A del456to458 G460A C461A T462A T468A C479T T480C</td>
-      <td>1.0</td>
-      <td>GTAAATATTTGGCGAG</td>
-      <td>1.0</td>
+      <td>m64296e_240202_130733/182/ccs</td>
+      <td></td>
+      <td>1.000000</td>
+      <td>ACACAATAAAACCTCA</td>
+      <td>1.000000</td>
       <td>EG5</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/36/ccs</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A C344A A358G T365G G378C T453A del456to458 G460A C461A T462A C466G C467T C479T T480C</td>
-      <td>1.0</td>
-      <td>CAAATCTCTGTTACAC</td>
-      <td>1.0</td>
+      <td>m64296e_240202_130733/204/ccs</td>
+      <td>G409A A410T T411G</td>
+      <td>1.000000</td>
+      <td>TAGCAACCGATTGAGC</td>
+      <td>1.000000</td>
       <td>EG5</td>
     </tr>
   </tbody>
@@ -573,7 +573,7 @@ print(f"Read {len(processed_ccs)} CCSs from {nlibs} libraries and {ntargets} tar
 display(HTML(processed_ccs.head().to_html(index=False)))
 ```
 
-    Read 722541 CCSs from 2 libraries and 1 targets.
+    Read 792142 CCSs from 2 libraries and 1 targets.
 
 
 
@@ -592,47 +592,47 @@ display(HTML(processed_ccs.head().to_html(index=False)))
   <tbody>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/1/ccs</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A G265A C266A C267A C344A A358G T365G G378C T453A del456to458 G460A C461A T462A T468A C479T T480C</td>
-      <td>1.0</td>
-      <td>ATAAGAATGAAAGTAA</td>
-      <td>1.0</td>
+      <td>m64296e_240202_130733/12/ccs</td>
+      <td>T205G C206A C207T ins299C</td>
+      <td>0.999730</td>
+      <td>CTTGCGGTAAATGAGG</td>
+      <td>0.999988</td>
       <td>EG5</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/14/ccs</td>
-      <td>A4C T5A C6T C47G T48A A77C G78T A112T T114G G218A G318A C344A A358G T365G G378C T453A del456to458 G460A C461A T462A T468A C479T T480C</td>
-      <td>1.0</td>
-      <td>TACCACAAACGAAAGT</td>
-      <td>1.0</td>
+      <td>m64296e_240202_130733/59/ccs</td>
+      <td></td>
+      <td>1.000000</td>
+      <td>TCGATAACACGGTTAC</td>
+      <td>1.000000</td>
       <td>EG5</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/21/ccs</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G T155C G218A C344A A358G T365G G378C T453A del456to458 G460A C461A T462A T468A C479T T480C</td>
-      <td>1.0</td>
-      <td>ATGTATATTGAACGTG</td>
-      <td>1.0</td>
+      <td>m64296e_240202_130733/133/ccs</td>
+      <td>del510to510 del565to567</td>
+      <td>0.999334</td>
+      <td>TGAACCTTACATCACC</td>
+      <td>1.000000</td>
       <td>EG5</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/34/ccs</td>
-      <td>A4G C6T T16C G17A T18A C47G T48A A77C G78T A112T T114G G218A C344A A358G T365G G378C T453A del456to458 G460A C461A T462A T468A C479T T480C</td>
-      <td>1.0</td>
-      <td>GTAAATATTTGGCGAG</td>
-      <td>1.0</td>
+      <td>m64296e_240202_130733/182/ccs</td>
+      <td></td>
+      <td>1.000000</td>
+      <td>ACACAATAAAACCTCA</td>
+      <td>1.000000</td>
       <td>EG5</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/36/ccs</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A C344A A358G T365G G378C T453A del456to458 G460A C461A T462A C466G C467T C479T T480C</td>
-      <td>1.0</td>
-      <td>CAAATCTCTGTTACAC</td>
-      <td>1.0</td>
+      <td>m64296e_240202_130733/204/ccs</td>
+      <td>G409A A410T T411G</td>
+      <td>1.000000</td>
+      <td>TAGCAACCGATTGAGC</td>
+      <td>1.000000</td>
       <td>EG5</td>
     </tr>
   </tbody>
@@ -690,15 +690,15 @@ display(HTML(
     <tr>
       <th rowspan="2" valign="top">EG5</th>
       <th>pool1</th>
-      <td>352446</td>
-      <td>99109</td>
-      <td>3.56</td>
+      <td>362335</td>
+      <td>123883</td>
+      <td>2.92</td>
     </tr>
     <tr>
       <th>pool2</th>
-      <td>370095</td>
-      <td>97233</td>
-      <td>3.81</td>
+      <td>429807</td>
+      <td>117919</td>
+      <td>3.64</td>
     </tr>
   </tbody>
 </table>
@@ -919,194 +919,194 @@ processed_ccs.head(n=12)
     <tr>
       <th>0</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/1/ccs</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A ...</td>
-      <td>1.000000</td>
-      <td>ATAAGAATGAAAGTAA</td>
-      <td>1.000000</td>
+      <td>m64296e_240202_130733/12/ccs</td>
+      <td>T205G C206A C207T ins299C</td>
+      <td>0.999730</td>
+      <td>CTTGCGGTAAATGAGG</td>
+      <td>0.999988</td>
       <td>EG5</td>
-      <td>1.000000e-07</td>
-      <td>1.000000e-07</td>
-      <td>True</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A ...</td>
-      <td>0</td>
+      <td>1.247089e-05</td>
+      <td>2.698891e-04</td>
       <td>False</td>
+      <td>T205G C206A C207T ins299C</td>
+      <td>1</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>1</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/14/ccs</td>
-      <td>A4C T5A C6T C47G T48A A77C G78T A112T T114G G2...</td>
+      <td>m64296e_240202_130733/59/ccs</td>
+      <td></td>
       <td>1.000000</td>
-      <td>TACCACAAACGAAAGT</td>
+      <td>TCGATAACACGGTTAC</td>
       <td>1.000000</td>
       <td>EG5</td>
       <td>1.000000e-07</td>
       <td>1.000000e-07</td>
       <td>True</td>
-      <td>A4C T5A C6T C47G T48A A77C G78T A112T T114G G2...</td>
+      <td></td>
       <td>0</td>
       <td>False</td>
     </tr>
     <tr>
       <th>2</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/21/ccs</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G T155C ...</td>
-      <td>1.000000</td>
-      <td>ATGTATATTGAACGTG</td>
+      <td>m64296e_240202_130733/133/ccs</td>
+      <td>del510to510 del565to567</td>
+      <td>0.999334</td>
+      <td>TGAACCTTACATCACC</td>
       <td>1.000000</td>
       <td>EG5</td>
       <td>1.000000e-07</td>
-      <td>1.000000e-07</td>
-      <td>True</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G T155C ...</td>
-      <td>0</td>
+      <td>6.663423e-04</td>
       <td>False</td>
+      <td>del510to510 C565- A566- T567-</td>
+      <td>1</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>3</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/34/ccs</td>
-      <td>A4G C6T T16C G17A T18A C47G T48A A77C G78T A11...</td>
+      <td>m64296e_240202_130733/182/ccs</td>
+      <td></td>
       <td>1.000000</td>
-      <td>GTAAATATTTGGCGAG</td>
+      <td>ACACAATAAAACCTCA</td>
       <td>1.000000</td>
       <td>EG5</td>
       <td>1.000000e-07</td>
       <td>1.000000e-07</td>
       <td>True</td>
-      <td>A4G C6T T16C G17A T18A C47G T48A A77C G78T A11...</td>
+      <td></td>
       <td>0</td>
       <td>False</td>
     </tr>
     <tr>
       <th>4</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/36/ccs</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A ...</td>
+      <td>m64296e_240202_130733/204/ccs</td>
+      <td>G409A A410T T411G</td>
       <td>1.000000</td>
-      <td>CAAATCTCTGTTACAC</td>
+      <td>TAGCAACCGATTGAGC</td>
       <td>1.000000</td>
       <td>EG5</td>
       <td>1.000000e-07</td>
       <td>1.000000e-07</td>
       <td>True</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A ...</td>
+      <td>G409A A410T T411G</td>
       <td>0</td>
       <td>False</td>
     </tr>
     <tr>
       <th>5</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/56/ccs</td>
-      <td>A4G C6T C47G T48A G52T C53A A77C G78T A112T T1...</td>
-      <td>1.000000</td>
-      <td>GCTTTACGATAAGTAT</td>
-      <td>1.000000</td>
+      <td>m64296e_240202_130733/267/ccs</td>
+      <td>ins45T C426G</td>
+      <td>0.999153</td>
+      <td>CATACAACAAAAAACC</td>
+      <td>0.999991</td>
       <td>EG5</td>
-      <td>1.000000e-07</td>
-      <td>1.000000e-07</td>
-      <td>True</td>
-      <td>A4G C6T C47G T48A G52T C53A A77C G78T A112T T1...</td>
-      <td>0</td>
+      <td>8.748765e-06</td>
+      <td>8.466443e-04</td>
       <td>False</td>
+      <td>ins45T C426G</td>
+      <td>1</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>6</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/60/ccs</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G A217G ...</td>
+      <td>m64296e_240202_130733/297/ccs</td>
+      <td>A388G A390T</td>
       <td>1.000000</td>
-      <td>TTGGAATTCTTAGTGC</td>
-      <td>1.000000</td>
+      <td>AAAAACCTTCCCACAT</td>
+      <td>0.999975</td>
       <td>EG5</td>
+      <td>2.488217e-05</td>
       <td>1.000000e-07</td>
-      <td>1.000000e-07</td>
-      <td>True</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G A217G ...</td>
+      <td>False</td>
+      <td>A388G A390T</td>
       <td>0</td>
       <td>False</td>
     </tr>
     <tr>
       <th>7</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/74/ccs</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A ...</td>
+      <td>m64296e_240202_130733/304/ccs</td>
+      <td>T373A T374A G375T</td>
       <td>1.000000</td>
-      <td>GTATTTCAAAAGCTGT</td>
+      <td>CCCACACGAATATCAA</td>
       <td>1.000000</td>
       <td>EG5</td>
       <td>1.000000e-07</td>
       <td>1.000000e-07</td>
       <td>True</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A ...</td>
+      <td>T373A T374A G375T</td>
       <td>0</td>
       <td>False</td>
     </tr>
     <tr>
       <th>8</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/81/ccs</td>
-      <td>A4G C6T C47G T48A del70to70 A77C G78T ins90C A...</td>
-      <td>0.992638</td>
-      <td>ACGAATCTTAACATTA</td>
-      <td>0.986629</td>
+      <td>m64296e_240202_130733/326/ccs</td>
+      <td>G289A A290G T291A</td>
+      <td>1.000000</td>
+      <td>CACATGACGACGACAA</td>
+      <td>1.000000</td>
       <td>EG5</td>
-      <td>1.337062e-02</td>
-      <td>7.361878e-03</td>
-      <td>False</td>
-      <td>A4G C6T C47G T48A del70to70 A77C G78T ins90C A...</td>
-      <td>7</td>
+      <td>1.000000e-07</td>
+      <td>1.000000e-07</td>
       <td>True</td>
+      <td>G289A A290G T291A</td>
+      <td>0</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>9</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/118/ccs</td>
-      <td>A4G C6T C47G T48A G58A T59G T60A A77C G78T A11...</td>
-      <td>1.000000</td>
-      <td>TGTATACAGCATTACA</td>
-      <td>1.000000</td>
+      <td>m64296e_240202_130733/411/ccs</td>
+      <td>T337G</td>
+      <td>0.999970</td>
+      <td>AAAGGGCAAATGTTTA</td>
+      <td>0.997512</td>
       <td>EG5</td>
-      <td>1.000000e-07</td>
-      <td>1.000000e-07</td>
-      <td>True</td>
-      <td>A4G C6T C47G T48A G58A T59G T60A A77C G78T A11...</td>
+      <td>2.488171e-03</td>
+      <td>3.044539e-05</td>
+      <td>False</td>
+      <td>T337G</td>
       <td>0</td>
       <td>False</td>
     </tr>
     <tr>
       <th>10</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/208/ccs</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A ...</td>
+      <td>m64296e_240202_130733/457/ccs</td>
+      <td>T61A C63T</td>
       <td>1.000000</td>
-      <td>CCGGTATATTTTAGTG</td>
+      <td>TAAAAGTAAATAGAGT</td>
       <td>1.000000</td>
       <td>EG5</td>
       <td>1.000000e-07</td>
       <td>1.000000e-07</td>
       <td>True</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A ...</td>
+      <td>T61A C63T</td>
       <td>0</td>
       <td>False</td>
     </tr>
     <tr>
       <th>11</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/262/ccs</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G T196C ...</td>
-      <td>1.000000</td>
-      <td>GTTCCTGCTGAACCTG</td>
-      <td>1.000000</td>
+      <td>m64296e_240202_130733/470/ccs</td>
+      <td>ins294T ins545T</td>
+      <td>0.998408</td>
+      <td>CCCTTAACAAAGGGTT</td>
+      <td>0.999999</td>
       <td>EG5</td>
-      <td>1.000000e-07</td>
-      <td>1.000000e-07</td>
-      <td>True</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G T196C ...</td>
-      <td>0</td>
+      <td>5.828084e-07</td>
+      <td>1.592205e-03</td>
       <td>False</td>
+      <td>ins294T ins545T</td>
+      <td>2</td>
+      <td>True</td>
     </tr>
   </tbody>
 </table>
@@ -1204,58 +1204,58 @@ display(HTML(empirical_acc.to_html(index=False)))
   <tbody>
     <tr>
       <td>pool1</td>
-      <td>0.974893</td>
+      <td>0.966304</td>
       <td>retained</td>
-      <td>262595</td>
+      <td>270875</td>
       <td>False</td>
     </tr>
     <tr>
       <td>pool2</td>
-      <td>0.970084</td>
+      <td>0.974827</td>
       <td>retained</td>
-      <td>274538</td>
+      <td>325225</td>
       <td>False</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>0.988302</td>
+      <td>0.983319</td>
       <td>retained, no indel</td>
-      <td>256081</td>
+      <td>265011</td>
       <td>True</td>
     </tr>
     <tr>
       <td>pool2</td>
-      <td>0.986713</td>
+      <td>0.987948</td>
       <td>retained, no indel</td>
-      <td>266981</td>
+      <td>319497</td>
       <td>True</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>0.979889</td>
+      <td>0.972431</td>
       <td>10X accuracy</td>
-      <td>242954</td>
+      <td>250713</td>
       <td>False</td>
     </tr>
     <tr>
       <td>pool2</td>
-      <td>0.976808</td>
+      <td>0.979327</td>
       <td>10X accuracy</td>
-      <td>253903</td>
+      <td>301958</td>
       <td>False</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>0.988458</td>
+      <td>0.984296</td>
       <td>10X accuracy, no indel</td>
-      <td>238094</td>
+      <td>246596</td>
       <td>False</td>
     </tr>
     <tr>
       <td>pool2</td>
-      <td>0.987515</td>
+      <td>0.988371</td>
       <td>10X accuracy, no indel</td>
-      <td>248404</td>
+      <td>297925</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -1344,38 +1344,38 @@ display(HTML(consensus.head().to_html(index=False)))
   <tbody>
     <tr>
       <td>pool1</td>
-      <td>AAAAAAAAAAACGTGA</td>
+      <td>AAAAAAAAAAGATTGT</td>
       <td>EG5</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G146A G218A C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A T478G C479T</td>
+      <td>A535G A537T</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAAAATTAATG</td>
+      <td>EG5</td>
+      <td>A88C C90A del81to81</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAAACAATTGT</td>
+      <td>EG5</td>
+      <td>G80C A81T T400G T401G C402T</td>
       <td>1</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>AAAAAAAAAAATTGTG</td>
+      <td>AAAAAAAAACTATACA</td>
       <td>EG5</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A G313- C314- T315- C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td>5</td>
+      <td>C235T A236G A237G</td>
+      <td>1</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>AAAAAAAAAAGTATTT</td>
+      <td>AAAAAAAAAGAAAGTT</td>
       <td>EG5</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A C344A A352C C354T A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAAACAATTAT</td>
-      <td>EG5</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G T209C G218A C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAAACCAGAAC</td>
-      <td>EG5</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A C344A A358G T365G G378C G403T A404G A405T T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td>6</td>
+      <td>T169G T170A G171T</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -1415,55 +1415,55 @@ display(HTML(consensus.head().to_html(index=False)))
   <tbody>
     <tr>
       <td>pool1</td>
-      <td>AAAAAAAAAAACGTGA</td>
+      <td>AAAAAAAAAAGATTGT</td>
       <td>EG5</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G146A G218A C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A T478G C479T</td>
-      <td>1</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G146A G218A C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A T478G C479T</td>
+      <td>A535G A537T</td>
+      <td>3</td>
+      <td>A535G A537T</td>
       <td></td>
       <td></td>
       <td>0</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>AAAAAAAAAAATTGTG</td>
+      <td>AAAAAAAAAATTAATG</td>
       <td>EG5</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A G313- C314- T315- C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td>5</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A G313- C314- T315- C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td></td>
-      <td></td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAAAAGTATTT</td>
-      <td>EG5</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A C344A A352C C354T A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td>2</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A C344A A352C C354T A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td></td>
-      <td></td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAAACAATTAT</td>
-      <td>EG5</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G T209C G218A C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td>16</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G T209C G218A C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td></td>
-      <td></td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAAACCAGAAC</td>
-      <td>EG5</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A C344A A358G T365G G378C G403T A404G A405T T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
+      <td>A88C C90A del81to81</td>
       <td>6</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A C344A A358G T365G G378C G403T A404G A405T T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
+      <td>A88C C90A</td>
+      <td>del81to81</td>
+      <td></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAAACAATTGT</td>
+      <td>EG5</td>
+      <td>G80C A81T T400G T401G C402T</td>
+      <td>1</td>
+      <td>G80C A81T T400G T401G C402T</td>
+      <td></td>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAAACTATACA</td>
+      <td>EG5</td>
+      <td>C235T A236G A237G</td>
+      <td>1</td>
+      <td>C235T A236G A237G</td>
+      <td></td>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAAAGAAAGTT</td>
+      <td>EG5</td>
+      <td>T169G T170A G171T</td>
+      <td>1</td>
+      <td>T169G T170A G171T</td>
       <td></td>
       <td></td>
       <td>0</td>
@@ -1550,12 +1550,12 @@ _ = p.draw()
     <tr>
       <td>pool1</td>
       <td>EG5</td>
-      <td>84181</td>
+      <td>103980</td>
     </tr>
     <tr>
       <td>pool2</td>
       <td>EG5</td>
-      <td>81374</td>
+      <td>101245</td>
     </tr>
   </tbody>
 </table>
@@ -1609,9 +1609,19 @@ display(HTML(
     <tr>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAAAACGTGA</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G146A G218A C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A T478G C479T</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G146A G218A C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A T478G C479T</td>
+      <td>AAAAAAAAAAGATTGT</td>
+      <td>A535G A537T</td>
+      <td>A535G A537T</td>
+      <td></td>
+      <td></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>EG5</td>
+      <td>pool1</td>
+      <td>AAAAAAAAACAATTGT</td>
+      <td>G80C A81T T400G T401G C402T</td>
+      <td>G80C A81T T400G T401G C402T</td>
       <td></td>
       <td></td>
       <td>1</td>
@@ -1619,42 +1629,32 @@ display(HTML(
     <tr>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAAAATTGTG</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A G313- C314- T315- C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A G313- C314- T315- C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
+      <td>AAAAAAAAACTATACA</td>
+      <td>C235T A236G A237G</td>
+      <td>C235T A236G A237G</td>
       <td></td>
       <td></td>
-      <td>5</td>
+      <td>1</td>
     </tr>
     <tr>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAAAGTATTT</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A C344A A352C C354T A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A C344A A352C C354T A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
+      <td>AAAAAAAAAGAAAGTT</td>
+      <td>T169G T170A G171T</td>
+      <td>T169G T170A G171T</td>
       <td></td>
       <td></td>
-      <td>2</td>
+      <td>1</td>
     </tr>
     <tr>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAACAATTAT</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G T209C G218A C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G T209C G218A C344A A358G T365G G378C T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
+      <td>AAAAAAAAAGACTTCT</td>
+      <td>T155C</td>
+      <td>T155C</td>
       <td></td>
       <td></td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <td>EG5</td>
-      <td>pool1</td>
-      <td>AAAAAAAAACCAGAAC</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A C344A A358G T365G G378C G403T A404G A405T T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td>A4G C6T C47G T48A A77C G78T A112T T114G G218A C344A A358G T365G G378C G403T A404G A405T T453A G457- T458- T459- G460A C461A T462A T468A C479T T480C</td>
-      <td></td>
-      <td></td>
-      <td>6</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -1682,38 +1682,38 @@ display(HTML(dropped.head().to_html(index=False)))
   <tbody>
     <tr>
       <td>pool1</td>
-      <td>AAAAAAAAACCTGAAT</td>
+      <td>AAAAAAAAAATTGGCG</td>
       <td>EG5</td>
       <td>subs diff too large</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAAAGTCATGA</td>
+      <td>EG5</td>
+      <td>subs diff too large</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAAATCTCTTT</td>
+      <td>EG5</td>
+      <td>subs diff too large</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAAGGTTTGTG</td>
+      <td>EG5</td>
+      <td>subs diff too large</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAACAATCACAA</td>
+      <td>EG5</td>
+      <td>minor subs too frequent</td>
       <td>5</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAATCGTAGCC</td>
-      <td>EG5</td>
-      <td>subs diff too large</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAACAATTTATC</td>
-      <td>EG5</td>
-      <td>subs diff too large</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAGTATGAACCC</td>
-      <td>EG5</td>
-      <td>subs diff too large</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAATAGTAATTAC</td>
-      <td>EG5</td>
-      <td>subs diff too large</td>
-      <td>2</td>
     </tr>
   </tbody>
 </table>
@@ -1823,133 +1823,133 @@ variants.barcode_variant_df.head(n=12)
       <th>0</th>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAAAACGTGA</td>
+      <td>AAAAAAAAAAGATTGT</td>
+      <td>3</td>
+      <td>AGA179GGT</td>
+      <td>R179G</td>
       <td>1</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG TGC49TAC AG...</td>
-      <td>I2V T16R K26T I38L C49Y R73K P115H N120D L122W...</td>
-      <td>15</td>
-      <td>14</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1</th>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAAAATTGTG</td>
-      <td>5</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG AGA73AAA GC...</td>
-      <td>I2V T16R K26T I38L R73K A105- P115H N120D L122...</td>
-      <td>15</td>
-      <td>14</td>
+      <td>AAAAAAAAACAATTGT</td>
+      <td>1</td>
+      <td>AGA27ACT TTC134GGT</td>
+      <td>R27T F134G</td>
+      <td>2</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>2</th>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAAAGTATTT</td>
-      <td>2</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG AGA73AAA CC...</td>
-      <td>I2V T16R K26T I38L R73K P115H N118H N120D L122...</td>
-      <td>15</td>
-      <td>14</td>
+      <td>AAAAAAAAACTATACA</td>
+      <td>1</td>
+      <td>CAA79TGG</td>
+      <td>Q79W</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAACAATTAT</td>
-      <td>16</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG TTT70TCT AG...</td>
-      <td>I2V T16R K26T I38L F70S R73K P115H N120D L122W...</td>
-      <td>15</td>
-      <td>14</td>
+      <td>AAAAAAAAAGAAAGTT</td>
+      <td>1</td>
+      <td>TTG57GAT</td>
+      <td>L57D</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAACCAGAAC</td>
-      <td>6</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG AGA73AAA CC...</td>
-      <td>I2V T16R K26T I38L R73K P115H N120D L122W L126...</td>
-      <td>15</td>
-      <td>14</td>
+      <td>AAAAAAAAAGACTTCT</td>
+      <td>3</td>
+      <td>GTT52GCT</td>
+      <td>V52A</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>5</th>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAACTAACAA</td>
+      <td>AAAAAAAAAGCTAAAA</td>
+      <td>2</td>
+      <td>TCT200TTG</td>
+      <td>S200L</td>
       <td>1</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG AGA73AAA CC...</td>
-      <td>I2V T16R K26T I38L R73K P115H N120D L122W L126...</td>
-      <td>15</td>
-      <td>14</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>6</th>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAAGACATAT</td>
-      <td>2</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG AGA73AAA AC...</td>
-      <td>I2V T16R K26T I38L R73K T85E P115H N120D L122W...</td>
-      <td>15</td>
-      <td>14</td>
+      <td>AAAAAAAAAGTCCGTA</td>
+      <td>1</td>
+      <td>GGT172GTT</td>
+      <td>G172V</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>7</th>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAAGCGCATC</td>
+      <td>AAAAAAAAATAAACAT</td>
+      <td>3</td>
+      <td>AAT13TTG</td>
+      <td>N13L</td>
       <td>1</td>
-      <td>ATC2GTT CAT9AAA ACT16AGA AAG26ACT ATT38TTG AGA...</td>
-      <td>I2V H9K T16R K26T I38L R73K P115H N120D L122W ...</td>
-      <td>15</td>
-      <td>14</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>8</th>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAAGGACTTC</td>
+      <td>AAAAAAAAATACACTA</td>
       <td>1</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG AGA73AAA AA...</td>
-      <td>I2V T16R K26T I38L R73K K114W P115H N120D L122...</td>
-      <td>15</td>
-      <td>14</td>
+      <td>TAT35TGG</td>
+      <td>Y35W</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>9</th>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAATACCATA</td>
-      <td>2</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG AGA73AAA GA...</td>
-      <td>I2V T16R K26T I38L R73K D97Q P115H N120D L122W...</td>
-      <td>15</td>
-      <td>14</td>
+      <td>AAAAAAAAATAGGTAG</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>10</th>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAATCAATTA</td>
-      <td>3</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG AGA73AAA GA...</td>
-      <td>I2V T16R K26T I38L R73K D97C P115H N120D L122W...</td>
-      <td>15</td>
-      <td>14</td>
+      <td>AAAAAAAAATATTTCG</td>
+      <td>1</td>
+      <td>TGT158GCT</td>
+      <td>C158A</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>11</th>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAATCATGGC</td>
+      <td>AAAAAAAAATCACAAA</td>
       <td>1</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG AGA73AAA CC...</td>
-      <td>I2V T16R K26T I38L R73K P115H N120D L122W L126...</td>
-      <td>15</td>
-      <td>14</td>
+      <td>TTG131TCT</td>
+      <td>L131S</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -1994,9 +1994,9 @@ display(HTML(
   <tbody>
     <tr>
       <th>EG5</th>
-      <td>84181</td>
-      <td>81374</td>
-      <td>165555</td>
+      <td>103980</td>
+      <td>101245</td>
+      <td>205225</td>
     </tr>
   </tbody>
 </table>
@@ -2181,7 +2181,7 @@ display(HTML(
       <th rowspan="9" valign="top">False</th>
       <th rowspan="3" valign="top">pool1</th>
       <th>0</th>
-      <td>60</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>1</th>
@@ -2189,12 +2189,12 @@ display(HTML(
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>3959</td>
+      <td>4011</td>
     </tr>
     <tr>
       <th rowspan="3" valign="top">pool2</th>
       <th>0</th>
-      <td>60</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>1</th>
@@ -2202,67 +2202,67 @@ display(HTML(
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>3958</td>
+      <td>4010</td>
     </tr>
     <tr>
       <th rowspan="3" valign="top">all libraries</th>
       <th>0</th>
-      <td>58</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>3</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>3959</td>
+      <td>4012</td>
     </tr>
     <tr>
       <th rowspan="9" valign="top">True</th>
       <th rowspan="3" valign="top">pool1</th>
       <th>0</th>
-      <td>199</td>
+      <td>143</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>18</td>
+      <td>19</td>
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>4004</td>
+      <td>4059</td>
     </tr>
     <tr>
       <th rowspan="3" valign="top">pool2</th>
       <th>0</th>
-      <td>194</td>
+      <td>142</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>26</td>
+      <td>21</td>
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>4001</td>
+      <td>4058</td>
     </tr>
     <tr>
       <th rowspan="3" valign="top">all libraries</th>
       <th>0</th>
-      <td>180</td>
+      <td>124</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>32</td>
+      <td>30</td>
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>4009</td>
+      <td>4067</td>
     </tr>
     <tr>
       <th rowspan="18" valign="top">single</th>
       <th rowspan="9" valign="top">False</th>
       <th rowspan="3" valign="top">pool1</th>
       <th>0</th>
-      <td>4019</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>1</th>
@@ -2270,25 +2270,12 @@ display(HTML(
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>0</td>
+      <td>4011</td>
     </tr>
     <tr>
       <th rowspan="3" valign="top">pool2</th>
       <th>0</th>
-      <td>4020</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>&gt;1</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th rowspan="3" valign="top">all libraries</th>
-      <th>0</th>
-      <td>4019</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>1</th>
@@ -2296,47 +2283,60 @@ display(HTML(
     </tr>
     <tr>
       <th>&gt;1</th>
+      <td>4010</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">all libraries</th>
+      <th>0</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>1</th>
       <td>0</td>
+    </tr>
+    <tr>
+      <th>&gt;1</th>
+      <td>4012</td>
     </tr>
     <tr>
       <th rowspan="9" valign="top">True</th>
       <th rowspan="3" valign="top">pool1</th>
       <th>0</th>
-      <td>4220</td>
+      <td>161</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
+      <td>20</td>
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>0</td>
+      <td>4040</td>
     </tr>
     <tr>
       <th rowspan="3" valign="top">pool2</th>
       <th>0</th>
-      <td>4221</td>
+      <td>164</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0</td>
+      <td>19</td>
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>0</td>
+      <td>4038</td>
     </tr>
     <tr>
       <th rowspan="3" valign="top">all libraries</th>
       <th>0</th>
-      <td>4220</td>
+      <td>142</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
+      <td>35</td>
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>0</td>
+      <td>4044</td>
     </tr>
   </tbody>
 </table>
@@ -2428,52 +2428,52 @@ display(HTML(
     <tr>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAAAACGTGA</td>
+      <td>AAAAAAAAAAGATTGT</td>
+      <td>3</td>
+      <td>AGA179GGT</td>
+      <td>R179G</td>
       <td>1</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG TGC49TAC AGA73AAA CCT115CAT AAT120GAT TTG122TGG TTG126TTC AAT151AAA GTT153--- GCT154AAA CCT156CCA TCT160GTT</td>
-      <td>I2V T16R K26T I38L C49Y R73K P115H N120D L122W L126F N151K V153- A154K S160V</td>
-      <td>15</td>
-      <td>14</td>
+      <td>1</td>
     </tr>
     <tr>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAAAATTGTG</td>
-      <td>5</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG AGA73AAA GCT105--- CCT115CAT AAT120GAT TTG122TGG TTG126TTC AAT151AAA GTT153--- GCT154AAA CCT156CCA TCT160TTC</td>
-      <td>I2V T16R K26T I38L R73K A105- P115H N120D L122W L126F N151K V153- A154K S160F</td>
-      <td>15</td>
-      <td>14</td>
-    </tr>
-    <tr>
-      <td>EG5</td>
-      <td>pool1</td>
-      <td>AAAAAAAAAAGTATTT</td>
+      <td>AAAAAAAAACAATTGT</td>
+      <td>1</td>
+      <td>AGA27ACT TTC134GGT</td>
+      <td>R27T F134G</td>
       <td>2</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG AGA73AAA CCT115CAT AAC118CAT AAT120GAT TTG122TGG TTG126TTC AAT151AAA GTT153--- GCT154AAA CCT156CCA TCT160TTC</td>
-      <td>I2V T16R K26T I38L R73K P115H N118H N120D L122W L126F N151K V153- A154K S160F</td>
-      <td>15</td>
-      <td>14</td>
+      <td>2</td>
     </tr>
     <tr>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAACAATTAT</td>
-      <td>16</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG TTT70TCT AGA73AAA CCT115CAT AAT120GAT TTG122TGG TTG126TTC AAT151AAA GTT153--- GCT154AAA CCT156CCA TCT160TTC</td>
-      <td>I2V T16R K26T I38L F70S R73K P115H N120D L122W L126F N151K V153- A154K S160F</td>
-      <td>15</td>
-      <td>14</td>
+      <td>AAAAAAAAACTATACA</td>
+      <td>1</td>
+      <td>CAA79TGG</td>
+      <td>Q79W</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <td>EG5</td>
       <td>pool1</td>
-      <td>AAAAAAAAACCAGAAC</td>
-      <td>6</td>
-      <td>ATC2GTT ACT16AGA AAG26ACT ATT38TTG AGA73AAA CCT115CAT AAT120GAT TTG122TGG TTG126TTC GAA135TGT AAT151AAA GTT153--- GCT154AAA CCT156CCA TCT160TTC</td>
-      <td>I2V T16R K26T I38L R73K P115H N120D L122W L126F E135C N151K V153- A154K S160F</td>
-      <td>15</td>
-      <td>14</td>
+      <td>AAAAAAAAAGAAAGTT</td>
+      <td>1</td>
+      <td>TTG57GAT</td>
+      <td>L57D</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>EG5</td>
+      <td>pool1</td>
+      <td>AAAAAAAAAGACTTCT</td>
+      <td>3</td>
+      <td>GTT52GCT</td>
+      <td>V52A</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>

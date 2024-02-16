@@ -482,47 +482,47 @@ display(HTML(aligned_df.head().to_html(index=False)))
   <tbody>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/12/ccs</td>
-      <td>T205G C206A C207T ins299C C375G</td>
-      <td>0.999730</td>
-      <td>CTTGCGGTAAATGAGG</td>
-      <td>0.999988</td>
-      <td>FLip</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>m64296e_240202_130733/59/ccs</td>
-      <td>C375G</td>
+      <td>m64296e_240202_130733/6/ccs</td>
+      <td>C446A</td>
       <td>1.000000</td>
-      <td>TCGATAACACGGTTAC</td>
+      <td>TTATATTCGGTCCGTT</td>
       <td>1.000000</td>
       <td>FLip</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/133/ccs</td>
-      <td>C375G del510to510 del565to567</td>
-      <td>0.999334</td>
-      <td>TGAACCTTACATCACC</td>
+      <td>m64296e_240202_130733/8/ccs</td>
+      <td>G568C T570A</td>
+      <td>1.000000</td>
+      <td>CACACGCACTTTACTA</td>
       <td>1.000000</td>
       <td>FLip</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/182/ccs</td>
-      <td>C375G</td>
+      <td>m64296e_240202_130733/64/ccs</td>
+      <td>A535T G536T A537T</td>
       <td>1.000000</td>
-      <td>ACACAATAAAACCTCA</td>
+      <td>TAGTCATCGTATGGTG</td>
       <td>1.000000</td>
       <td>FLip</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/204/ccs</td>
-      <td>C375G G409A A410T T411G</td>
+      <td>m64296e_240202_130733/92/ccs</td>
+      <td></td>
+      <td>0.999999</td>
+      <td>ATAGACACTATTTTGA</td>
       <td>1.000000</td>
-      <td>TAGCAACCGATTGAGC</td>
-      <td>1.000000</td>
+      <td>FLip</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>m64296e_240202_130733/99/ccs</td>
+      <td>del353to355</td>
+      <td>0.999995</td>
+      <td>GAACTGCCTAAACTGA</td>
+      <td>0.997512</td>
       <td>FLip</td>
     </tr>
   </tbody>
@@ -573,7 +573,7 @@ print(f"Read {len(processed_ccs)} CCSs from {nlibs} libraries and {ntargets} tar
 display(HTML(processed_ccs.head().to_html(index=False)))
 ```
 
-    Read 792142 CCSs from 2 libraries and 1 targets.
+    Read 819490 CCSs from 2 libraries and 1 targets.
 
 
 
@@ -592,47 +592,47 @@ display(HTML(processed_ccs.head().to_html(index=False)))
   <tbody>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/12/ccs</td>
-      <td>T205G C206A C207T ins299C C375G</td>
-      <td>0.999730</td>
-      <td>CTTGCGGTAAATGAGG</td>
-      <td>0.999988</td>
-      <td>FLip</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>m64296e_240202_130733/59/ccs</td>
-      <td>C375G</td>
+      <td>m64296e_240202_130733/6/ccs</td>
+      <td>C446A</td>
       <td>1.000000</td>
-      <td>TCGATAACACGGTTAC</td>
+      <td>TTATATTCGGTCCGTT</td>
       <td>1.000000</td>
       <td>FLip</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/133/ccs</td>
-      <td>C375G del510to510 del565to567</td>
-      <td>0.999334</td>
-      <td>TGAACCTTACATCACC</td>
+      <td>m64296e_240202_130733/8/ccs</td>
+      <td>G568C T570A</td>
+      <td>1.000000</td>
+      <td>CACACGCACTTTACTA</td>
       <td>1.000000</td>
       <td>FLip</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/182/ccs</td>
-      <td>C375G</td>
+      <td>m64296e_240202_130733/64/ccs</td>
+      <td>A535T G536T A537T</td>
       <td>1.000000</td>
-      <td>ACACAATAAAACCTCA</td>
+      <td>TAGTCATCGTATGGTG</td>
       <td>1.000000</td>
       <td>FLip</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>m64296e_240202_130733/204/ccs</td>
-      <td>C375G G409A A410T T411G</td>
+      <td>m64296e_240202_130733/92/ccs</td>
+      <td></td>
+      <td>0.999999</td>
+      <td>ATAGACACTATTTTGA</td>
       <td>1.000000</td>
-      <td>TAGCAACCGATTGAGC</td>
-      <td>1.000000</td>
+      <td>FLip</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>m64296e_240202_130733/99/ccs</td>
+      <td>del353to355</td>
+      <td>0.999995</td>
+      <td>GAACTGCCTAAACTGA</td>
+      <td>0.997512</td>
       <td>FLip</td>
     </tr>
   </tbody>
@@ -690,15 +690,15 @@ display(HTML(
     <tr>
       <th rowspan="2" valign="top">FLip</th>
       <th>pool1</th>
-      <td>362335</td>
-      <td>123883</td>
-      <td>2.92</td>
+      <td>433520</td>
+      <td>81280</td>
+      <td>5.33</td>
     </tr>
     <tr>
       <th>pool2</th>
-      <td>429807</td>
-      <td>117919</td>
-      <td>3.64</td>
+      <td>385970</td>
+      <td>78941</td>
+      <td>4.89</td>
     </tr>
   </tbody>
 </table>
@@ -919,194 +919,194 @@ processed_ccs.head(n=12)
     <tr>
       <th>0</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/12/ccs</td>
-      <td>T205G C206A C207T ins299C C375G</td>
-      <td>0.999730</td>
-      <td>CTTGCGGTAAATGAGG</td>
-      <td>0.999988</td>
+      <td>m64296e_240202_130733/6/ccs</td>
+      <td>C446A</td>
+      <td>1.000000</td>
+      <td>TTATATTCGGTCCGTT</td>
+      <td>1.000000</td>
       <td>FLip</td>
-      <td>1.247089e-05</td>
-      <td>2.698891e-04</td>
-      <td>False</td>
-      <td>T205G C206A C207T ins299C C375G</td>
-      <td>1</td>
+      <td>1.000000e-07</td>
+      <td>1.000000e-07</td>
       <td>True</td>
+      <td>C446A</td>
+      <td>0</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>1</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/59/ccs</td>
-      <td>C375G</td>
+      <td>m64296e_240202_130733/8/ccs</td>
+      <td>G568C T570A</td>
       <td>1.000000</td>
-      <td>TCGATAACACGGTTAC</td>
+      <td>CACACGCACTTTACTA</td>
       <td>1.000000</td>
       <td>FLip</td>
       <td>1.000000e-07</td>
       <td>1.000000e-07</td>
       <td>True</td>
-      <td>C375G</td>
+      <td>G568C T570A</td>
       <td>0</td>
       <td>False</td>
     </tr>
     <tr>
       <th>2</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/133/ccs</td>
-      <td>C375G del510to510 del565to567</td>
-      <td>0.999334</td>
-      <td>TGAACCTTACATCACC</td>
+      <td>m64296e_240202_130733/64/ccs</td>
+      <td>A535T G536T A537T</td>
+      <td>1.000000</td>
+      <td>TAGTCATCGTATGGTG</td>
       <td>1.000000</td>
       <td>FLip</td>
       <td>1.000000e-07</td>
-      <td>6.663423e-04</td>
-      <td>False</td>
-      <td>C375G del510to510 C565- A566- T567-</td>
-      <td>1</td>
+      <td>1.000000e-07</td>
       <td>True</td>
+      <td>A535T G536T A537T</td>
+      <td>0</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>3</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/182/ccs</td>
-      <td>C375G</td>
-      <td>1.000000</td>
-      <td>ACACAATAAAACCTCA</td>
+      <td>m64296e_240202_130733/92/ccs</td>
+      <td></td>
+      <td>0.999999</td>
+      <td>ATAGACACTATTTTGA</td>
       <td>1.000000</td>
       <td>FLip</td>
       <td>1.000000e-07</td>
-      <td>1.000000e-07</td>
+      <td>5.751629e-07</td>
       <td>True</td>
-      <td>C375G</td>
+      <td></td>
       <td>0</td>
       <td>False</td>
     </tr>
     <tr>
       <th>4</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/204/ccs</td>
-      <td>C375G G409A A410T T411G</td>
-      <td>1.000000</td>
-      <td>TAGCAACCGATTGAGC</td>
-      <td>1.000000</td>
+      <td>m64296e_240202_130733/99/ccs</td>
+      <td>del353to355</td>
+      <td>0.999995</td>
+      <td>GAACTGCCTAAACTGA</td>
+      <td>0.997512</td>
       <td>FLip</td>
-      <td>1.000000e-07</td>
-      <td>1.000000e-07</td>
-      <td>True</td>
-      <td>C375G G409A A410T T411G</td>
+      <td>2.488170e-03</td>
+      <td>5.113915e-06</td>
+      <td>False</td>
+      <td>T355- A356- C357-</td>
       <td>0</td>
       <td>False</td>
     </tr>
     <tr>
       <th>5</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/267/ccs</td>
-      <td>ins45T C375G C426G</td>
-      <td>0.999153</td>
-      <td>CATACAACAAAAAACC</td>
-      <td>0.999991</td>
+      <td>m64296e_240202_130733/144/ccs</td>
+      <td>T277C C279A</td>
+      <td>1.000000</td>
+      <td>AATTAAATTAATGTAC</td>
+      <td>1.000000</td>
       <td>FLip</td>
-      <td>8.748765e-06</td>
-      <td>8.466443e-04</td>
-      <td>False</td>
-      <td>ins45T C375G C426G</td>
-      <td>1</td>
+      <td>1.000000e-07</td>
+      <td>1.000000e-07</td>
       <td>True</td>
+      <td>T277C C279A</td>
+      <td>0</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>6</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/297/ccs</td>
-      <td>C375G A388G A390T</td>
+      <td>m64296e_240202_130733/178/ccs</td>
+      <td>A172T A173G C174G</td>
       <td>1.000000</td>
-      <td>AAAAACCTTCCCACAT</td>
-      <td>0.999975</td>
+      <td>AGTCGCGAAGCCCCAA</td>
+      <td>1.000000</td>
       <td>FLip</td>
-      <td>2.488217e-05</td>
       <td>1.000000e-07</td>
-      <td>False</td>
-      <td>C375G A388G A390T</td>
+      <td>1.000000e-07</td>
+      <td>True</td>
+      <td>A172T A173G C174G</td>
       <td>0</td>
       <td>False</td>
     </tr>
     <tr>
       <th>7</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/304/ccs</td>
-      <td>T373A T374A C375T</td>
+      <td>m64296e_240202_130733/190/ccs</td>
+      <td>A577G C578A</td>
       <td>1.000000</td>
-      <td>CCCACACGAATATCAA</td>
+      <td>TAGTTAAACACACCGC</td>
       <td>1.000000</td>
       <td>FLip</td>
       <td>1.000000e-07</td>
       <td>1.000000e-07</td>
       <td>True</td>
-      <td>T373A T374A C375T</td>
+      <td>A577G C578A</td>
       <td>0</td>
       <td>False</td>
     </tr>
     <tr>
       <th>8</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/326/ccs</td>
-      <td>G289A A290G T291A C375G</td>
+      <td>m64296e_240202_130733/227/ccs</td>
+      <td>G202T A203G</td>
       <td>1.000000</td>
-      <td>CACATGACGACGACAA</td>
+      <td>CCCACGCAGGGCCCCG</td>
       <td>1.000000</td>
       <td>FLip</td>
       <td>1.000000e-07</td>
       <td>1.000000e-07</td>
       <td>True</td>
-      <td>G289A A290G T291A C375G</td>
+      <td>G202T A203G</td>
       <td>0</td>
       <td>False</td>
     </tr>
     <tr>
       <th>9</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/411/ccs</td>
-      <td>T337G C375G</td>
-      <td>0.999970</td>
-      <td>AAAGGGCAAATGTTTA</td>
-      <td>0.997512</td>
+      <td>m64296e_240202_130733/253/ccs</td>
+      <td>ins44C G421A A423T</td>
+      <td>0.999989</td>
+      <td>GCTAAGACCACGTTGT</td>
+      <td>1.000000</td>
       <td>FLip</td>
-      <td>2.488171e-03</td>
-      <td>3.044539e-05</td>
+      <td>3.150692e-07</td>
+      <td>1.056725e-05</td>
       <td>False</td>
-      <td>T337G C375G</td>
-      <td>0</td>
-      <td>False</td>
+      <td>ins44C G421A A423T</td>
+      <td>1</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>10</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/457/ccs</td>
-      <td>T61A C63T C375G</td>
+      <td>m64296e_240202_130733/258/ccs</td>
+      <td>G403C</td>
       <td>1.000000</td>
-      <td>TAAAAGTAAATAGAGT</td>
+      <td>TCAGCGAGATGACAAG</td>
       <td>1.000000</td>
       <td>FLip</td>
       <td>1.000000e-07</td>
       <td>1.000000e-07</td>
       <td>True</td>
-      <td>T61A C63T C375G</td>
+      <td>G403C</td>
       <td>0</td>
       <td>False</td>
     </tr>
     <tr>
       <th>11</th>
       <td>pool1</td>
-      <td>m64296e_240202_130733/470/ccs</td>
-      <td>ins294T C375G ins545T</td>
-      <td>0.998408</td>
-      <td>CCCTTAACAAAGGGTT</td>
-      <td>0.999999</td>
+      <td>m64296e_240202_130733/269/ccs</td>
+      <td>G154T T156G</td>
+      <td>0.999645</td>
+      <td>CGTTTGCACAAATTGA</td>
+      <td>0.999606</td>
       <td>FLip</td>
-      <td>5.828084e-07</td>
-      <td>1.592205e-03</td>
+      <td>3.943528e-04</td>
+      <td>3.549832e-04</td>
       <td>False</td>
-      <td>ins294T C375G ins545T</td>
-      <td>2</td>
-      <td>True</td>
+      <td>G154T T156G</td>
+      <td>0</td>
+      <td>False</td>
     </tr>
   </tbody>
 </table>
@@ -1204,58 +1204,58 @@ display(HTML(empirical_acc.to_html(index=False)))
   <tbody>
     <tr>
       <td>pool1</td>
-      <td>0.966304</td>
+      <td>0.977943</td>
       <td>retained</td>
-      <td>270875</td>
+      <td>327228</td>
       <td>False</td>
     </tr>
     <tr>
       <td>pool2</td>
-      <td>0.974827</td>
+      <td>0.978947</td>
       <td>retained</td>
-      <td>325225</td>
+      <td>292720</td>
       <td>False</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>0.983319</td>
+      <td>0.990810</td>
       <td>retained, no indel</td>
-      <td>265011</td>
+      <td>321881</td>
       <td>True</td>
     </tr>
     <tr>
       <td>pool2</td>
-      <td>0.987948</td>
+      <td>0.991007</td>
       <td>retained, no indel</td>
-      <td>319497</td>
+      <td>287956</td>
       <td>True</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>0.972431</td>
+      <td>0.982462</td>
       <td>10X accuracy</td>
-      <td>250713</td>
+      <td>303797</td>
       <td>False</td>
     </tr>
     <tr>
       <td>pool2</td>
-      <td>0.979327</td>
+      <td>0.983255</td>
       <td>10X accuracy</td>
-      <td>301958</td>
+      <td>272005</td>
       <td>False</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>0.984296</td>
+      <td>0.991317</td>
       <td>10X accuracy, no indel</td>
-      <td>246596</td>
+      <td>300094</td>
       <td>False</td>
     </tr>
     <tr>
       <td>pool2</td>
-      <td>0.988371</td>
+      <td>0.991285</td>
       <td>10X accuracy, no indel</td>
-      <td>297925</td>
+      <td>268669</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -1344,38 +1344,38 @@ display(HTML(consensus.head().to_html(index=False)))
   <tbody>
     <tr>
       <td>pool1</td>
-      <td>AAAAAAAAAAGATTGT</td>
+      <td>AAAAAAAAAAATTAGA</td>
       <td>FLip</td>
-      <td>C375G A535G A537T</td>
+      <td>T22C T23A C24A</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAAAGTTTCCA</td>
+      <td>FLip</td>
+      <td>G94T T95C</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAAATGTCCTT</td>
+      <td>FLip</td>
+      <td>A223T A224G C225G</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAACAAGTTCA</td>
+      <td>FLip</td>
+      <td>T232G C233A C234T</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAACCAACTAA</td>
+      <td>FLip</td>
+      <td>G556T A557C G558T</td>
       <td>3</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAAAATTAATG</td>
-      <td>FLip</td>
-      <td>A88C C90A C375G del81to81</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAAACAATTGT</td>
-      <td>FLip</td>
-      <td>G80C A81T C375G T400G T401G C402T</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAAACTATACA</td>
-      <td>FLip</td>
-      <td>C235T A236G A237G C375G</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAAAGAAAGTT</td>
-      <td>FLip</td>
-      <td>T169G T170A G171T C375G</td>
-      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -1415,55 +1415,55 @@ display(HTML(consensus.head().to_html(index=False)))
   <tbody>
     <tr>
       <td>pool1</td>
-      <td>AAAAAAAAAAGATTGT</td>
+      <td>AAAAAAAAAAATTAGA</td>
       <td>FLip</td>
-      <td>C375G A535G A537T</td>
+      <td>T22C T23A C24A</td>
+      <td>2</td>
+      <td>T22C T23A C24A</td>
+      <td></td>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAAAGTTTCCA</td>
+      <td>FLip</td>
+      <td>G94T T95C</td>
+      <td>4</td>
+      <td>G94T T95C</td>
+      <td></td>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAAATGTCCTT</td>
+      <td>FLip</td>
+      <td>A223T A224G C225G</td>
+      <td>2</td>
+      <td>A223T A224G C225G</td>
+      <td></td>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAACAAGTTCA</td>
+      <td>FLip</td>
+      <td>T232G C233A C234T</td>
+      <td>2</td>
+      <td>T232G C233A C234T</td>
+      <td></td>
+      <td></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAAACCAACTAA</td>
+      <td>FLip</td>
+      <td>G556T A557C G558T</td>
       <td>3</td>
-      <td>C375G A535G A537T</td>
-      <td></td>
-      <td></td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAAAATTAATG</td>
-      <td>FLip</td>
-      <td>A88C C90A C375G del81to81</td>
-      <td>6</td>
-      <td>A88C C90A C375G</td>
-      <td>del81to81</td>
-      <td></td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAAACAATTGT</td>
-      <td>FLip</td>
-      <td>G80C A81T C375G T400G T401G C402T</td>
-      <td>1</td>
-      <td>G80C A81T C375G T400G T401G C402T</td>
-      <td></td>
-      <td></td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAAACTATACA</td>
-      <td>FLip</td>
-      <td>C235T A236G A237G C375G</td>
-      <td>1</td>
-      <td>C235T A236G A237G C375G</td>
-      <td></td>
-      <td></td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAAAGAAAGTT</td>
-      <td>FLip</td>
-      <td>T169G T170A G171T C375G</td>
-      <td>1</td>
-      <td>T169G T170A G171T C375G</td>
+      <td>G556T A557C G558T</td>
       <td></td>
       <td></td>
       <td>0</td>
@@ -1550,12 +1550,12 @@ _ = p.draw()
     <tr>
       <td>pool1</td>
       <td>FLip</td>
-      <td>103977</td>
+      <td>70877</td>
     </tr>
     <tr>
       <td>pool2</td>
       <td>FLip</td>
-      <td>101239</td>
+      <td>69239</td>
     </tr>
   </tbody>
 </table>
@@ -1609,49 +1609,49 @@ display(HTML(
     <tr>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAAAGATTGT</td>
-      <td>C375G A535G A537T</td>
-      <td>C375G A535G A537T</td>
+      <td>AAAAAAAAAAATTAGA</td>
+      <td>T22C T23A C24A</td>
+      <td>T22C T23A C24A</td>
       <td></td>
       <td></td>
-      <td>3</td>
+      <td>2</td>
     </tr>
     <tr>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAACAATTGT</td>
-      <td>G80C A81T C375G T400G T401G C402T</td>
-      <td>G80C A81T C375G T400G T401G C402T</td>
+      <td>AAAAAAAAAGTTTCCA</td>
+      <td>G94T T95C</td>
+      <td>G94T T95C</td>
       <td></td>
       <td></td>
-      <td>1</td>
+      <td>4</td>
     </tr>
     <tr>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAACTATACA</td>
-      <td>C235T A236G A237G C375G</td>
-      <td>C235T A236G A237G C375G</td>
+      <td>AAAAAAAAATGTCCTT</td>
+      <td>A223T A224G C225G</td>
+      <td>A223T A224G C225G</td>
       <td></td>
       <td></td>
-      <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAAGAAAGTT</td>
-      <td>T169G T170A G171T C375G</td>
-      <td>T169G T170A G171T C375G</td>
+      <td>AAAAAAAACAAGTTCA</td>
+      <td>T232G C233A C234T</td>
+      <td>T232G C233A C234T</td>
       <td></td>
       <td></td>
-      <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAAGACTTCT</td>
-      <td>T155C C375G</td>
-      <td>T155C C375G</td>
+      <td>AAAAAAAACCAACTAA</td>
+      <td>G556T A557C G558T</td>
+      <td>G556T A557C G558T</td>
       <td></td>
       <td></td>
       <td>3</td>
@@ -1682,38 +1682,38 @@ display(HTML(dropped.head().to_html(index=False)))
   <tbody>
     <tr>
       <td>pool1</td>
-      <td>AAAAAAAAAATTGGCG</td>
+      <td>AAAAAAAACTATTTGA</td>
       <td>FLip</td>
       <td>subs diff too large</td>
-      <td>2</td>
+      <td>27</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>AAAAAAAAAGTCATGA</td>
+      <td>AAAAAAACACGGATTA</td>
       <td>FLip</td>
       <td>subs diff too large</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAAACTGTATCAC</td>
+      <td>FLip</td>
+      <td>minor subs too frequent</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>AAAAAACTAAAGTTCC</td>
+      <td>FLip</td>
+      <td>minor subs too frequent</td>
       <td>7</td>
     </tr>
     <tr>
       <td>pool1</td>
-      <td>AAAAAAAAATCTCTTT</td>
-      <td>FLip</td>
-      <td>subs diff too large</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAAAGGTTTGTG</td>
-      <td>FLip</td>
-      <td>subs diff too large</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>pool1</td>
-      <td>AAAAAAACAATCACAA</td>
+      <td>AAAAAATCATAATCAA</td>
       <td>FLip</td>
       <td>minor subs too frequent</td>
-      <td>5</td>
+      <td>6</td>
     </tr>
   </tbody>
 </table>
@@ -1823,109 +1823,109 @@ variants.barcode_variant_df.head(n=12)
       <th>0</th>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAAAGATTGT</td>
-      <td>3</td>
-      <td>TTC125TTG AGA179GGT</td>
-      <td>F125L R179G</td>
+      <td>AAAAAAAAAAATTAGA</td>
       <td>2</td>
-      <td>2</td>
+      <td>TTC8CAA</td>
+      <td>F8Q</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1</th>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAACAATTGT</td>
+      <td>AAAAAAAAAGTTTCCA</td>
+      <td>4</td>
+      <td>GTT32TCT</td>
+      <td>V32S</td>
       <td>1</td>
-      <td>AGA27ACT TTC125TTG TTC134GGT</td>
-      <td>R27T F125L F134G</td>
-      <td>3</td>
-      <td>3</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAACTATACA</td>
+      <td>AAAAAAAAATGTCCTT</td>
+      <td>2</td>
+      <td>AAC75TGG</td>
+      <td>N75W</td>
       <td>1</td>
-      <td>CAA79TGG TTC125TTG</td>
-      <td>Q79W F125L</td>
-      <td>2</td>
-      <td>2</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAAGAAAGTT</td>
+      <td>AAAAAAAACAAGTTCA</td>
+      <td>2</td>
+      <td>TCC78GAT</td>
+      <td>S78D</td>
       <td>1</td>
-      <td>TTG57GAT TTC125TTG</td>
-      <td>L57D F125L</td>
-      <td>2</td>
-      <td>2</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAAGACTTCT</td>
+      <td>AAAAAAAACCAACTAA</td>
       <td>3</td>
-      <td>GTT52GCT TTC125TTG</td>
-      <td>V52A F125L</td>
-      <td>2</td>
-      <td>2</td>
+      <td>GAG186TCT</td>
+      <td>E186S</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>5</th>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAAGCTAAAA</td>
-      <td>2</td>
-      <td>TTC125TTG TCT200TTG</td>
-      <td>F125L S200L</td>
-      <td>2</td>
-      <td>2</td>
+      <td>AAAAAAAACTTTAGTG</td>
+      <td>1</td>
+      <td>GCT192GAT</td>
+      <td>A192D</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>6</th>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAAGTCCGTA</td>
+      <td>AAAAAAAAGATTGTAC</td>
+      <td>4</td>
+      <td>TAT35ATT</td>
+      <td>Y35I</td>
       <td>1</td>
-      <td>TTC125TTG GGT172GTT</td>
-      <td>F125L G172V</td>
-      <td>2</td>
-      <td>2</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>7</th>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAATAAACAT</td>
-      <td>3</td>
-      <td>AAT13TTG TTC125TTG</td>
-      <td>N13L F125L</td>
+      <td>AAAAAAAAGTATAAAT</td>
       <td>2</td>
-      <td>2</td>
+      <td>CCA169CAT</td>
+      <td>P169H</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>8</th>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAATACACTA</td>
+      <td>AAAAAAAAGTCGCAAA</td>
       <td>1</td>
-      <td>TAT35TGG TTC125TTG</td>
-      <td>Y35W F125L</td>
-      <td>2</td>
-      <td>2</td>
+      <td>TAC119TTT</td>
+      <td>Y119F</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>9</th>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAATAGGTAG</td>
-      <td>1</td>
-      <td>TTC125TTG</td>
-      <td>F125L</td>
+      <td>AAAAAAAATACGACGA</td>
+      <td>3</td>
+      <td>GCC89GTC</td>
+      <td>A89V</td>
       <td>1</td>
       <td>1</td>
     </tr>
@@ -1933,23 +1933,23 @@ variants.barcode_variant_df.head(n=12)
       <th>10</th>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAATATTTCG</td>
+      <td>AAAAAAAATAGACTCG</td>
       <td>1</td>
-      <td>TTC125TTG TGT158GCT</td>
-      <td>F125L C158A</td>
-      <td>2</td>
-      <td>2</td>
+      <td>GAT112GTT</td>
+      <td>D112V</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>11</th>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAATCACAAA</td>
+      <td>AAAAAAAATCAAGCTA</td>
+      <td>2</td>
+      <td>TTG5TGT</td>
+      <td>L5C</td>
       <td>1</td>
-      <td>TTC125TTG TTG131TCT</td>
-      <td>F125L L131S</td>
-      <td>2</td>
-      <td>2</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -1994,9 +1994,9 @@ display(HTML(
   <tbody>
     <tr>
       <th>FLip</th>
-      <td>103977</td>
-      <td>101239</td>
-      <td>205216</td>
+      <td>70877</td>
+      <td>69239</td>
+      <td>140116</td>
     </tr>
   </tbody>
 </table>
@@ -2181,33 +2181,7 @@ display(HTML(
       <th rowspan="9" valign="top">False</th>
       <th rowspan="3" valign="top">pool1</th>
       <th>0</th>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>&gt;1</th>
-      <td>4011</td>
-    </tr>
-    <tr>
-      <th rowspan="3" valign="top">pool2</th>
-      <th>0</th>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>&gt;1</th>
-      <td>4010</td>
-    </tr>
-    <tr>
-      <th rowspan="3" valign="top">all libraries</th>
-      <th>0</th>
-      <td>8</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>1</th>
@@ -2215,26 +2189,65 @@ display(HTML(
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>4012</td>
+      <td>4014</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">pool2</th>
+      <th>0</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>&gt;1</th>
+      <td>4014</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">all libraries</th>
+      <th>0</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>&gt;1</th>
+      <td>4014</td>
     </tr>
     <tr>
       <th rowspan="9" valign="top">True</th>
       <th rowspan="3" valign="top">pool1</th>
       <th>0</th>
-      <td>143</td>
+      <td>150</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>19</td>
+      <td>14</td>
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>4059</td>
+      <td>4057</td>
     </tr>
     <tr>
       <th rowspan="3" valign="top">pool2</th>
       <th>0</th>
-      <td>142</td>
+      <td>153</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>&gt;1</th>
+      <td>4053</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">all libraries</th>
+      <th>0</th>
+      <td>138</td>
     </tr>
     <tr>
       <th>1</th>
@@ -2242,80 +2255,54 @@ display(HTML(
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>4058</td>
-    </tr>
-    <tr>
-      <th rowspan="3" valign="top">all libraries</th>
-      <th>0</th>
-      <td>124</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>30</td>
-    </tr>
-    <tr>
-      <th>&gt;1</th>
-      <td>4067</td>
+      <td>4062</td>
     </tr>
     <tr>
       <th rowspan="18" valign="top">single</th>
       <th rowspan="9" valign="top">False</th>
       <th rowspan="3" valign="top">pool1</th>
       <th>0</th>
-      <td>3988</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>11</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>21</td>
+      <td>4014</td>
     </tr>
     <tr>
       <th rowspan="3" valign="top">pool2</th>
       <th>0</th>
-      <td>3992</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>7</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>21</td>
+      <td>4014</td>
     </tr>
     <tr>
       <th rowspan="3" valign="top">all libraries</th>
       <th>0</th>
-      <td>3980</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>18</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>22</td>
+      <td>4014</td>
     </tr>
     <tr>
       <th rowspan="9" valign="top">True</th>
       <th rowspan="3" valign="top">pool1</th>
       <th>0</th>
-      <td>4189</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>&gt;1</th>
-      <td>21</td>
-    </tr>
-    <tr>
-      <th rowspan="3" valign="top">pool2</th>
-      <th>0</th>
-      <td>4193</td>
+      <td>172</td>
     </tr>
     <tr>
       <th>1</th>
@@ -2323,20 +2310,33 @@ display(HTML(
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>21</td>
+      <td>4042</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">pool2</th>
+      <th>0</th>
+      <td>174</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>&gt;1</th>
+      <td>4039</td>
     </tr>
     <tr>
       <th rowspan="3" valign="top">all libraries</th>
       <th>0</th>
-      <td>4181</td>
+      <td>165</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>18</td>
+      <td>12</td>
     </tr>
     <tr>
       <th>&gt;1</th>
-      <td>22</td>
+      <td>4044</td>
     </tr>
   </tbody>
 </table>
@@ -2428,52 +2428,52 @@ display(HTML(
     <tr>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAAAGATTGT</td>
-      <td>3</td>
-      <td>TTC125TTG AGA179GGT</td>
-      <td>F125L R179G</td>
+      <td>AAAAAAAAAAATTAGA</td>
       <td>2</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>FLip</td>
-      <td>pool1</td>
-      <td>AAAAAAAAACAATTGT</td>
+      <td>TTC8CAA</td>
+      <td>F8Q</td>
       <td>1</td>
-      <td>AGA27ACT TTC125TTG TTC134GGT</td>
-      <td>R27T F125L F134G</td>
-      <td>3</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>FLip</td>
-      <td>pool1</td>
-      <td>AAAAAAAAACTATACA</td>
       <td>1</td>
-      <td>CAA79TGG TTC125TTG</td>
-      <td>Q79W F125L</td>
-      <td>2</td>
-      <td>2</td>
     </tr>
     <tr>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAAGAAAGTT</td>
+      <td>AAAAAAAAAGTTTCCA</td>
+      <td>4</td>
+      <td>GTT32TCT</td>
+      <td>V32S</td>
       <td>1</td>
-      <td>TTG57GAT TTC125TTG</td>
-      <td>L57D F125L</td>
-      <td>2</td>
-      <td>2</td>
+      <td>1</td>
     </tr>
     <tr>
       <td>FLip</td>
       <td>pool1</td>
-      <td>AAAAAAAAAGACTTCT</td>
+      <td>AAAAAAAAATGTCCTT</td>
+      <td>2</td>
+      <td>AAC75TGG</td>
+      <td>N75W</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>FLip</td>
+      <td>pool1</td>
+      <td>AAAAAAAACAAGTTCA</td>
+      <td>2</td>
+      <td>TCC78GAT</td>
+      <td>S78D</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>FLip</td>
+      <td>pool1</td>
+      <td>AAAAAAAACCAACTAA</td>
       <td>3</td>
-      <td>GTT52GCT TTC125TTG</td>
-      <td>V52A F125L</td>
-      <td>2</td>
-      <td>2</td>
+      <td>GAG186TCT</td>
+      <td>E186S</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
