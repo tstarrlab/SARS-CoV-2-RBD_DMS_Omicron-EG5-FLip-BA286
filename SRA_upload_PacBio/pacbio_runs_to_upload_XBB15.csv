@@ -1,0 +1,3 @@
+library,bg,run,ccs,ccs_file
+pool1,XBB15,230520,m64272e_230518_163630.hifi_reads.bc2075--bc2075.fastq.gz,/uufs/chpc.utah.edu/common/home/starr-group1/sequencing/TNS/2023/230520_Omicron-xbb-bq_pacbio/m64272e_230518_163630.hifi_reads.bc2075--bc2075.fastq.gz
+pool2,XBB15,230520,m64272e_230518_163630.hifi_reads.bc2076--bc2076.fastq.gz,/uufs/chpc.utah.edu/common/home/starr-group1/sequencing/TNS/2023/230520_Omicron-xbb-bq_pacbio/m64272e_230518_163630.hifi_reads.bc2076--bc2076.fastq.gz

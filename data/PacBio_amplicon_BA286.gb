@@ -1,0 +1,68 @@
+LOCUS       BA286                      1076 bp    DNA        linear       15-FEB-2024
+DEFINITION  PacBio amplicon for deep mutational scanning of SARS-CoV-2 RBD
+ACCESSION   None
+SOURCE      Tyler Starr
+  ORGANISM  .
+COMMENT     PacBio amplicon for SARS-CoV-2 RBD libraries.
+COMMENT     ApEinfo:methylated:1
+FEATURES             Location/Qualifiers
+     termini5        1..33
+                     /locus_tag="termini5"
+                     /label="termini5"
+                     /ApEinfo_label="termini5"
+                     /ApEinfo_fwdcolor="#fefb00"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     spacer          634..1054
+                     /locus_tag="spacer"
+                     /label="spacer"
+                     /ApEinfo_label="spacer"
+                     /ApEinfo_fwdcolor="#fefb00"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     barcode         1055..1070
+                     /locus_tag="barcode"
+                     /label="barcode"
+                     /ApEinfo_label="barcode"
+                     /ApEinfo_fwdcolor="#00f900"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     termini3        1071..1076
+                     /locus_tag="termini3"
+                     /label="termini3"
+                     /ApEinfo_label="termini3"
+                     /ApEinfo_fwdcolor="#fefb00"
+                     /ApEinfo_revcolor="green"
+                     /ApEinfo_graphicformat="arrow_data {{0 1 2 0 0 -1} {} 0}
+                     width 5 offset 0"
+     gene            34..633
+                     /locus_tag="gene"
+                     /label="gene"
+                     /ApEinfo_label="gene"
+                     /ApEinfo_fwdcolor="#ff797d"
+                     /ApEinfo_revcolor="#ff102f"
+                     /ApEinfo_graphicformat="arrow_data {{0 0.5 0 1 2 0 0 -1 0
+                     -0.5} {} 0} width 5 offset 0"
+ORIGIN
+        1 ggccgcggag gcggagggtc ggctagccat atgaacgtta ccaacttgtg tccattccat
+       61 gaagttttca atgctactag attcgcttct gtttacgctt ggaatagaac tagaatctct
+      121 aactgcgttg ctgactattc tgtcttgtac aattttgctc cattcttcgc tttcaagtgc
+      181 tatggtgttt ctccaactaa gttgaacgat ttgtgtttca ccaacgttta cgccgattcc
+      241 tttgttatta aaggtaacga agtctcccaa attgctccag gtcaaactgg taatattgcc
+      301 gattacaatt acaagttgcc agatgatttc accggttgtg ttattgcttg gaactctaac
+      361 aagttggatt ctaagcattc tggcaactac gattactggt acaggttgtt ccgtaagtcc
+      421 aaattgaagc cattcgaaag agatatttcc accgaaatct atcaagctgg taacaagcca
+      481 tgtaaaggta aaggtccaaa ctgttacttc ccattgcaat cttacggttt cagaccaact
+      541 tatggtgttg gtcatcaacc atacagagtt gttgttttgt ctttcgagtt gttgcatgct
+      601 ccagctactg tttgtggtcc aaagaaatct actctcgagg ggggcggttc cgaacaaaag
+      661 cttatttctg aagaggactt gtaatagaga tctgataaca acagtgtaga tgtaacaaaa
+      721 tcgactttgt tcccactgta cttttagctc gtacaaaata caatatactt ttcatttctc
+      781 cgtaaacaac atgttttccc atgtaatatc cttttctatt tttcgttccg ttaccaactt
+      841 tacacatact ttatatagct attcacttct atacactaaa aaactaagac aattttaatt
+      901 ttgctgcctg ccatatttca atttgttata aattcctata atttatccta ttagtagcta
+      961 aaaaaagatg aatgtgaatc gaatcctaag agaattaatg atacggcgac caccgagatc
+     1021 tacactcttt ccctacacga cgctcttccg atctNNNNNN NNNNNNNNNN gcggcc
+//

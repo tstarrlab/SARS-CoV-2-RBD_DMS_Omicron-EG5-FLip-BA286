@@ -1,0 +1,42 @@
+# cluster configuration for running Snakefile on CHPC cluster
+
+__default__:
+  cpus: 4
+  time: 0-1
+  mem: 32000
+  name: "{rule}"
+
+process_ccs_EG5:
+  cpus: 8
+  time: 0-1
+  mem: 100000
+  
+process_ccs_FLip:
+  cpus: 8
+  time: 0-1
+  mem: 100000
+  
+process_ccs_BA286:
+  cpus: 8
+  time: 0-1
+  mem: 100000
+  
+count_variants:
+  cpus: 8
+  time: 0-2
+  mem: 100000
+
+calculate_expression:
+  cpus: 12
+  time: 0-10
+  mem: 100000
+
+fit_titrations:
+  cpus: 4
+  time: 0-1
+  mem: 100000
+  
+gisaid_rbd_mutations:
+  cpus: 12
+  time: 0-12
+  mem: 100000

@@ -1,0 +1,803 @@
+---
+title: "Collapse barcodes to final per-RBD/mutant phenotype scores"
+author: "Tyler Starr"
+date: "06/02/2023"
+output:
+  github_document:
+    toc: true
+    html_preview: false
+editor_options: 
+  chunk_output_type: inline
+---
+This notebook reads in the per-barcode titration Kds and expression measurements from the `compute_binding_Kd` and `compute_expression_meanF` scripts. It synthesizes these two sets of results and calculates the final 'mean' phenotypes for each variant, and generates some coverage and QC analyses.
+
+```{r setup, message=FALSE, warning=FALSE, error=FALSE}
+#list of packages to install/load
+packages = c("yaml","data.table","tidyverse","gridExtra","grid","bio3d","ggridges","ggrepel","GGally")
+#install any packages not already installed
+installed_packages <- packages %in% rownames(installed.packages())
+if(any(installed_packages == F)){
+  install.packages(packages[!installed_packages],
+                   lib=c(paste("/uufs/chpc.utah.edu/common/home/",Sys.getenv("USER"),"/RLibs/",Sys.getenv("R_VERSION"),sep="")),
+                   repos=c("http://cran.us.r-project.org"))
+}
+#load packages
+invisible(lapply(packages, library, character.only=T))
+
+knitr::opts_chunk$set(echo = T)
+knitr::opts_chunk$set(dev.args = list(png = list(type = "cairo")))
+
+
+#read in config file
+config <- read_yaml("config.yaml")
+
+#make output directory
+if(!file.exists(config$final_variant_scores_dir)){
+  dir.create(file.path(config$final_variant_scores_dir))
+}
+
+#make pdb output directory
+if(!file.exists(paste(config$final_variant_scores_dir,"/pdbs/",sep=""))){
+  dir.create(file.path(paste(config$final_variant_scores_dir,"/pdbs/",sep="")))
+}
+```
+Session info for reproducing environment:
+```{r print_sessionInfo}
+sessionInfo()
+```
+
+## Setup
+
+Read in tables of per-barcode expression and binding Kd measurements and combine.
+
+```{r input_data}
+dt_bind <- data.table(read.csv(config$Titeseq_Kds_file),stringsAsFactors=F)
+dt_expr <- data.table(read.csv(config$expression_sortseq_file),stringsAsFactors=F)
+```
+
+## Calculate per-variant mean scores within replicates
+
+Calculate the mean binding and expression score collapsed by genotype. Also output the number of barcodes across which a variant score was determined in each library.
+
+```{r calculate_mean_scores}
+dt_bind[is.na(log10Ka),TiteSeq_avgcount:=NA]
+dt_expr[is.na(expression),expr_count:=NA]
+
+dt_bind[,mean_bind:=mean(log10Ka,na.rm=T),by=c("library","target","variant_class","aa_substitutions")]
+dt_bind[,sd_bind:=sd(log10Ka,na.rm=T),by=c("library","target","variant_class","aa_substitutions")]
+dt_bind[,n_bc_bind:=sum(!is.na(log10Ka)),by=c("library","target","variant_class","aa_substitutions")]
+dt_bind[,avg_count_bind:=mean(TiteSeq_avgcount,na.rm=T),by=c("library","target","variant_class","aa_substitutions")]
+
+dt_bind <- unique(dt_bind[,.(library,target,variant_class,aa_substitutions,n_aa_substitutions,mean_bind,sd_bind,n_bc_bind,avg_count_bind)])
+
+dt_expr[,mean_expr:=mean(expression,na.rm=T),by=c("library","target","variant_class","aa_substitutions")]
+dt_expr[,sd_expr:=sd(expression,na.rm=T),by=c("library","target","variant_class","aa_substitutions")]
+dt_expr[,n_bc_expr:=sum(!is.na(expression)),by=c("library","target","variant_class","aa_substitutions")]
+dt_expr[,avg_count_expr:=mean(expr_count,na.rm=T),by=c("library","target","variant_class","aa_substitutions")]
+
+dt_expr <- unique(dt_expr[,.(library,target,variant_class,aa_substitutions,n_aa_substitutions,mean_expr,sd_expr,n_bc_expr,avg_count_expr)])
+```
+
+Some QC plots. First, look at distribution of number barcodes for binding and expression measurements for single mutant detemrinations. These are 'left-justified' histograms, so the leftmost bar represents the number of genotypes for which no barcodes were collapsed to final measurement in a pool.
+
+```{r hist_n_bc_per_mutant, fig.width=6, fig.height=6, fig.align="center", dpi=300,dev="png"}
+par(mfrow=c(2,2))
+hist(dt_bind[library=="pool1" & variant_class=="1 nonsynonymous",n_bc_bind],main="pool1, bind",right=F,breaks=max(dt_bind[library=="pool1" & variant_class=="1 nonsynonymous",n_bc_bind],na.rm=T),xlab="")
+hist(dt_bind[library=="pool2" & variant_class=="1 nonsynonymous",n_bc_bind],main="pool2, bind",right=F,breaks=max(dt_bind[library=="pool2" & variant_class=="1 nonsynonymous",n_bc_bind],na.rm=T),xlab="")
+hist(dt_expr[library=="pool1" & variant_class=="1 nonsynonymous",n_bc_expr],main="pool1, expr",right=F,breaks=max(dt_expr[library=="pool1" & variant_class=="1 nonsynonymous",n_bc_expr],na.rm=T),xlab="number barcodes collapsed")
+hist(dt_expr[library=="pool2" & variant_class=="1 nonsynonymous",n_bc_expr],main="pool2, expr",right=F,breaks=max(dt_expr[library=="pool2" & variant_class=="1 nonsynonymous",n_bc_expr],na.rm=T),xlab="number barcodes collapsed")
+
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/histogram_n_bc_per_geno_sep-libs.pdf",sep=""),useDingbats=F))
+
+```
+
+What about how SEM tracks with number of barcodes collapsed? This could help for choosing a minimum number of barcodes to use.
+
+```{r sem_v_n-bc, fig.width=9, fig.height=6, fig.align="center", dpi=300,dev="png"}
+par(mfrow=c(2,2))
+plot(dt_bind[library=="pool1" & variant_class=="1 nonsynonymous",n_bc_bind],
+     dt_bind[library=="pool1" & variant_class=="1 nonsynonymous",sd_bind/sqrt(n_bc_bind)],
+     pch=16,col="#00000005",main="pool1, bind",ylab="SEM",xlab="number barcodes collapsed")
+plot(dt_bind[library=="pool2" & variant_class=="1 nonsynonymous",n_bc_bind],
+     dt_bind[library=="pool2" & variant_class=="1 nonsynonymous",sd_bind/sqrt(n_bc_bind)],
+     pch=16,col="#00000005",main="pool2, bind",ylab="SEM",xlab="number barcodes collapsed")
+plot(dt_expr[library=="pool1" & variant_class=="1 nonsynonymous",n_bc_expr],
+     dt_expr[library=="pool1" & variant_class=="1 nonsynonymous",sd_expr/sqrt(n_bc_expr)],
+     pch=16,col="#00000005",main="pool1, expr",ylab="SEM",xlab="number barcodes collapsed")
+plot(dt_expr[library=="pool2" & variant_class=="1 nonsynonymous",n_bc_expr],
+     dt_expr[library=="pool2" & variant_class=="1 nonsynonymous",sd_expr/sqrt(n_bc_expr)],
+     pch=16,col="#00000005",main="pool2, expr",ylab="SEM",xlab="number barcodes collapsed")
+
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/sem_v_n-bc.pdf",sep=""),useDingbats=F))
+```
+
+
+Format into a 'mutation lookup table', where we focus just on the single mutants (and wildtype), breakup the string of mutations, and fill in the table to also include any missing mutants.
+
+```{r format_mutant_tables}
+dt_mutant_bind <- dt_bind[variant_class %in% "1 nonsynonymous",]
+
+#split mutation string
+#define function to apply
+split_mut <- function(x){
+  split <- strsplit(x,split="")[[1]]
+  return(list(split[1],as.numeric(paste(split[2:(length(split)-1)],collapse="")),split[length(split)]))
+}
+dt_mutant_bind[,c("wildtype","position","mutant"):=split_mut(as.character(aa_substitutions)),by=aa_substitutions]
+
+dt_mutant_bind <- dt_mutant_bind[,.(library,target,wildtype,position,mutant,mean_bind,sd_bind,n_bc_bind,avg_count_bind)]
+
+aas <- c("A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y","-")
+#fill out missing values in table with a hideous loop, so the table is complete for all mutaitons (including those that are missing). If you are somebody who is reading this code, I apologize.
+for(lib in c("pool1","pool2")){
+  for(bg in as.character(unique(dt_mutant_bind$target))){
+    for(pos in 1:max(dt_mutant_bind$position)){
+      for(aa in aas){
+        if(!(aa %in% as.character(dt_mutant_bind[library==lib & target==bg & position==pos,mutant]))){
+          dt_mutant_bind <- rbind(dt_mutant_bind,list(lib, bg, dt_mutant_bind[target==bg & position==pos,wildtype][1],pos,aa),fill=T) #note this will leave NA for wildtype if a position is completely missing in both libraries
+        }
+      }
+    }
+  }
+}
+setkey(dt_mutant_bind,library,target,position,mutant)
+
+#fill in wildtype values -- should vectorize in data table but being so stupid so just going to write for loop
+for(bg in c("BA2","BQ11","XBB15")){
+  for(lib in c("pool1","pool2")){
+    dt_mutant_bind[library==lib & target==bg & wildtype==mutant, c("mean_bind","sd_bind","n_bc_bind","avg_count_bind"):=dt_bind[library==lib & target==bg & variant_class=="wildtype",.(mean_bind,sd_bind,n_bc_bind,avg_count_bind)]]
+  }
+}
+
+#add delta bind measures
+for(bg in c("BA2","BQ11","XBB15")){
+  for(lib in c("pool1","pool2")){
+    ref_bind <- dt_bind[library==lib & target==bg & variant_class=="wildtype",mean_bind]
+    dt_mutant_bind[library==lib & target==bg,delta_bind := mean_bind - ref_bind]
+  }
+}
+
+#repeat for expr
+dt_mutant_expr <- dt_expr[variant_class %in% "1 nonsynonymous",]
+
+#split mutation string
+#define function to apply
+split_mut <- function(x){
+  split <- strsplit(x,split="")[[1]]
+  return(list(split[1],as.numeric(paste(split[2:(length(split)-1)],collapse="")),split[length(split)]))
+}
+dt_mutant_expr[,c("wildtype","position","mutant"):=split_mut(as.character(aa_substitutions)),by=aa_substitutions]
+
+dt_mutant_expr <- dt_mutant_expr[,.(library,target,wildtype,position,mutant,mean_expr,sd_expr,n_bc_expr,avg_count_expr)]
+
+aas <- c("A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y","-")
+#fill out missing values in table with a hideous loop, so the table is complete for all mutaitons (including those that are missing). If you are somebody who is reading this code, I apologize.
+for(lib in c("pool1","pool2")){
+  for(bg in as.character(unique(dt_mutant_expr$target))){
+    for(pos in 1:max(dt_mutant_expr$position)){
+      for(aa in aas){
+        if(!(aa %in% as.character(dt_mutant_expr[library==lib & target==bg & position==pos,mutant]))){
+          dt_mutant_expr <- rbind(dt_mutant_expr,list(lib, bg, dt_mutant_expr[target==bg & position==pos,wildtype][1],pos,aa),fill=T)  #note this will leave NA for wildtype if a position is completely missing in both libraries
+        }
+      }
+    }
+  }
+}
+setkey(dt_mutant_expr,library,target,position,mutant)
+
+#fill in wildtype values -- should vectorize in data table but being so stupid so just going to write for loop
+for(bg in c("BA2","BQ11","XBB15")){
+  for(lib in c("pool1","pool2")){
+    dt_mutant_expr[library==lib & target==bg & wildtype==mutant, c("mean_expr","sd_expr","n_bc_expr","avg_count_expr"):=dt_expr[library==lib & target==bg & variant_class=="wildtype",.(mean_expr,sd_expr,n_bc_expr,avg_count_expr)]]
+  }
+}
+
+#add delta expr measures
+for(bg in c("BA2","BQ11","XBB15")){
+  for(lib in c("pool1","pool2")){
+    ref_expr <- dt_expr[library==lib & target==bg & variant_class=="wildtype",mean_expr]
+    dt_mutant_expr[library==lib & target==bg,delta_expr := mean_expr - ref_expr]
+  }
+}
+
+```
+
+We have duplicates for each measurement. Let's look at correlations!
+
+```{r plot_correlations, echo=T, fig.width=8, fig.height=4, fig.align="center", dpi=300,dev="png"}
+par(mfrow=c(1,2))
+x <- dt_mutant_expr[library=="pool1" & wildtype!=mutant,mean_expr]; y <- dt_mutant_expr[library=="pool2" & wildtype!=mutant,mean_expr]; plot(x,y,pch=16,col="#00000020",xlab="replicate 1",ylab="replicate 2",main="expression");model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+x <- dt_mutant_bind[library=="pool1" & wildtype!=mutant,mean_bind]; y <- dt_mutant_bind[library=="pool2" & wildtype!=mutant,mean_bind]; plot(x,y,pch=16,col="#00000020",xlab="replicate 1",ylab="replicate 2",main="binding affinity");model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/replicate_correlations.pdf",sep=""),useDingbats=F))
+```
+
+## Calculate per-mutant score across libraries
+
+Collapse down to mean from both replicates, and total n barcodes between the two/three replicates. Also record the number of the replicates the variant was quantified within. Note, we are currently keeping a value even if it's determined from a single bc fit in a single pool. Later on, we may want to require some combination of minimum number of bcs within or between libraries for retention.
+
+```{r final_means}
+dt_final_bind <- copy(dt_mutant_bind)
+
+dt_final_bind[ ,bind_tot:=mean(mean_bind,na.rm=T),by=c("target","position","mutant")]
+dt_final_bind[ ,delta_bind_tot:=mean(delta_bind,na.rm=T),by=c("target","position","mutant")]
+dt_final_bind[ ,n_bc_bind_tot:=sum(n_bc_bind,na.rm=T),by=c("target","position","mutant")]
+dt_final_bind[ ,n_libs_bind_tot:=sum(!is.na(mean_bind)),by=c("target","position","mutant")]
+
+#switch to spike indexing of postitions
+dt_final_bind$position <- dt_final_bind$position + config$site_number_offset
+
+#add single mutation string
+dt_final_bind[,mutation:=paste(wildtype,position,mutant,sep=""),by=c("wildtype","position","mutant")]
+
+dt_final_bind <- unique(dt_final_bind[,.(target,wildtype,position,mutant,mutation,bind_tot,delta_bind_tot,n_bc_bind_tot,n_libs_bind_tot)])
+
+#repeat expr
+dt_final_expr <- copy(dt_mutant_expr)
+
+dt_final_expr[ ,expr_tot:=mean(mean_expr,na.rm=T),by=c("target","position","mutant")]
+dt_final_expr[ ,delta_expr_tot:=mean(delta_expr,na.rm=T),by=c("target","position","mutant")]
+dt_final_expr[ ,n_bc_expr_tot:=sum(n_bc_expr,na.rm=T),by=c("target","position","mutant")]
+dt_final_expr[ ,n_libs_expr_tot:=sum(!is.na(mean_expr)),by=c("target","position","mutant")]
+
+#switch to spike indexing of postitions
+dt_final_expr$position <- dt_final_expr$position + config$site_number_offset
+
+#add single mutation string
+dt_final_expr[,mutation:=paste(wildtype,position,mutant,sep=""),by=c("wildtype","position","mutant")]
+
+dt_final_expr <- unique(dt_final_expr[,.(target,wildtype,position,mutant,mutation,expr_tot,delta_expr_tot,n_bc_expr_tot,n_libs_expr_tot)])
+
+#merge together
+dt_final <- merge(dt_final_bind, dt_final_expr)
+setkey(dt_final,target,position,mutant)
+
+#add the rep1 and rep2 bind and expr averages
+dt_final[,bind_rep1 := dt_mutant_bind[library=="pool1", mean_bind]]
+dt_final[,bind_rep2 := dt_mutant_bind[library=="pool2", mean_bind]]
+dt_final[,expr_rep1 := dt_mutant_expr[library=="pool1", mean_expr]]
+dt_final[,expr_rep2 := dt_mutant_expr[library=="pool2", mean_expr]]
+
+
+#rename some of the columns
+setnames(dt_final,"bind_tot","bind")
+setnames(dt_final,"delta_bind_tot","delta_bind")
+setnames(dt_final,"n_bc_bind_tot","n_bc_bind")
+setnames(dt_final,"n_libs_bind_tot","n_libs_bind")
+setnames(dt_final,"expr_tot","expr")
+setnames(dt_final,"delta_expr_tot","delta_expr")
+setnames(dt_final,"n_bc_expr_tot","n_bc_expr")
+setnames(dt_final,"n_libs_expr_tot","n_libs_expr")
+
+```
+
+Censor any measurements that are from <3 bc or only sampled in a single replicate? Don't do this for now.
+```{r censor_n_barcodes_libs, echo=T, fig.width=8, fig.height=4, fig.align="center", dpi=300,dev="png"}
+# min_bc <- 2
+# min_lib <- 2
+# 
+# dt_final[n_bc_bind < min_bc & n_libs_bind < min_lib, c("bind","delta_bind","n_bc_bind","n_libs_bind") := list(NA,NA,NA,NA)]
+# dt_final[n_bc_expr < min_bc & n_libs_expr < min_lib, c("expr","delta_expr","n_bc_expr","n_libs_expr") := list(NA,NA,NA,NA)]
+```
+
+
+Coverage stats on n_barcodes for different measurements in the final pooled measurements, just for new BA1 and BA2 libs.
+
+```{r n_barcode_plots, echo=T, fig.width=7, fig.height=7, fig.align="center", dpi=300,dev="png"}
+par(mfrow=c(3,2))
+#BA2
+hist(dt_final[wildtype!=mutant & target %in% c("BA2"), n_bc_bind],col="gray50",main=paste("mutant bind score,\nmedian ",median(dt_final[wildtype!=mutant & target %in% c("BA2"), n_bc_bind],na.rm=T),sep=""),right=F,breaks=max(dt_final[wildtype!=mutant & target %in% c("BA2","BA2"), n_bc_bind])/2,xlab="number barcodes", xlim=c(0,100))
+hist(dt_final[wildtype!=mutant & target %in% c("BA2"), n_bc_expr],col="gray50",main=paste("mutant expr score,\nmedian ",median(dt_final[wildtype!=mutant & target %in% c("BA2"), n_bc_expr],na.rm=T),sep=""),right=F,breaks=max(dt_final[wildtype!=mutant & target %in% c("BA2","BA2"), n_bc_expr])/2,xlab="", xlim=c(0,100))
+
+#BQ11
+hist(dt_final[wildtype!=mutant & target %in% c("BQ11"), n_bc_bind],col="gray50",main=paste("mutant bind score,\nmedian ",median(dt_final[wildtype!=mutant & target %in% c("BQ11"), n_bc_bind],na.rm=T),sep=""),right=F,breaks=max(dt_final[wildtype!=mutant & target %in% c("BQ11","BQ11"), n_bc_bind])/2,xlab="number barcodes", xlim=c(0,100))
+hist(dt_final[wildtype!=mutant & target %in% c("BQ11"), n_bc_expr],col="gray50",main=paste("mutant expr score,\nmedian ",median(dt_final[wildtype!=mutant & target %in% c("BQ11"), n_bc_expr],na.rm=T),sep=""),right=F,breaks=max(dt_final[wildtype!=mutant & target %in% c("BQ11","BQ11"), n_bc_expr])/2,xlab="", xlim=c(0,100))
+
+#XBB15
+hist(dt_final[wildtype!=mutant & target %in% c("XBB15"), n_bc_bind],col="gray50",main=paste("mutant bind score,\nmedian ",median(dt_final[wildtype!=mutant & target %in% c("XBB15"), n_bc_bind],na.rm=T),sep=""),right=F,breaks=max(dt_final[wildtype!=mutant & target %in% c("XBB15","XBB15"), n_bc_bind])/2,xlab="number barcodes", xlim=c(0,100))
+hist(dt_final[wildtype!=mutant & target %in% c("XBB15"), n_bc_expr],col="gray50",main=paste("mutant expr score,\nmedian ",median(dt_final[wildtype!=mutant & target %in% c("XBB15"), n_bc_expr],na.rm=T),sep=""),right=F,breaks=max(dt_final[wildtype!=mutant & target %in% c("XBB15","XBB15"), n_bc_expr])/2,xlab="", xlim=c(0,100))
+
+
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/histogram_n_bc_per_geno_pooled-libs.pdf",sep="")))
+```
+
+## Correlations among backgrounds and to prior Wuhan-Hu-1 DMS data
+
+Look at correlations in mutation effects between each background, for bind phenotype
+
+```{r plot_correlations_by_bg_bind, echo=T, fig.width=8, fig.height=8, fig.align="center", dpi=300,dev="png"}
+par(mfrow=c(2,2))
+
+x <- dt_final[target=="XBB15",bind]; y <- dt_final[target=="BQ11",bind]; plot(x,y,pch=16,col="#00000020",xlab="XBB15",ylab="BQ11",main="", xlim=c(5,11.5),ylim=c(5,11.5));model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+x <- dt_final[target=="BA2",bind]; y <- dt_final[target=="BQ11",bind]; plot(x,y,pch=16,col="#00000020",xlab="BA2",ylab="BQ11",main="", xlim=c(5,11.5),ylim=c(5,11.5));model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+plot(0,type='n',axes=FALSE,ann=F)
+
+x <- dt_final[target=="BA2",bind]; y <- dt_final[target=="XBB15",bind]; plot(x,y,pch=16,col="#00000020",xlab="BA2",ylab="XBB15",main="", xlim=c(5,11.5),ylim=c(5,11.5));model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/background_correlations_bind.pdf",sep=""),useDingbats=F))
+```
+
+Look at correlations in mutation effects between each background, for expr phenotype
+
+```{r plot_correlations_by_bg_expr, echo=T, fig.width=8, fig.height=8, fig.align="center", dpi=300,dev="png"}
+par(mfrow=c(2,2))
+
+x <- dt_final[target=="XBB15",expr]; y <- dt_final[target=="BQ11",expr]; plot(x,y,pch=16,col="#00000020",xlab="XBB15",ylab="BQ11",main="", xlim=c(5,11.5),ylim=c(5,11.5));model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+x <- dt_final[target=="BA2",expr]; y <- dt_final[target=="BQ11",expr]; plot(x,y,pch=16,col="#00000020",xlab="BA2",ylab="BQ11",main="", xlim=c(5,11.5),ylim=c(5,11.5));model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+plot(0,type='n',axes=FALSE,ann=F)
+
+x <- dt_final[target=="BA2",expr]; y <- dt_final[target=="XBB15",expr]; plot(x,y,pch=16,col="#00000020",xlab="BA2",ylab="XBB15",main="", xlim=c(5,11.5),ylim=c(5,11.5));model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/background_correlations_expr.pdf",sep=""),useDingbats=F))
+```
+
+And, look at relationship between the current and prior BA2 measurements?
+
+```{r plot_correlations_v_prior_DMS, echo=T, fig.width=8, fig.height=4, fig.align="center", dpi=300,dev="png"}
+dt_og <- data.table(read.csv(file=config$mut_bind_expr,stringsAsFactors = F))
+
+dt_og$bind_new <- as.numeric(NA)
+dt_og$expr_new <- as.numeric(NA)
+
+for(i in 1:nrow(dt_og)){
+  if(dt_og[i,mutant]!="*" & dt_og[i,target]=="Omicron_BA2"){
+    dt_og[i,"bind_new"] <- dt_final[target=="BA2" & position==dt_og[i,position] & mutant==dt_og[i,mutant],delta_bind]
+    dt_og[i,"expr_new"] <- dt_final[target=="BA2" & position==dt_og[i,position] & mutant==dt_og[i,mutant],delta_expr]
+  }
+}
+
+par(mfrow=c(1,2))
+x <- dt_og[,delta_expr]; y <- dt_og[,expr_new]; plot(x,y,pch=16,col="#00000020",xlab="PLOS Path DMS",ylab="new DMS",main="expression");model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+x <- dt_og[,delta_bind]; y <- dt_og[,bind_new]; plot(x,y,pch=16,col="#00000020",xlab="PLOS Path DMS",ylab="new DMS",main="ACE2 binding affinity");model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/correlations_BA2_PLOS-Path-v-new-dms.pdf",sep=""),useDingbats=F))
+
+```
+
+We see this globally sensitized effect in the new BA.2 data that seems to make it difficult to compare to. For example, in later epistasis analyses, there is seemingly more epistasis BA.2 -> XBB or BQ becuase of glboal sensitivity changes, but these are less dramatic iwth the PLOS Path Omi data. I think we should use the old BA.2 reference instead.
+
+Merge with the prior VOC DMS experiments
+
+```{r merge_inputs}
+dt_voc <- data.table(read.csv(file=config$mut_bind_expr,stringsAsFactors=F))
+
+dt_voc <- dt_voc[target %in% c("Alpha","Beta","Eta","Delta","Wuhan-Hu-1_v2","Omicron_BA1","Omicron_BA2")]
+dt_voc[target=="Wuhan-Hu-1_v2",target:="Wuhan-Hu-1"]
+
+#add the deletion character for the earlier libraries when I didn't do indel
+for(bg in c("Omicron_BA1","Omicron_BA2","Wuhan-Hu-1","Beta","Eta","Alpha","Delta")){
+  for(pos in unique(dt_voc$position)){
+    wt <- dt_voc[target==bg & position==pos & wildtype==mutant,wildtype]
+    dt_voc <- rbind(dt_voc, data.frame(target=bg,position=pos,mutant="-",wildtype=wt,mutation=paste(wt,pos,"-",sep=""),n_bc_bind=0,n_libs_bind=0,n_bc_expr=0,n_libs_expr=0),fill=T)
+  }
+}
+
+setkey(dt_voc,target,position,mutant)
+
+#rename targets
+dt_final[target=="BA2",target:="Omicron_BA2"]
+dt_final[target=="BQ11",target:="Omicron_BQ11"]
+dt_final[target=="XBB15",target:="Omicron_XBB15"]
+
+dt_final <- dt_final[target %in% c("Omicron_BQ11","Omicron_XBB15"),]
+
+dt_final$bind_rep3 <- as.numeric(NA)
+
+dt_final <- rbind(dt_final[,.(target,wildtype,position,mutant,mutation,bind,delta_bind,n_bc_bind,n_libs_bind,bind_rep1,bind_rep2,bind_rep3,expr,delta_expr,n_bc_expr,n_libs_expr,expr_rep1,expr_rep2)],dt_voc[,.(target,wildtype,position,mutant,mutation,bind,delta_bind,n_bc_bind,n_libs_bind,bind_rep1,bind_rep2,bind_rep3,expr,delta_expr,n_bc_expr,n_libs_expr,expr_rep1,expr_rep2)])
+
+setkey(dt_final,target,position,mutant)
+
+rm(dt_voc)
+
+```
+
+## Heatmaps!
+
+Order factor variables for plotting
+
+```{r order_plotting_factors}
+#order targets in plotting order
+dt_final$target <- factor(dt_final$target,levels=c("Wuhan-Hu-1","Eta","Alpha","Beta","Delta","Omicron_BA1","Omicron_BA2","Omicron_BQ11","Omicron_XBB15"))
+#order mutant as a factor for grouping by rough biochemical grouping
+dt_final$mutant <- factor(dt_final$mutant, levels=c("-","C","P","G","V","M","L","I","A","F","W","Y","T","S","N","Q","E","D","H","K","R"))
+#add character vector indicating wildtype to use as plotting symbols for wt
+dt_final[,wildtype_indicator := ""]
+dt_final[as.character(mutant)==as.character(wildtype),wildtype_indicator := "x"]
+
+
+#make temp long-form data frame
+temp <- data.table::melt(dt_final[target %in% c("Wuhan-Hu-1","Omicron_BA1","Omicron_BA2","Omicron_BQ11","Omicron_XBB15"), .(target,position,mutant,bind,delta_bind,expr,delta_expr,wildtype_indicator)],id.vars=c("target","position","mutant","wildtype_indicator"),measure.vars=c("bind","delta_bind","expr","delta_expr"),variable.name="measurement",value.name="value")
+
+#for method to duplicate aa labels on right side of plot https://github.com/tidyverse/ggplot2/issues/3171
+guide_axis_label_trans <- function(label_trans = identity, ...) {
+  axis_guide <- guide_axis(...)
+  axis_guide$label_trans <- rlang::as_function(label_trans)
+  class(axis_guide) <- c("guide_axis_trans", class(axis_guide))
+  axis_guide
+}
+
+guide_train.guide_axis_trans <- function(x, ...) {
+  trained <- NextMethod()
+  trained$key$.label <- x$label_trans(trained$key$.label)
+  trained
+}
+
+```
+Make heatmaps faceted by target, showing raw affinity and delta-affinity of muts relative to respective
+
+```{r heatmap_DMS_log10Ka-by-target, fig.width=25,fig.height=15,fig.align="center", dpi=500,dev="png",echo=T}
+p1 <- ggplot(temp[measurement=="bind",],aes(position,mutant))+geom_tile(aes(fill=value),color="black",lwd=0.1)+
+  scale_fill_gradientn(colours=c("#FFFFFF","#003366"),limits=c(5,11.5),na.value="yellow")+
+  #scale_fill_gradientn(colours=c("#FFFFFF","#FFFFFF","#003366"),limits=c(5,12),values=c(0,1/7,7/7),na.value="yellow")+ #three notches in case I want to 'censor' closer to the 5 boundary condition
+  scale_x_continuous(expand=c(0,0),breaks=c(331,seq(335,530,by=5)))+
+  labs(x="",y="")+theme_classic(base_size=9)+
+  coord_equal()+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.6,face="bold",size=10),axis.text.y=element_text(face="bold",size=10))+
+  facet_wrap(~target,nrow=5)+
+  guides(y.sec=guide_axis_label_trans())+
+  geom_text(aes(label=wildtype_indicator),size=2,color="gray10")+
+  theme(strip.text.x = element_text(size = 18))
+
+p1
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/heatmap_SSM_log10Ka-by-target.pdf",sep="")))
+```
+
+
+Second, illustrating delta_log10Ka grouped by SSM position.
+
+```{r heatmap_DMS_delta-log10Ka-by-target, fig.width=25,fig.height=15,fig.align="center", dpi=500,dev="png",echo=T}
+p1 <- ggplot(temp[measurement=="delta_bind",],aes(position,mutant))+geom_tile(aes(fill=value),color="black",lwd=0.1)+
+  scale_fill_gradientn(colours=c("#A94E35","#A94E35","#F48365","#FFFFFF","#7378B9","#383C6C"),limits=c(-5.5,2),values=c(0/7.5,1.5/7.5,3.5/7.5,5.5/7.5,6.5/7.5,7.5/7.5),na.value="yellow")+
+  scale_x_continuous(expand=c(0,0),breaks=c(331,seq(335,530,by=5)))+
+  labs(x="",y="")+theme_classic(base_size=9)+
+  coord_equal()+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.6,face="bold",size=10),axis.text.y=element_text(face="bold",size=10))+
+  facet_wrap(~target,nrow=5)+
+  guides(y.sec=guide_axis_label_trans())+
+  geom_text(aes(label=wildtype_indicator),size=2,color="gray10")+
+  theme(strip.text.x = element_text(size = 18))
+
+p1
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/heatmap_SSM_delta-log10Ka-by-target.pdf",sep="")))
+```
+
+Make heatmaps faceted by target, showing raw expression and delta-expression of muts relative to respective wildtype
+
+```{r heatmap_DMS_expression-by-target, fig.width=25,fig.height=15,fig.align="center", dpi=500,dev="png",echo=T}
+p1 <- ggplot(temp[measurement=="expr",],aes(position,mutant))+geom_tile(aes(fill=value),color="black",lwd=0.1)+
+  scale_fill_gradientn(colours=c("#FFFFFF","#003366"),limits=c(5.5,10),na.value="yellow")+
+  #scale_fill_gradientn(colours=c("#FFFFFF","#FFFFFF","#003366"),limits=c(5,11.2),values=c(0,1/7,7/7),na.value="yellow")+ #three notches in case I want to 'censor' closer to the 5 boundary condition
+  scale_x_continuous(expand=c(0,0),breaks=c(331,seq(335,530,by=5)))+
+  labs(x="",y="")+theme_classic(base_size=9)+
+  coord_equal()+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.6,face="bold",size=10),axis.text.y=element_text(face="bold",size=10))+
+  facet_wrap(~target,nrow=5)+
+  guides(y.sec=guide_axis_label_trans())+
+  geom_text(aes(label=wildtype_indicator),size=2,color="gray10")+
+  theme(strip.text.x = element_text(size = 18))
+
+p1
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/heatmap_SSM_expression-by-target.pdf",sep="")))
+```
+
+Second, illustrating delta_expression grouped by SSM position.
+
+```{r heatmap_DMS_delta-expression-by-target, fig.width=25,fig.height=15,fig.align="center", dpi=500,dev="png",echo=T}
+p1 <- ggplot(temp[measurement=="delta_expr",],aes(position,mutant))+geom_tile(aes(fill=value),color="black",lwd=0.1)+
+  scale_fill_gradientn(colours=c("#A94E35","#A94E35","#F48365","#FFFFFF","#7378B9","#383C6C"),limits=c(-3,1.1),values=c(0/4.1,1/4.1,2/4.1,3/4.1,3.5,4.1/4.1),na.value="yellow")+
+  scale_x_continuous(expand=c(0,0),breaks=c(331,seq(335,530,by=5)))+
+  labs(x="",y="")+theme_classic(base_size=9)+
+  coord_equal()+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.6,face="bold",size=10),axis.text.y=element_text(face="bold",size=10))+
+  facet_wrap(~target,nrow=5)+
+  guides(y.sec=guide_axis_label_trans())+
+  geom_text(aes(label=wildtype_indicator),size=2,color="gray10")+
+  theme(strip.text.x = element_text(size = 18))
+
+p1
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/heatmap_SSM_delta-expression-by-target.pdf",sep="")))
+```
+
+## Comparing deletion effects to mutations
+
+Output PDBs colored by the impact of deletion and average amino acid mutation
+
+First, map del effects each to 6m0j structure
+```{r map_del_to_pdb_WH1}
+pdb_wh1 <- read.pdb(file=config$pdb_6m0j)
+
+#iterate through backgrounds, output a pdb with del effects
+for(s in c("Omicron_XBB15","Omicron_BQ11")){
+  b <- rep(0, length(pdb_wh1$atom$b))
+  for(i in 1:nrow(pdb_wh1$atom)){
+    if(pdb_wh1$atom$chain[i]=="E"){
+      res <- pdb_wh1$atom$resno[i]
+      del <- dt_final[target==s & position==res & mutant=="-", delta_bind]
+      if(length(del)>0){
+        if(!is.na(del)){
+          b[i] <- del
+        }
+      }
+    }
+  }
+  write.pdb(pdb=pdb_wh1, file=paste(config$final_variant_scores_dir,"/pdbs/",s,"_del-effects_WH1-structure.pdb",sep=""), b=b)
+}
+
+#iterate through backgrounds, output a pdb with sub effects
+for(s in c("Omicron_XBB15","Omicron_BQ11")){
+  b <- rep(0, length(pdb_wh1$atom$b))
+  for(i in 1:nrow(pdb_wh1$atom)){
+    if(pdb_wh1$atom$chain[i]=="E"){
+      res <- pdb_wh1$atom$resno[i]
+      sub <- median(dt_final[position==res & target==s & wildtype!=mutant & mutant!= "-",delta_bind],na.rm=T)
+      if(length(sub)>0){
+        if(!is.na(sub)){
+          b[i] <- sub
+        }
+      }
+    }
+  }
+  write.pdb(pdb=pdb_wh1, file=paste(config$final_variant_scores_dir,"/pdbs/",s,"_sub-effects_WH1-structure.pdb",sep=""), b=b)
+}
+
+
+```
+
+Also map each to its own BQ/XBB structure
+```{r map_del_to_pdb_bq11}
+pdb_bq11 <- read.pdb(file=config$pdb_8if2)
+
+#iterate through backgrounds, output a pdb with del effects
+for(s in c("Omicron_BQ11")){
+  b <- rep(0, length(pdb_bq11$atom$b))
+  for(i in 1:nrow(pdb_bq11$atom)){
+    if(pdb_bq11$atom$chain[i]=="B"){
+      res <- pdb_bq11$atom$resno[i]
+      del <- dt_final[target==s & position==res & mutant=="-", delta_bind]
+      if(length(del)>0){
+        if(!is.na(del)){
+          b[i] <- del
+        }
+      }
+    }
+  }
+  write.pdb(pdb=pdb_bq11, file=paste(config$final_variant_scores_dir,"/pdbs/",s,"_del-effects_bq11-structure.pdb",sep=""), b=b)
+}
+
+#iterate through backgrounds, output a pdb with sub effects
+for(s in c("Omicron_BQ11")){
+  b <- rep(0, length(pdb_bq11$atom$b))
+  for(i in 1:nrow(pdb_bq11$atom)){
+    if(pdb_bq11$atom$chain[i]=="B"){
+      res <- pdb_bq11$atom$resno[i]
+      sub <- median(dt_final[position==res & target==s & wildtype!=mutant & mutant!= "-",delta_bind],na.rm=T)
+      if(length(sub)>0){
+        if(!is.na(sub)){
+          b[i] <- sub
+        }
+      }
+    }
+  }
+  write.pdb(pdb=pdb_bq11, file=paste(config$final_variant_scores_dir,"/pdbs/",s,"_sub-effects_bq11-structure.pdb",sep=""), b=b)
+}
+
+```
+
+```{r map_del_to_pdb_xbb15}
+pdb_xbb15 <- read.pdb(file=config$pdb_8iov)
+
+#iterate through backgrounds, output a pdb with del effects
+for(s in c("Omicron_XBB15")){
+  b <- rep(0, length(pdb_xbb15$atom$b))
+  for(i in 1:nrow(pdb_xbb15$atom)){
+    if(pdb_xbb15$atom$chain[i]=="B"){
+      res <- pdb_xbb15$atom$resno[i]
+      del <- dt_final[target==s & position==res & mutant=="-", delta_bind]
+      if(length(del)>0){
+        if(!is.na(del)){
+          b[i] <- del
+        }
+      }
+    }
+  }
+  write.pdb(pdb=pdb_xbb15, file=paste(config$final_variant_scores_dir,"/pdbs/",s,"_del-effects_xbb15-structure.pdb",sep=""), b=b)
+}
+
+
+#iterate through backgrounds, output a pdb with sub effects
+for(s in c("Omicron_XBB15")){
+  b <- rep(0, length(pdb_xbb15$atom$b))
+  for(i in 1:nrow(pdb_xbb15$atom)){
+    if(pdb_xbb15$atom$chain[i]=="B"){
+      res <- pdb_xbb15$atom$resno[i]
+      sub <- median(dt_final[position==res & target==s & wildtype!=mutant & mutant!= "-",delta_bind],na.rm=T)
+      if(length(sub)>0){
+        if(!is.na(sub)){
+          b[i] <- sub
+        }
+      }
+    }
+  }
+  write.pdb(pdb=pdb_xbb15, file=paste(config$final_variant_scores_dir,"/pdbs/",s,"_sub-effects_xbb15-structure.pdb",sep=""), b=b)
+}
+
+
+```
+
+
+Compare effects of deletions in BQ.1.1 to XBB.1.5
+
+```{r deletion_shifts, echo=T, fig.width=3.5, fig.height=3.5, fig.align="center", dpi=300,dev="png"}
+
+temp <- dcast(dt_final[target %in% c("Omicron_XBB15","Omicron_BQ11") & mutant=="-",],
+              position ~ target,
+              value.var=c("delta_bind","n_bc_bind"))
+
+p1 <- ggplot(data=temp, aes(y=delta_bind_Omicron_BQ11, x=delta_bind_Omicron_XBB15))+
+  geom_point()+
+  geom_text_repel(aes(label=ifelse((delta_bind_Omicron_BQ11 > -3 & delta_bind_Omicron_XBB15 < -3.5),as.character(position),'')),size=3)+
+  geom_text_repel(aes(label=ifelse((delta_bind_Omicron_BQ11 > -2 & delta_bind_Omicron_XBB15 < -2.5),as.character(position),'')),size=3)+
+  geom_text_repel(aes(label=ifelse((delta_bind_Omicron_BQ11 > -1.5 & delta_bind_Omicron_XBB15 < -2),as.character(position),'')),size=3)+
+  theme_classic()+
+  ylab("deletion effect on ACE2 binding, Omicron BQ.1.1")+
+  xlab("deletion effect on ACE2 binding, Omicron XBB.1.5")+
+  geom_abline(slope=1, intercept = 0, linetype = 'dotted',color="red")
+
+grid.arrange(p1,nrow=1)
+
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/deletion-ACE2-scatterplot.pdf",sep=""),useDingbats=F))
+
+```
+
+Look at distributions of effects of deletions at all sites, at antigenic sites, and at sites that have indels over SARS2 and sarbecovirus evolution
+
+
+
+```{r deletion_dfe_comparisons, echo=T, fig.width=4, fig.height=6, fig.align="center", dpi=300,dev="png"}
+
+#define sites of escape
+dt_mAb <- data.table(read.csv(file=config$mut_antibody_escape,stringsAsFactors = F))
+dt_mAb <- unique(dt_mAb[condition_type=="antibody",.(condition, condition_type, condition_subtype, site, wildtype, site_total_escape)])
+
+dt_mAb[,site_average_escape:=mean(site_total_escape,na.rm=T),by=c("site")]
+
+site_escape <- unique(dt_mAb[,.(wildtype, site, site_average_escape)])
+
+#define sites for labeling as those with an average of 0.05 normalized site-wise escape across all mAbs
+sig_mAb_sites <- unique(site_escape[site_average_escape>0.1, site])
+
+dels_df_mAb_escape <- dt_final[target=="Omicron_XBB15" & mutant=="-" & position %in% sig_mAb_sites,.(wildtype,position,mutant,delta_bind,n_bc_bind)]
+dels_df_mAb_escape[,class:="major sites of mAb escape"]
+
+
+#define sites with deletions in my sarbecovirus alignment:
+dels_sarbeco <- dt_final[target=="Omicron_XBB15" & mutant=="-" & position %in% c(444:450, 473:490),.(wildtype,position,mutant,delta_bind,n_bc_bind)]
+dels_sarbeco[,class:="deletions in sarbeco alignment"]
+
+dels_sarbeco_excl2 <- dt_final[target=="Omicron_XBB15" & mutant=="-" & position %in% c(445:450, 478, 482:490),.(wildtype,position,mutant,delta_bind,n_bc_bind)]
+dels_sarbeco_excl2[,class:="deletions in sarbeco alignment (exclude clade2)"]
+
+dels_df <- dt_final[target=="Omicron_XBB15" & mutant=="-",.(wildtype,position,mutant,delta_bind,n_bc_bind)]
+dels_df[,class:="all deletions"]
+
+dels_df <- rbind(rbind(rbind(dels_df,dels_df_mAb_escape),dels_sarbeco),dels_sarbeco_excl2)
+
+dels_df$class <- factor(dels_df$class, levels=unique(dels_df$class))
+
+# Calculate median and interquartile range for each class
+summary_data <- dels_df %>%
+  group_by(class) %>%
+  summarize(
+    median = median(delta_bind,na.rm=T),
+    lower = quantile(delta_bind, 0.25,na.rm=T),
+    upper = quantile(delta_bind, 0.75,na.rm=T)
+  )
+
+p1 <- ggplot(data=dels_df, aes(y=delta_bind, x=class))+
+  geom_violin(trim=FALSE, adjust=0.75)+
+  geom_linerange(data = summary_data, aes(y=median, ymin = lower, ymax = upper), color = "gray50", size = 1) +
+  stat_summary(fun = "median", geom = "point", color = "black", size = 3) +
+  labs(x="",y="delta-log10Kd (XBB.1.5)")+
+  theme_classic()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+grid.arrange(p1,nrow=1)
+
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/deletion-effects_violinplot.pdf",sep=""),useDingbats=F))
+
+wilcox.test(dels_df[class=="all deletions",delta_bind],dels_df[class=="major sites of mAb escape",delta_bind])
+wilcox.test(dels_df[class=="all deletions",delta_bind],dels_df[class=="deletions in sarbeco alignment",delta_bind])
+wilcox.test(dels_df[class=="all deletions",delta_bind],dels_df[class=="deletions in sarbeco alignment (exclude clade2)",delta_bind])
+
+```
+
+
+Compare effects of mutations to effects of deletions for XBB data.
+
+```{r compare_effects_dels_subs, echo=T, fig.width=7, fig.height=3.5, fig.align="center", dpi=300,dev="png"}
+temp <- data.table(site=331:531,median_sub=as.numeric(NA),min_sub=as.numeric(NA),del=as.numeric(NA))
+
+for(i in 1:nrow(temp)){
+  temp[i,"median_sub"] <- median(dt_final[position == temp[i,site] & target=="Omicron_XBB15" & wildtype!=mutant & mutant != "-",delta_bind],na.rm=T)
+  temp[i,"min_sub"] <- min(dt_final[position == temp[i,site] & target=="Omicron_XBB15" & wildtype!=mutant & mutant != "-",delta_bind],na.rm=T)
+  temp[i,"del"] <- dt_final[position == temp[i,site] & target=="Omicron_XBB15" & mutant == "-",delta_bind]
+}
+
+p1 <- ggplot(data=temp, aes(y=median_sub, x=del))+
+  geom_point()+
+  theme_classic()+
+  ylab("median effect on ACE2 binding of amino acid mutation at site")+
+  xlab("effect on ACE2 binding of deletion at site")+
+  geom_abline(slope=1, intercept = 0, linetype = 'dotted',color="red")
+
+p2 <- ggplot(data=temp, aes(y=min_sub, x=del))+
+  geom_point()+
+  theme_classic()+
+  ylab("minimum effect on ACE2 binding of amino acid mutation at site")+
+  xlab("effect on ACE2 binding of deletion at site")+
+  geom_abline(slope=1, intercept = 0, linetype = 'dotted',color="red")+
+  #geom_text_repel(aes(label=ifelse((min_sub < -3 & del > -2),as.character(site),'')),size=3)+
+  geom_text_repel(aes(label=ifelse((min_sub < -3 & del > -2.5),as.character(site),'')),size=3)
+  
+
+grid.arrange(p1,p2,nrow=1)
+
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/deletion-v-median-sub_scatterplot.pdf",sep=""),useDingbats=F))
+
+
+```
+
+
+
+Last, load in counts of subs from GISAID alignment (up to something like 16 million sequences) and compare frequency of deletion mutant to ACE2 effect
+
+```{r SARS2_dels_gisaid, echo=T, fig.width=5.5, fig.height=4, fig.align="center", dpi=300,dev="png"}
+gisaid_dels <- data.table(read.csv(file=config$gisaid_mutation_counts,stringsAsFactors = F))[mutant=="-",]
+
+#add in any zero-count dels too?
+for(site in 331:531){
+  if(!(site %in% gisaid_dels$site)){
+    gisaid_dels <- rbind(gisaid_dels, data.table(isite=as.numeric((site-330)),site=site, wildtype=dt_final[target=="Wuhan-Hu-1" & position==site & wildtype==mutant, wildtype], mutant="-", count=0, n_countries=0, frequency=0) )
+  }
+}
+
+gisaid_dels$delta_bind <- as.numeric(NA)
+
+for(i in 1:nrow(gisaid_dels)){
+  gisaid_dels[i,"delta_bind"] <- dt_final[target=="Omicron_XBB15" & position==gisaid_dels[i,site] & mutant=="-",delta_bind]
+}
+
+#add pseudo-frequency to 0-counts
+gisaid_dels[frequency==0,frequency:=min(gisaid_dels[frequency>0,frequency])/5]
+
+p1 <- ggplot(data=gisaid_dels, aes(y=log10(frequency), x=delta_bind))+
+  geom_point(aes(color = ifelse(site %in% sig_mAb_sites, "yes", "no")))+
+  geom_text_repel(aes(label=ifelse((log10(frequency) > -6),as.character(site),''), color = ifelse(site %in% sig_mAb_sites, "yes", "no")),size=3, show.legend=FALSE)+
+  scale_color_manual(
+    values = c("no" = "black", "yes" = "red")
+  ) +
+  labs(color = "Site of mAb escape?") +
+  theme_classic()+
+  ylab("log10(GISAID frequency)")+
+  xlab("deletion effect on ACE2 binding, Omicron XBB.1.5")
+
+grid.arrange(p1,nrow=1)
+
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/gisaid-freq-v-bind-scatterplot.pdf",sep=""),useDingbats=F))
+
+```
+
+Save output files.
+
+```{r outputs}
+dt_final[,.(target,wildtype,position,mutant,mutation,bind,delta_bind,n_bc_bind,n_libs_bind,bind_rep1,bind_rep2,bind_rep3,expr,delta_expr,n_bc_expr,n_libs_expr,expr_rep1,expr_rep2)] %>%
+  mutate_if(is.numeric, round, digits=2) %>%
+  write.csv(file=config$final_variant_scores_mut_file, row.names=F,quote=F)
+```
+
+
+
+
+

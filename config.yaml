@@ -1,0 +1,116 @@
+# config for analysis
+
+# most CPUs to ever use at once
+max_cpus: 8
+
+# amplicons sequenced by PacBio
+amplicons_EG5: data/PacBio_amplicon_EG5.gb
+amplicons_FLip: data/PacBio_amplicon_FLip.gb
+amplicons_BA286: data/PacBio_amplicon_BA286.gb
+
+# how to parse the amplicon
+feature_parse_specs_EG5: data/feature_parse_specs_EG5.yaml
+feature_parse_specs_FLip: data/feature_parse_specs_FLip.yaml
+feature_parse_specs_BA286: data/feature_parse_specs_BA286.yaml
+
+# do we get the sequencing data from locally on our server versus SRA?
+seqdata_source: local
+
+# list of PacBio sequencing runs linking barcodes to variants
+pacbio_runs: data/PacBio_runs.csv
+
+# list of Illumina sequencing runs of barcodes
+barcode_runs: data/barcode_runs.csv
+
+# wildtype sequence of mutagenized gene
+wildtype_sequence: data/wildtype_sequence.fasta
+site_number_offset: 330  # add this to sequential sites to get RBD numbering
+
+#add something here for a secondary BA286 offset with the single-codon deletion...
+
+# spike sequences from gisaid
+
+
+
+# pdbs for mapping, analysis
+pdb_6m0j: data/6m0j.pdb #WH1 bound to ACE2 xtal
+pdb_8if2: data/8if2.pdb #BQ11 boudn to ACE2 xtal
+pdb_8iov: data/8iov.pdb #XBB.1 bound to ACE2, cryoEM local refinement
+
+# URLs from which we download binding & expression of mutants & variants and surveillance count data
+mut_bind_expr_url: https://media.githubusercontent.com/media/tstarrlab/SARS-CoV-2-RBD_DMS_Omicron-XBB-BQ/main/results/final_variant_scores/final_variant_scores.csv
+mut_antibody_escape_url: https://media.githubusercontent.com/media/jbloomlab/SARS2_RBD_Ab_escape_maps/main/processed_data/escape_data.csv
+SARSr_DMS_url: https://raw.githubusercontent.com/tstarrlab/SARSr-CoV-RBD_DMS/main/results/final_variant_scores/final_variant_scores_lib40_41.csv
+
+
+# output directories / files
+summary_dir: results/summary
+mut_bind_expr: results/prior_DMS_data/mutant_ACE2binding_expression.csv
+mut_antibody_escape: results/prior_DMS_data/mutant_antibody-escape.csv
+mut_clade_occurrence: results/prior_DMS_data/mutant_clade_occurrence.csv
+SARSr_DMS: results/prior_DMS_data/SARSr-CoV_DMS.csv
+
+figs_dir: results/figures
+ccs_dir: results/ccs
+
+process_ccs_dir: results/process_ccs
+processed_ccs_file_EG5: results/process_ccs/processed_ccs_EG5.csv
+processed_ccs_file_FLip: results/process_ccs/processed_ccs_FLip.csv
+processed_ccs_file_BA286: results/process_ccs/processed_ccs_BA286.csv
+
+variants_dir: results/variants
+nt_variant_table_file_EG5: results/variants/nucleotide_variant_table_EG5.csv
+nt_variant_table_file_FLip: results/variants/nucleotide_variant_table_FLip.csv
+nt_variant_table_file_BA286: results/variants/nucleotide_variant_table_BA286.csv
+codon_variant_table_file_EG5: results/variants/codon_variant_table_EG5.csv
+codon_variant_table_file_FLip: results/variants/codon_variant_table_FLip.csv
+codon_variant_table_file_BA286: results/variants/codon_variant_table_BA286.csv
+
+counts_dir: results/counts
+variant_counts_file: results/counts/variant_counts.csv
+
+expression_sortseq_dir: results/expression_meanF
+expression_sortseq_file: results/expression_meanF/bc_expression.csv
+
+Titeseq_Kds_dir: results/binding_Kd
+Titeseq_Kds_file: results/binding_Kd/bc_binding.csv
+
+final_variant_scores_dir: results/final_variant_scores
+final_variant_scores_mut_file: results/final_variant_scores/final_variant_scores.csv
+
+epistatic_shifts_dir: results/epistatic_shifts
+JSD_file: results/epistatic_shifts/JSD_by_target.csv
+JSD_expr_file: results/epistatic_shifts/JSD_EXPRESSION_by_target.csv
+
+visualization_dir: docs/_includes
+
+gisaid_mutations_dir: results/GISAID_mutations
+gisaid_spikes: data/hCoV-19_spikeprot1112.tar.xz
+gisaid_mutation_counts: results/GISAID_mutations/mutation_counts.csv
+
+
+
+
+# parameters for running PacBio `ccs` program
+min_ccs_accuracy: 0.999
+min_ccs_passes: 3
+min_ccs_length: 50
+max_ccs_length: 5000
+
+# max error rate in gene / barcode CCSs retained for consensu building
+max_error_rate: 0.00001
+
+# Parameters for processing Illumina barcodes, assuming this structure:
+#  [R2 binds] - [upstream] - [barcode] - [downstream] - [R1 binds]
+#  This orientation is hard-wired in the barcode parser, but here it is opposite
+#  Therefore, supplied the "downstream" sequence as reverse complemented upstream
+# Passed to `dms_variants.illuminabarcodeparser.IlluminaBarcodeParser`:
+illumina_barcode_parser_params:
+  upstream: GGCCGC
+  downstream: ''
+  minq: 20
+  upstream_mismatch: 1
+  downstream_mismatch: 0
+
+# Input files for analyses from the data subdirectory
+RBD_sites: data/RBD_sites.csv
