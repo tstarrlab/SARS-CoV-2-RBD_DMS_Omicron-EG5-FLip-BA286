@@ -1,16 +1,14 @@
----
-title: "Compute per-barcode expression functional score"
-author: "Tyler Starr"
-date: "6/9/2022"
-output:
-  github_document:
-    html_preview: false
-editor_options: 
-  chunk_output_type: inline
----
-This notebook reads in per-barcode counts from `count_variants.ipynb` for expression Sort-seq experiments, computes functional scores for RBD expression levels, and does some basic QC on variant expression functional scores.
+Compute per-barcode expression functional score
+================
+Tyler Starr
+6/9/2022
 
-```{r setup, message=FALSE, warning=FALSE, error=FALSE}
+This notebook reads in per-barcode counts from `count_variants.ipynb`
+for expression Sort-seq experiments, computes functional scores for RBD
+expression levels, and does some basic QC on variant expression
+functional scores.
+
+``` r
 #list of packages to install/load
 packages = c("yaml","data.table","tidyverse","fitdistrplus","gridExtra")
 #install any packages not already installed
@@ -34,15 +32,61 @@ if(!file.exists(config$expression_sortseq_dir)){
   dir.create(file.path(config$expression_sortseq_dir))
 }
 ```
+
 Session info for reproducing environment:
-```{r print_sessionInfo}
+
+``` r
 sessionInfo()
 ```
 
-## Setup
-First, we will read in metadata on our sort samples, the table giving number of reads of each barcode in each of the sort bins, and the barcode-variant lookup tables, and merge these tables together.
+    ## R version 4.1.3 (2022-03-10)
+    ## Platform: x86_64-pc-linux-gnu (64-bit)
+    ## Running under: Rocky Linux 8.8 (Green Obsidian)
+    ## 
+    ## Matrix products: default
+    ## BLAS/LAPACK: /uufs/chpc.utah.edu/sys/spack/linux-rocky8-nehalem/gcc-8.5.0/intel-oneapi-mkl-2021.4.0-h43nkmwzvaltaa6ii5l7n6e7ruvjbmnv/mkl/2021.4.0/lib/intel64/libmkl_rt.so.1
+    ## 
+    ## locale:
+    ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+    ##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+    ##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+    ##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+    ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+    ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+    ## 
+    ## attached base packages:
+    ## [1] stats     graphics  grDevices utils     datasets  methods   base     
+    ## 
+    ## other attached packages:
+    ##  [1] gridExtra_2.3       fitdistrplus_1.1-11 survival_3.2-13    
+    ##  [4] MASS_7.3-55         forcats_0.5.1       stringr_1.4.0      
+    ##  [7] dplyr_1.0.8         purrr_0.3.4         readr_2.1.2        
+    ## [10] tidyr_1.2.0         tibble_3.1.6        ggplot2_3.4.1      
+    ## [13] tidyverse_1.3.1     data.table_1.14.2   yaml_2.3.5         
+    ## 
+    ## loaded via a namespace (and not attached):
+    ##  [1] tidyselect_1.1.2 xfun_0.30        lattice_0.20-45  splines_4.1.3   
+    ##  [5] haven_2.4.3      colorspace_2.0-3 vctrs_0.5.2      generics_0.1.2  
+    ##  [9] htmltools_0.5.2  utf8_1.2.2       rlang_1.0.6      pillar_1.7.0    
+    ## [13] glue_1.6.2       withr_2.5.0      DBI_1.1.2        dbplyr_2.1.1    
+    ## [17] modelr_0.1.8     readxl_1.3.1     lifecycle_1.0.3  munsell_0.5.0   
+    ## [21] gtable_0.3.0     cellranger_1.1.0 rvest_1.0.2      evaluate_0.15   
+    ## [25] knitr_1.37       tzdb_0.2.0       fastmap_1.1.0    fansi_1.0.2     
+    ## [29] broom_0.7.12     Rcpp_1.0.11      backports_1.4.1  scales_1.2.1    
+    ## [33] jsonlite_1.8.7   fs_1.5.2         hms_1.1.1        digest_0.6.29   
+    ## [37] stringi_1.7.6    grid_4.1.3       cli_3.6.0        tools_4.1.3     
+    ## [41] magrittr_2.0.2   crayon_1.5.0     pkgconfig_2.0.3  Matrix_1.4-0    
+    ## [45] ellipsis_0.3.2   xml2_1.3.3       reprex_2.0.1     lubridate_1.8.0 
+    ## [49] rstudioapi_0.13  assertthat_0.2.1 rmarkdown_2.13   httr_1.4.7      
+    ## [53] R6_2.5.1         compiler_4.1.3
 
-```{r input_data}
+## Setup
+
+First, we will read in metadata on our sort samples, the table giving
+number of reads of each barcode in each of the sort bins, and the
+barcode-variant lookup tables, and merge these tables together.
+
+``` r
 #read dataframe with list of barcode runs
 barcode_runs <- read.csv(file=config$barcode_runs,stringsAsFactors=F); barcode_runs <- subset(barcode_runs, select=-c(R1))
 
@@ -70,11 +114,13 @@ for(i in 1:nrow(duplicates)){
 dt <- dt[duplicate==FALSE,]; dt[,duplicate:=NULL]
 
 dt <- merge(counts, dt, by=c("library","barcode")); rm(dt_EG5);rm(dt_FLip);rm(dt_BA286);rm(counts); rm(duplicates)
-
 ```
- Convert from Illumina read counts to estimates of the number of cells that were sorted into a bin, and add some other useful information to our data frame.
- 
-```{r downweight_counts_by_cells}
+
+Convert from Illumina read counts to estimates of the number of cells
+that were sorted into a bin, and add some other useful information to
+our data frame.
+
+``` r
 #for each bin, normalize the read counts to the observed ratio of cell recovery among bins
 for(i in 1:nrow(barcode_runs)){
   lib <- as.character(barcode_runs$library[i])
@@ -88,7 +134,18 @@ for(i in 1:nrow(barcode_runs)){
     print(paste("read:cell ratio for",lib,bin,"is",ratio))
   }
 }
+```
 
+    ## [1] "reads < cells for pool1 SortSeq_bin1 , un-normalized (ratio 0.103514385024499 )"
+    ## [1] "reads < cells for pool1 SortSeq_bin2 , un-normalized (ratio 0.0165412498951575 )"
+    ## [1] "reads < cells for pool1 SortSeq_bin3 , un-normalized (ratio 0.0915926585266998 )"
+    ## [1] "reads < cells for pool1 SortSeq_bin4 , un-normalized (ratio 0.0183303090159855 )"
+    ## [1] "read:cell ratio for pool2 SortSeq_bin1 is 3.48360896415189"
+    ## [1] "read:cell ratio for pool2 SortSeq_bin2 is 3.59673358406217"
+    ## [1] "reads < cells for pool2 SortSeq_bin3 , un-normalized (ratio 0.96318922708046 )"
+    ## [1] "read:cell ratio for pool2 SortSeq_bin4 is 1.00312522694127"
+
+``` r
 #annotate each barcode as to whether it's a homolog variant, SARS-CoV-2 wildtype, synonymous muts only, stop, nonsynonymous, >1 nonsynonymous mutations
 dt[,variant_class:=as.character(NA)]
 dt[n_codon_substitutions==0, variant_class := "wildtype"]
@@ -108,8 +165,19 @@ dt[,total_bins_w_count := sum(.(SortSeq_bin1,SortSeq_bin2,SortSeq_bin3,SortSeq_b
 ```
 
 ## Calculating mean fluorescence
-Next, for each barcode, calculate its mean fluorescence as an indicator of RBD expression level. We will use a maximum likelihood approach to determine the mean and standard deviation of fluorescence for a barcode, given its distribution of cell counts across sort bins, and the known fluorescence boundaries of those sort bins from the sorting log. The package `fitdistcens` enables this ML estimation for these type of *censored* observations, where we know we observed a cell within some fluorescence interval but do not know the exact fluorescence value attributed to that observation. The counts are multiplied by 20 so that there is not a large rounding effect when they are rounded to integers.
-```{r calculate_meanF, error=FALSE, message=FALSE, warning=FALSE, results=F}
+
+Next, for each barcode, calculate its mean fluorescence as an indicator
+of RBD expression level. We will use a maximum likelihood approach to
+determine the mean and standard deviation of fluorescence for a barcode,
+given its distribution of cell counts across sort bins, and the known
+fluorescence boundaries of those sort bins from the sorting log. The
+package `fitdistcens` enables this ML estimation for these type of
+*censored* observations, where we know we observed a cell within some
+fluorescence interval but do not know the exact fluorescence value
+attributed to that observation. The counts are multiplied by 20 so that
+there is not a large rounding effect when they are rounded to integers.
+
+``` r
 #define function to calculate ML meanF
 calc.MLmean <- function(b1,b2,b3,b4,min.b1,min.b2,min.b3,min.b4,max.b4,min.count=1){ #b1-4 gives observed cell counts in bins 1-4; remaining arguments give fluorescence boundaries of the respective bins; min.count gives minimum number of total observations needed across bins in order to calculate meanF (default 1)
   data <- data.frame(left=c(rep(min.b1,round(b1)),rep(min.b2,round(b2)),rep(min.b3,round(b3)),rep(min.b4,round(b4))),
@@ -137,62 +205,73 @@ invisible(dt[library=="pool2",c("expression","ML_sdF") := tryCatch(calc.MLmean(b
 #save temp data file for downstream troubleshooting since the ML meanF took >1hr to calculate -- don't use these for final anlaysis though for reproducibility!
 save(dt,file=paste(config$expression_sortseq_dir,"/dt.temp.Rda",sep=""))
 ```
+
 ## Basic plotting and QC
 
-Let's look at the distibution of expression scores by variant class for each library.
+Let’s look at the distibution of expression scores by variant class for
+each library.
 
-```{r unfiltered_expression_distribution, echo=T, fig.width=7, fig.height=5, fig.align="center", dpi=300,dev="png"}
+``` r
 #histogram of mean F, separated by class
 hist(dt[variant_class %in% (c("1 nonsynonymous",">1 nonsynonymous")),expression],col="gray40",main="",breaks=50,xlab="ML mean fluorescence (a.u.)")
 hist(dt[variant_class %in% (c("synonymous","wildtype")),expression],col="#92278F",add=T,breaks=50)
 hist(dt[variant_class %in% (c("stop")),expression],col="#BE1E2D",add=T,breaks=50)
 ```
 
-Next let's look at the distributon of cell counts across the four bins for each barcode, for those for which estimates were generated on the bottom. 
-```{r cell_count_coverage, echo=T, fig.width=10, fig.height=10, fig.align="center", dpi=300,dev="png"}
+<img src="compute_expression_meanF_files/figure-gfm/unfiltered_expression_distribution-1.png" style="display: block; margin: auto;" />
+
+Next let’s look at the distributon of cell counts across the four bins
+for each barcode, for those for which estimates were generated on the
+bottom.
+
+``` r
 #histograms
 par(mfrow=c(2,2))
 hist(log10(dt[library=="pool1",expr_count]+0.1),xlab="cell count (log10, plus 0.1 pseudocount)",main="pool1, all bc",col="gray50")
 hist(log10(dt[library=="pool2",expr_count]+0.1),xlab="cell count (log10, plus 0.1 pseudocount)",main="pool2, all bc",col="gray50")
 hist(log10(dt[library=="pool1" & !is.na(expression),expr_count]+0.1),xlab="cell count (log10, plus 0.1 pseudocount)",main="pool1, determined",col="gray50")
 hist(log10(dt[library=="pool2" & !is.na(expression),expr_count]+0.1),xlab="cell count (log10, plus 0.1 pseudocount)",main="pool2, determined",col="gray50")
-
 ```
 
-Filter out expression measurements determined from <10 estimated cells
+<img src="compute_expression_meanF_files/figure-gfm/cell_count_coverage-1.png" style="display: block; margin: auto;" />
 
-```{r filter_min_cfu}
+Filter out expression measurements determined from \<10 estimated cells
+
+``` r
 min_count <- 10
 dt[expr_count<min_count, c("expression","ML_sdF","expr_count") := NA]
 ```
 
-Do as violin plots, faceted by each target. In next notebook, we'll evaluate count depth and possibly apply further filtering to remove low-count expression estimates
+Do as violin plots, faceted by each target. In next notebook, we’ll
+evaluate count depth and possibly apply further filtering to remove
+low-count expression estimates
 
-```{r expression_distribution_vioplot, echo=T, fig.width=6, fig.height=18, fig.align="center", dpi=300,dev="png"}
+``` r
 p1 <- ggplot(dt[!is.na(expression),],aes(x=variant_class,y=expression))+
   geom_violin(scale="width")+stat_summary(fun=median,geom="point",size=1)+
   ggtitle("expression")+xlab("variant class")+theme(axis.text.x=element_text(angle=-90,hjust=0))+
   facet_wrap(~target,nrow=4)
 
 grid.arrange(p1,ncol=1)
+```
 
+<img src="compute_expression_meanF_files/figure-gfm/expression_distribution_vioplot-1.png" style="display: block; margin: auto;" />
+
+``` r
 #save pdf
 invisible(dev.print(pdf, paste(config$expression_sortseq_dir,"/violin-plot_meanF-by-target.pdf",sep="")))
 ```
 
-We have generated expression measurements for `r round(nrow(dt[!is.na(expression)])/nrow(dt)*100,digits=2)`% of the barcodes in our libraries.
+We have generated expression measurements for 48.47% of the barcodes in
+our libraries.
 
 ## Data Output
 
-Finally, let's output our measurements for downstream analyses.
+Finally, let’s output our measurements for downstream analyses.
 
-```{r output_data}
+``` r
 dt[,.(library,barcode,target,variant_class,aa_substitutions,n_aa_substitutions,
      expr_count,expression)] %>%
   mutate_if(is.numeric, round, digits=6) %>%
   write.csv(file=config$expression_sortseq_file, row.names=F)
-
 ```
-
-
-

@@ -1,17 +1,14 @@
----
-title: "Compute per-barcode ACE2 binding affinity"
-author: "Tyler Starr"
-date: "3/19/2024"
-output:
-  github_document:
-    html_preview: false
-editor_options: 
-  chunk_output_type: inline
----
+Compute per-barcode ACE2 binding affinity
+================
+Tyler Starr
+3/19/2024
 
-This notebook reads in per-barcode counts from `count_variants.ipynb` for ACE2-binding Tite-seq experiments, computes functional scores for RBD ACE2-binding affiniity, and does some basic QC on variant binding functional scores.
+This notebook reads in per-barcode counts from `count_variants.ipynb`
+for ACE2-binding Tite-seq experiments, computes functional scores for
+RBD ACE2-binding affiniity, and does some basic QC on variant binding
+functional scores.
 
-```{r setup, message=FALSE, warning=FALSE, error=FALSE}
+``` r
 #list of packages to install/load
 packages = c("yaml","data.table","tidyverse","gridExtra")
 #install any packages not already installed
@@ -35,15 +32,58 @@ if(!file.exists(config$Titeseq_Kds_dir)){
   dir.create(file.path(config$Titeseq_Kds_dir))
 }
 ```
+
 Session info for reproducing environment:
-```{r print_sessionInfo}
+
+``` r
 sessionInfo()
 ```
 
-## Setup
-First, we will read in metadata on our sort samples, the table giving number of reads of each barcode in each of the sort bins, and the barcode-variant lookup tables, and merge these tables together.
+    ## R version 4.1.3 (2022-03-10)
+    ## Platform: x86_64-pc-linux-gnu (64-bit)
+    ## Running under: Rocky Linux 8.8 (Green Obsidian)
+    ## 
+    ## Matrix products: default
+    ## BLAS/LAPACK: /uufs/chpc.utah.edu/sys/spack/linux-rocky8-nehalem/gcc-8.5.0/intel-oneapi-mkl-2021.4.0-h43nkmwzvaltaa6ii5l7n6e7ruvjbmnv/mkl/2021.4.0/lib/intel64/libmkl_rt.so.1
+    ## 
+    ## locale:
+    ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+    ##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+    ##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+    ##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+    ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+    ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+    ## 
+    ## attached base packages:
+    ## [1] stats     graphics  grDevices utils     datasets  methods   base     
+    ## 
+    ## other attached packages:
+    ##  [1] gridExtra_2.3     forcats_0.5.1     stringr_1.4.0     dplyr_1.0.8      
+    ##  [5] purrr_0.3.4       readr_2.1.2       tidyr_1.2.0       tibble_3.1.6     
+    ##  [9] ggplot2_3.4.1     tidyverse_1.3.1   data.table_1.14.2 yaml_2.3.5       
+    ## 
+    ## loaded via a namespace (and not attached):
+    ##  [1] tidyselect_1.1.2 xfun_0.30        haven_2.4.3      colorspace_2.0-3
+    ##  [5] vctrs_0.5.2      generics_0.1.2   htmltools_0.5.2  utf8_1.2.2      
+    ##  [9] rlang_1.0.6      pillar_1.7.0     glue_1.6.2       withr_2.5.0     
+    ## [13] DBI_1.1.2        dbplyr_2.1.1     modelr_0.1.8     readxl_1.3.1    
+    ## [17] lifecycle_1.0.3  munsell_0.5.0    gtable_0.3.0     cellranger_1.1.0
+    ## [21] rvest_1.0.2      evaluate_0.15    knitr_1.37       tzdb_0.2.0      
+    ## [25] fastmap_1.1.0    fansi_1.0.2      broom_0.7.12     Rcpp_1.0.11     
+    ## [29] backports_1.4.1  scales_1.2.1     jsonlite_1.8.7   fs_1.5.2        
+    ## [33] hms_1.1.1        digest_0.6.29    stringi_1.7.6    grid_4.1.3      
+    ## [37] cli_3.6.0        tools_4.1.3      magrittr_2.0.2   crayon_1.5.0    
+    ## [41] pkgconfig_2.0.3  ellipsis_0.3.2   xml2_1.3.3       reprex_2.0.1    
+    ## [45] lubridate_1.8.0  rstudioapi_0.13  assertthat_0.2.1 rmarkdown_2.13  
+    ## [49] httr_1.4.7       R6_2.5.1         compiler_4.1.3
 
-```{r input_data}
+## Setup
+
+First, we will read in metadata on our sort samples, the table giving
+number of reads of each barcode in each of the sort bins, and the
+barcode-variant lookup tables, and merge these tables together.
+
+``` r
 #read dataframe with list of barcode runs
 barcode_runs <- read.csv(file=config$barcode_runs,stringsAsFactors=F); barcode_runs <- subset(barcode_runs, select=-c(R1))
 
@@ -74,12 +114,13 @@ dt <- merge(counts, dt, by=c("library","barcode")); rm(dt_EG5);rm(dt_FLip);rm(dt
 
 #make tables giving names of Titeseq samples and the corresponding ACE2 incubation concentrations
 samples_TiteSeq <- data.frame(sample=unique(paste(barcode_runs[barcode_runs$sample_type=="TiteSeq","sample_type"],formatC(barcode_runs[barcode_runs$sample_type=="TiteSeq","concentration"], width=2,flag="0"),sep="_")),conc=c(10^-6, 10^-7, 10^-8, 10^-9, 10^-10, 10^-11, 10^-12, 10^-13,0))
-
 ```
 
- Convert from Illumina read counts to estimates of the number of cells that were sorted into a bin, and add some other useful information to our data frame.
- 
-```{r downweight_counts_by_cells}
+Convert from Illumina read counts to estimates of the number of cells
+that were sorted into a bin, and add some other useful information to
+our data frame.
+
+``` r
 #for each bin, normalize the read counts to the observed ratio of cell recovery among bins
 for(i in 1:nrow(barcode_runs)){
   lib <- as.character(barcode_runs$library[i])
@@ -93,7 +134,82 @@ for(i in 1:nrow(barcode_runs)){
     print(paste("read:cell ratio for",lib,bin,"is",ratio))
   }
 }
+```
 
+    ## [1] "read:cell ratio for pool1 TiteSeq_01_bin1 is 8.92455074888174"
+    ## [1] "read:cell ratio for pool1 TiteSeq_01_bin2 is 1.13836258777494"
+    ## [1] "reads < cells for pool1 TiteSeq_01_bin3 , un-normalized (ratio 0.629597949269373 )"
+    ## [1] "read:cell ratio for pool1 TiteSeq_01_bin4 is 1.05969864851671"
+    ## [1] "reads < cells for pool1 TiteSeq_02_bin1 , un-normalized (ratio 0.922304646900612 )"
+    ## [1] "read:cell ratio for pool1 TiteSeq_02_bin2 is 10.0154204887395"
+    ## [1] "reads < cells for pool1 TiteSeq_02_bin3 , un-normalized (ratio 0.694995133320393 )"
+    ## [1] "read:cell ratio for pool1 TiteSeq_02_bin4 is 1.04671934402204"
+    ## [1] "reads < cells for pool1 TiteSeq_03_bin1 , un-normalized (ratio 0.961379109558362 )"
+    ## [1] "reads < cells for pool1 TiteSeq_03_bin2 , un-normalized (ratio 0.978095000104121 )"
+    ## [1] "reads < cells for pool1 TiteSeq_03_bin3 , un-normalized (ratio 0.841006922262274 )"
+    ## [1] "read:cell ratio for pool1 TiteSeq_03_bin4 is 1.10140353958218"
+    ## [1] "read:cell ratio for pool1 TiteSeq_04_bin1 is 7.38555730037806"
+    ## [1] "reads < cells for pool1 TiteSeq_04_bin2 , un-normalized (ratio 0.538974120016206 )"
+    ## [1] "reads < cells for pool1 TiteSeq_04_bin3 , un-normalized (ratio 0.997835789464276 )"
+    ## [1] "read:cell ratio for pool1 TiteSeq_04_bin4 is 1.59834757199997"
+    ## [1] "reads < cells for pool1 TiteSeq_05_bin1 , un-normalized (ratio 0.840959802021942 )"
+    ## [1] "read:cell ratio for pool1 TiteSeq_05_bin2 is 2.88390150195212"
+    ## [1] "reads < cells for pool1 TiteSeq_05_bin3 , un-normalized (ratio 0.768135309938974 )"
+    ## [1] "reads < cells for pool1 TiteSeq_05_bin4 , un-normalized (ratio 0.771166982605614 )"
+    ## [1] "reads < cells for pool1 TiteSeq_06_bin1 , un-normalized (ratio 0.862933027213966 )"
+    ## [1] "reads < cells for pool1 TiteSeq_06_bin2 , un-normalized (ratio 0.931457312112453 )"
+    ## [1] "read:cell ratio for pool1 TiteSeq_06_bin3 is 1.30904380308499"
+    ## [1] "reads < cells for pool1 TiteSeq_06_bin4 , un-normalized (ratio 0.882598256034374 )"
+    ## [1] "read:cell ratio for pool1 TiteSeq_07_bin1 is 1.04596861869536"
+    ## [1] "read:cell ratio for pool1 TiteSeq_07_bin2 is 11.6645980682688"
+    ## [1] "read:cell ratio for pool1 TiteSeq_07_bin3 is 1.48788172306251"
+    ## [1] "reads < cells for pool1 TiteSeq_07_bin4 , un-normalized (ratio 0.724334031727028 )"
+    ## [1] "read:cell ratio for pool1 TiteSeq_08_bin1 is 1.06605675952103"
+    ## [1] "read:cell ratio for pool1 TiteSeq_08_bin2 is 2.6003461050133"
+    ## [1] "read:cell ratio for pool1 TiteSeq_08_bin3 is 3.74946312112185"
+    ## [1] "reads < cells for pool1 TiteSeq_08_bin4 , un-normalized (ratio 0.73193731798641 )"
+    ## [1] "reads < cells for pool1 TiteSeq_09_bin1 , un-normalized (ratio 0.725236422575263 )"
+    ## [1] "reads < cells for pool1 TiteSeq_09_bin2 , un-normalized (ratio 0.504682486975409 )"
+    ## [1] "read:cell ratio for pool1 TiteSeq_09_bin3 is 6.36255075232864"
+    ## [1] "reads < cells for pool1 TiteSeq_09_bin4 , un-normalized (ratio 0.705988455988456 )"
+    ## [1] "read:cell ratio for pool2 TiteSeq_01_bin1 is 1.27624750124901"
+    ## [1] "read:cell ratio for pool2 TiteSeq_01_bin2 is 1.42642471531153"
+    ## [1] "read:cell ratio for pool2 TiteSeq_01_bin3 is 1.27571717362121"
+    ## [1] "read:cell ratio for pool2 TiteSeq_01_bin4 is 1.50003442310734"
+    ## [1] "read:cell ratio for pool2 TiteSeq_02_bin1 is 1.17248549590738"
+    ## [1] "read:cell ratio for pool2 TiteSeq_02_bin2 is 1.47338114804422"
+    ## [1] "read:cell ratio for pool2 TiteSeq_02_bin3 is 1.49811896270879"
+    ## [1] "read:cell ratio for pool2 TiteSeq_02_bin4 is 1.49168430379119"
+    ## [1] "read:cell ratio for pool2 TiteSeq_03_bin1 is 1.38685099373881"
+    ## [1] "read:cell ratio for pool2 TiteSeq_03_bin2 is 1.69508820440272"
+    ## [1] "read:cell ratio for pool2 TiteSeq_03_bin3 is 1.51477286285786"
+    ## [1] "read:cell ratio for pool2 TiteSeq_03_bin4 is 1.47080947124067"
+    ## [1] "read:cell ratio for pool2 TiteSeq_04_bin1 is 1.46813172959132"
+    ## [1] "read:cell ratio for pool2 TiteSeq_04_bin2 is 1.41539276000363"
+    ## [1] "read:cell ratio for pool2 TiteSeq_04_bin3 is 1.36071137137859"
+    ## [1] "read:cell ratio for pool2 TiteSeq_04_bin4 is 1.46990998693385"
+    ## [1] "read:cell ratio for pool2 TiteSeq_05_bin1 is 1.28933589596991"
+    ## [1] "read:cell ratio for pool2 TiteSeq_05_bin2 is 1.25872151197789"
+    ## [1] "read:cell ratio for pool2 TiteSeq_05_bin3 is 1.5208539562491"
+    ## [1] "read:cell ratio for pool2 TiteSeq_05_bin4 is 1.67272683171661"
+    ## [1] "read:cell ratio for pool2 TiteSeq_06_bin1 is 1.50767043825846"
+    ## [1] "read:cell ratio for pool2 TiteSeq_06_bin2 is 1.65633792439013"
+    ## [1] "read:cell ratio for pool2 TiteSeq_06_bin3 is 1.31193511261782"
+    ## [1] "read:cell ratio for pool2 TiteSeq_06_bin4 is 3.50742925408796"
+    ## [1] "read:cell ratio for pool2 TiteSeq_07_bin1 is 2.91326108170139"
+    ## [1] "read:cell ratio for pool2 TiteSeq_07_bin2 is 1.51029727445"
+    ## [1] "read:cell ratio for pool2 TiteSeq_07_bin3 is 1.38079799677111"
+    ## [1] "reads < cells for pool2 TiteSeq_07_bin4 , un-normalized (ratio 0.870596547895428 )"
+    ## [1] "read:cell ratio for pool2 TiteSeq_08_bin1 is 1.55616370277746"
+    ## [1] "read:cell ratio for pool2 TiteSeq_08_bin2 is 1.56504573005126"
+    ## [1] "read:cell ratio for pool2 TiteSeq_08_bin3 is 1.38346080783843"
+    ## [1] "reads < cells for pool2 TiteSeq_08_bin4 , un-normalized (ratio 0.610943734223597 )"
+    ## [1] "read:cell ratio for pool2 TiteSeq_09_bin1 is 1.53093130079062"
+    ## [1] "read:cell ratio for pool2 TiteSeq_09_bin2 is 1.46950752812241"
+    ## [1] "read:cell ratio for pool2 TiteSeq_09_bin3 is 1.57103719592156"
+    ## [1] "read:cell ratio for pool2 TiteSeq_09_bin4 is 1.20190877540902"
+
+``` r
 #annotate each barcode as to whether it's a homolog variant, SARS-CoV-2 wildtype, synonymous muts only, stop, nonsynonymous, >1 nonsynonymous mutations
 dt[,variant_class:=as.character(NA)]
 dt[n_codon_substitutions==0, variant_class := "wildtype"]
@@ -104,19 +220,25 @@ dt[n_aa_substitutions > 1 & !grepl("*",aa_substitutions,fixed=T), variant_class 
 
 #cast the data frame into wide format
 dt <- dcast(dt, library + barcode + target + variant_class + aa_substitutions + n_aa_substitutions ~ sample, value.var="count.norm")
-
 ```
 
 ## Calculating mean bin for each barcode at each sample concentration
-Next, for each barcode at each of the ACE2 concentrations, calculate the "mean bin" response variable. This is calculated as a simple mean, where the value of each bin is the integer value of the bin (bin1=unbound, bin4=highly bound) -- because of how bins are defined, the mean fluorescence of cells in each bin are equally spaced on a log-normal scale, so mean bin correlates with simple mean fluorescence.
 
-We do not use the fluorescence boundaries of the FACS bins in our calculations here, but we provide them for posterity's sake below. For the library titration sorts, the fluorescence boundaries for bins 1-4 are as follows:
+Next, for each barcode at each of the ACE2 concentrations, calculate the
+“mean bin” response variable. This is calculated as a simple mean, where
+the value of each bin is the integer value of the bin (bin1=unbound,
+bin4=highly bound) – because of how bins are defined, the mean
+fluorescence of cells in each bin are equally spaced on a log-normal
+scale, so mean bin correlates with simple mean fluorescence.
 
-```
-()
-```
+We do not use the fluorescence boundaries of the FACS bins in our
+calculations here, but we provide them for posterity’s sake below. For
+the library titration sorts, the fluorescence boundaries for bins 1-4
+are as follows:
 
-```{r calculate_mean_bin}
+    ()
+
+``` r
 #function that returns mean bin and sum of counts for four bins cell counts. Includes cutoffs for bimodal sample splits to filter out
 calc.meanbin <- function(vec, split13filter=0.4, split24filter=0.4, split14filter=0.4){
   total <- sum(vec)
@@ -141,9 +263,15 @@ for(i in 1:nrow(samples_TiteSeq)){ #iterate through titeseq sample (concentratio
 ```
 
 ## Fit titration curves
-We will use nonlinear least squares regression to fit curves to each barcode's titration series. We will do weighted nls, using the empirical variance estimates from above to weight each observation. We will also include a minimum cell count that is required for a meanbin estimate to be used in the titration fit, and a minimum number of concentrations with determined meanbin that is required for a titration to be reported. 
 
-```{r fit_titrations}
+We will use nonlinear least squares regression to fit curves to each
+barcode’s titration series. We will do weighted nls, using the empirical
+variance estimates from above to weight each observation. We will also
+include a minimum cell count that is required for a meanbin estimate to
+be used in the titration fit, and a minimum number of concentrations
+with determined meanbin that is required for a titration to be reported.
+
+``` r
 #For QC and filtering, output columns giving the average number of cells that were sampled for a barcode across the 9 sample concentrations, and a value for the number of meanbin estimates that were removed for being below the # of cells cutoff
 cutoff <- 2
 dt[,TiteSeq_avgcount := mean(c(TiteSeq_01_totalcount,TiteSeq_02_totalcount,TiteSeq_03_totalcount,TiteSeq_04_totalcount,
@@ -198,17 +326,27 @@ dt[,c("Kd_ACE2","Kd_SE_ACE2","response_ACE2","baseline_ACE2","nMSR_ACE2") :=
 save(dt, file=paste(config$Titeseq_Kds_dir,"/Kd_temp.Rda",sep=""))
 
 #load(file=paste(config$Titeseq_Kds_dir,"/Kd_temp.Rda",sep=""))
-
 ```
+
 ## QC and sanity checks
-We will do some QC to make sure we got good titration curves for most of our library barcodes. We will also spot check titration curves from across our measurement range, and spot check curves whose fit parameters hit the different boundary conditions of the fit variables.
 
-We successfully generated *K*<sub>D</sub> estimates for `r sum(!is.na(dt[library=="pool1",Kd_ACE2]))` of our pool1 barcodes (`r round(sum(!is.na(dt[library=="pool1",Kd_ACE2]))/nrow(dt[library=="pool1",])*100,digits=2)`%), and `r sum(!is.na(dt[library=="pool2",Kd_ACE2]))` of our pool2 barcodes (`r round(sum(!is.na(dt[library=="pool2",Kd_ACE2]))/nrow(dt[library=="pool2",])*100,digits=2)`%). 
+We will do some QC to make sure we got good titration curves for most of
+our library barcodes. We will also spot check titration curves from
+across our measurement range, and spot check curves whose fit parameters
+hit the different boundary conditions of the fit variables.
 
+We successfully generated *K*<sub>D</sub> estimates for 145284 of our
+pool1 barcodes (55.91%), and 167619 of our pool2 barcodes (66.33%).
 
-Why were estimates not returned for some barcodes? The histograms below show that many barcodes with unsuccessful titration fits have lower average cell counts and more concentrations with fewer than the minimum cutoff number of cells (cutoff=`r cutoff`) than those that were fit. Therefore, we can see the the majority of unfit barcodes come from our minimum read cutoffs, meaning there weren't too many curves that failed to be fit for issues such as nls convergence.
+Why were estimates not returned for some barcodes? The histograms below
+show that many barcodes with unsuccessful titration fits have lower
+average cell counts and more concentrations with fewer than the minimum
+cutoff number of cells (cutoff=2) than those that were fit. Therefore,
+we can see the the majority of unfit barcodes come from our minimum read
+cutoffs, meaning there weren’t too many curves that failed to be fit for
+issues such as nls convergence.
 
-```{r avgcount, fig.width=8, fig.height=8, fig.align="center",dpi=300,dev="png"}
+``` r
 par(mfrow=c(2,2))
 hist(log10(dt[library=="pool1" & !is.na(Kd_ACE2),TiteSeq_avgcount]+0.5),breaks=20,xlim=c(0,5),main="pool1",col="gray50",xlab="average cell count across concentration samples")
 hist(log10(dt[library=="pool1" & is.na(Kd_ACE2),TiteSeq_avgcount]+0.5),breaks=20,add=T,col="red")
@@ -223,13 +361,30 @@ hist(dt[library=="pool2" & !is.na(Kd_ACE2),TiteSeq_min_cell_filtered],breaks=5,m
 hist(dt[library=="pool2" & is.na(Kd_ACE2),TiteSeq_min_cell_filtered],breaks=16,add=T,col="red")
 ```
 
-Let's checkout what the data looks like for some curves that didn't converge on a titration fit, different cutoffs, boudnary conditions, etc. I define a function that take a row from the data table and plots the meanbin estimates and the fit titration curve (if converged). This allows for quick and easy troubleshooting and spot-checking of curves.
+<img src="compute_binding_Kd_files/figure-gfm/avgcount-1.png" style="display: block; margin: auto;" />
 
-In the plots below for non-converging fits, we can see that the data seem to have very low plateaus/signal over the concentration range and perhaps some noise. I understand why they are difficult to fit, and I am not worried by their exclusion, as I can't by eye tell what their fit should be hitting. My best guess is they would have a "response" parameter lower than the minimum allowable, but that is also a hard Kd then to estimate reliably so I'm ok not fitting these relatively small number of curves.
+Let’s checkout what the data looks like for some curves that didn’t
+converge on a titration fit, different cutoffs, boudnary conditions,
+etc. I define a function that take a row from the data table and plots
+the meanbin estimates and the fit titration curve (if converged). This
+allows for quick and easy troubleshooting and spot-checking of curves.
 
-To allow manual checks of what the data looks like for different curve fits, I define functions that take a row from the dt table and the corresponding table of fits, and plots the meanbin estimates and the fit titration curve (if converged). This allows for quick and easy troubleshooting and spot-checking of curves.
+In the plots below for non-converging fits, we can see that the data
+seem to have very low plateaus/signal over the concentration range and
+perhaps some noise. I understand why they are difficult to fit, and I am
+not worried by their exclusion, as I can’t by eye tell what their fit
+should be hitting. My best guess is they would have a “response”
+parameter lower than the minimum allowable, but that is also a hard Kd
+then to estimate reliably so I’m ok not fitting these relatively small
+number of curves.
 
-```{r plot_titration_functions}
+To allow manual checks of what the data looks like for different curve
+fits, I define functions that take a row from the dt table and the
+corresponding table of fits, and plots the meanbin estimates and the fit
+titration curve (if converged). This allows for quick and easy
+troubleshooting and spot-checking of curves.
+
+``` r
 #make functions that allow me to plot a titration for any given row from the counts data frames, for spot checking curves
 plot.titration <- function(row,output.text=F){
   y.vals <- c();for(sample in samples_TiteSeq$sample){y.vals <- c(y.vals,paste(sample,"_meanbin",sep=""))};y.vals <- unlist(dt[row,y.vals,with=F])
@@ -264,7 +419,7 @@ plot.titration <- function(row,output.text=F){
 
 Distribution of Kd estimates, with wt/syn barcodes in purple:
 
-```{r Kd_distribution, fig.width=5, fig.height=9, fig.align="center",dpi=300,dev="png"}
+``` r
 par(mfrow=c(3,1))
 hist(log10(dt[target=="EG5",Kd_ACE2]),col="gray40",breaks=60,xlab="log10(KD), ACE2 (M)",main="EG5",xlim=c(-13,-5))
 hist(log10(dt[target=="EG5" & variant_class %in% (c("synonymous","wildtype")),Kd_ACE2]),col="#92278F",add=T,breaks=60)
@@ -272,21 +427,33 @@ hist(log10(dt[target=="FLip",Kd_ACE2]),col="gray40",breaks=60,xlab="log10(KD), A
 hist(log10(dt[target=="FLip" & variant_class %in% (c("synonymous","wildtype")),Kd_ACE2]),col="#92278F",add=T,breaks=60)
 hist(log10(dt[target=="BA286",Kd_ACE2]),col="gray40",breaks=60,xlab="log10(KD), ACE2 (M)",main="BA286",xlim=c(-13,-5))
 hist(log10(dt[target=="BA286" & variant_class %in% (c("synonymous","wildtype")),Kd_ACE2]),col="#92278F",add=T,breaks=60)
+```
+
+<img src="compute_binding_Kd_files/figure-gfm/Kd_distribution-1.png" style="display: block; margin: auto;" />
+
+``` r
 #save pdf
 invisible(dev.print(pdf, paste(config$Titeseq_Kds_dir,"/hist_Kd-per-barcode.pdf",sep="")))
 ```
 
-Some stop variants eked through our RBD+ selection, either perhaps because of stop codon readthrough, improper PacBio sequence annotation, or other weirdness. Either way, the vast majority of nonsense mutants were purged before this step, and the remaining ones are biased toward unreliable and so we remove them.
-```{r remove_stops}
+Some stop variants eked through our RBD+ selection, either perhaps
+because of stop codon readthrough, improper PacBio sequence annotation,
+or other weirdness. Either way, the vast majority of nonsense mutants
+were purged before this step, and the remaining ones are biased toward
+unreliable and so we remove them.
+
+``` r
 #remove stop variants, which even if they eke through, either a) still have low counts and give poor fits as a result, or b) seem to be either dubious PacBio calls (lower variant_call_support) or have late stop codons which perhaps don't totally ablate funciton. Either way, the vast majority were purged before this step and we don't want to deal with the remaining ones!
 dt[variant_class == "stop",c("Kd_ACE2","Kd_SE_ACE2","response_ACE2","baseline_ACE2","nMSR_ACE2") := list(as.numeric(NA),as.numeric(NA),as.numeric(NA),as.numeric(NA),as.numeric(NA))]
 ```
 
-Let's take a look at some of the curves with *K*<sub>D,app</sub> values across this distribution to get a broad sense of how things look.
+Let’s take a look at some of the curves with *K*<sub>D,app</sub> values
+across this distribution to get a broad sense of how things look.
 
-First, curves with *K*<sub>D,app</sub> fixed at the 10<sup>-5</sup> maximum. We can see these are all flat-lined curves with no response.
+First, curves with *K*<sub>D,app</sub> fixed at the 10<sup>-5</sup>
+maximum. We can see these are all flat-lined curves with no response.
 
-```{r 1e-5_Kd, fig.width=8, fig.height=8, fig.align="center",dpi=300, warning=FALSE, results=FALSE,dev="png"}
+``` r
 par(mfrow=c(2,2))
 plot.titration(which(dt$library=="pool1" & dt$Kd_ACE2 > 9e-6)[1])
 plot.titration(which(dt$library=="pool1" & dt$Kd_ACE2 > 9e-6)[2])
@@ -294,9 +461,11 @@ plot.titration(which(dt$library=="pool2" & dt$Kd_ACE2 > 9e-6)[1])
 plot.titration(which(dt$library=="pool2" & dt$Kd_ACE2 > 9e-6)[2])
 ```
 
+<img src="compute_binding_Kd_files/figure-gfm/1e-5_Kd-1.png" style="display: block; margin: auto;" />
+
 Next, with *K*<sub>D,app</sub> around 10<sup>-6</sup>
 
-```{r 1e-6_Kd, fig.width=8, fig.height=8, fig.align="center",dpi=300, warning=FALSE, results=FALSE,dev="png"}
+``` r
 par(mfrow=c(2,2))
 plot.titration(which(dt$library=="pool1" & dt$Kd_ACE2 > 1e-6 & dt$Kd_ACE2 < 1.2e-6)[1])
 plot.titration(which(dt$library=="pool1" & dt$Kd_ACE2 > 1e-6 & dt$Kd_ACE2 < 1.2e-6)[2])
@@ -304,9 +473,12 @@ plot.titration(which(dt$library=="pool2" & dt$Kd_ACE2 > 1e-6 & dt$Kd_ACE2 < 1.2e
 plot.titration(which(dt$library=="pool2" & dt$Kd_ACE2 > 1e-6 & dt$Kd_ACE2 < 1.2e-6)[2])
 ```
 
-With *K*<sub>D,app</sub> around 10<sup>-7</sup>, we seem to be picking up more consistent binding signals, though there are some noisy curves.
+<img src="compute_binding_Kd_files/figure-gfm/1e-6_Kd-1.png" style="display: block; margin: auto;" />
 
-```{r 1e-7_Kd, fig.width=8, fig.height=8, fig.align="center",dpi=300, warning=FALSE, results=FALSE,dev="png"}
+With *K*<sub>D,app</sub> around 10<sup>-7</sup>, we seem to be picking
+up more consistent binding signals, though there are some noisy curves.
+
+``` r
 par(mfrow=c(2,2))
 plot.titration(which(dt$library=="pool1" & dt$Kd_ACE2 > 1e-7 & dt$Kd_ACE2 < 1.2e-7)[1])
 plot.titration(which(dt$library=="pool1" & dt$Kd_ACE2 > 1e-7 & dt$Kd_ACE2 < 1.2e-7)[2])
@@ -314,9 +486,12 @@ plot.titration(which(dt$library=="pool2" & dt$Kd_ACE2 > 1e-7 & dt$Kd_ACE2 < 1.2e
 plot.titration(which(dt$library=="pool2" & dt$Kd_ACE2 > 1e-7 & dt$Kd_ACE2 < 1.2e-7)[2])
 ```
 
-At *K*<sub>D,app</sub> of 10<sup>-8</sup>, we are likewise picking up some signal, perhaps a bit less noise than the -8 curves
+<img src="compute_binding_Kd_files/figure-gfm/1e-7_Kd-1.png" style="display: block; margin: auto;" />
 
-```{r 1e-8_Kd, fig.width=8, fig.height=8, fig.align="center",dpi=300, warning=FALSE, results=FALSE,dev="png"}
+At *K*<sub>D,app</sub> of 10<sup>-8</sup>, we are likewise picking up
+some signal, perhaps a bit less noise than the -8 curves
+
+``` r
 par(mfrow=c(2,2))
 plot.titration(which(dt$library=="pool1" & dt$Kd_ACE2 > 1e-8 & dt$Kd_ACE2 < 1.2e-8)[1])
 plot.titration(which(dt$library=="pool1" & dt$Kd_ACE2 > 1e-8 & dt$Kd_ACE2 < 1.2e-8)[2])
@@ -324,9 +499,11 @@ plot.titration(which(dt$library=="pool2" & dt$Kd_ACE2 > 1e-8 & dt$Kd_ACE2 < 1.2e
 plot.titration(which(dt$library=="pool2" & dt$Kd_ACE2 > 1e-8 & dt$Kd_ACE2 < 1.2e-8)[2])
 ```
 
+<img src="compute_binding_Kd_files/figure-gfm/1e-8_Kd-1.png" style="display: block; margin: auto;" />
+
 Same at *K*<sub>D,app</sub> of 10<sup>-9</sup>.
 
-```{r 1e-9_Kd, fig.width=8, fig.height=8, fig.align="center",dpi=300, warning=FALSE, results=FALSE,dev="png"}
+``` r
 par(mfrow=c(2,2))
 plot.titration(which(dt$library=="pool1" & dt$Kd_ACE2 > 1e-9 & dt$Kd_ACE2 < 1.2e-9)[1])
 plot.titration(which(dt$library=="pool1" & dt$Kd_ACE2 > 1e-9 & dt$Kd_ACE2 < 1.2e-9)[2])
@@ -334,9 +511,11 @@ plot.titration(which(dt$library=="pool2" & dt$Kd_ACE2 > 1e-9 & dt$Kd_ACE2 < 1.2e
 plot.titration(which(dt$library=="pool2" & dt$Kd_ACE2 > 1e-9 & dt$Kd_ACE2 < 1.2e-9)[2])
 ```
 
+<img src="compute_binding_Kd_files/figure-gfm/1e-9_Kd-1.png" style="display: block; margin: auto;" />
+
 *K*<sub>D,app</sub> of 10<sup>-10</sup>
 
-```{r 1e-10_Kd, fig.width=8, fig.height=8, fig.align="center",dpi=300, warning=FALSE, results=FALSE,dev="png"}
+``` r
 par(mfrow=c(2,2))
 plot.titration(which(dt$library=="pool1" & dt$Kd_ACE2 > 1e-10 & dt$Kd_ACE2 < 1.2e-10)[1])
 plot.titration(which(dt$library=="pool1" & dt$Kd_ACE2 > 1e-10 & dt$Kd_ACE2 < 1.2e-10)[2])
@@ -344,9 +523,12 @@ plot.titration(which(dt$library=="pool2" & dt$Kd_ACE2 > 1e-10 & dt$Kd_ACE2 < 1.2
 plot.titration(which(dt$library=="pool2" & dt$Kd_ACE2 > 1e-10 & dt$Kd_ACE2 < 1.2e-10)[2])
 ```
 
-*K*<sub>D,app</sub> ~ 10<sup>-11</sup>. This is higher affinity than the main bulk of curves.
+<img src="compute_binding_Kd_files/figure-gfm/1e-10_Kd-1.png" style="display: block; margin: auto;" />
 
-```{r 1e-11_Kd, fig.width=8, fig.height=8, fig.align="center",dpi=300, warning=FALSE, results=FALSE,dev="png"}
+*K*<sub>D,app</sub> \~ 10<sup>-11</sup>. This is higher affinity than
+the main bulk of curves.
+
+``` r
 par(mfrow=c(2,2))
 plot.titration(which(dt$library=="pool1" & dt$Kd_ACE2 > 1e-11 & dt$Kd_ACE2 < 2e-11)[1])
 plot.titration(which(dt$library=="pool1" & dt$Kd_ACE2 > 1e-11 & dt$Kd_ACE2 < 2e-11)[2])
@@ -354,14 +536,23 @@ plot.titration(which(dt$library=="pool2" & dt$Kd_ACE2 > 1e-11 & dt$Kd_ACE2 < 2e-
 plot.titration(which(dt$library=="pool2" & dt$Kd_ACE2 > 1e-11 & dt$Kd_ACE2 < 2e-11)[2])
 ```
 
+<img src="compute_binding_Kd_files/figure-gfm/1e-11_Kd-1.png" style="display: block; margin: auto;" />
+
 ## Data filtering by fit quality
 
-Next, let's filter out poor fits using the value we previously computed, the *normalized* mean square residual (nMSR). This metric computes the residual between the observed response variable and that predicted from the titration fit, normalizes this residual by the response range of the titration fit (which is allowed to vary between 1.5 and 3 per the titration fits above), and computes the mean-square of these normalized residuals.
+Next, let’s filter out poor fits using the value we previously computed,
+the *normalized* mean square residual (nMSR). This metric computes the
+residual between the observed response variable and that predicted from
+the titration fit, normalizes this residual by the response range of the
+titration fit (which is allowed to vary between 1.5 and 3 per the
+titration fits above), and computes the mean-square of these normalized
+residuals.
 
-Look at nMSR metric versus avgcoutn value, and layer on value of nMSR filtering based on 20x the global median (and percentage filtered from each background). Filter to NA fits with nMSR above this cutoff
+Look at nMSR metric versus avgcoutn value, and layer on value of nMSR
+filtering based on 20x the global median (and percentage filtered from
+each background). Filter to NA fits with nMSR above this cutoff
 
-
-```{r nMSR_v_cell_count, fig.width=8, fig.height=8, fig.align="center",dpi=300,dev="png"}
+``` r
 median.nMSR <- median(dt$nMSR_ACE2,na.rm=T)
 threshold <- 30
 par(mfrow=c(2,2))
@@ -372,42 +563,54 @@ for(bg in c("EG5","FLip","BA286")){
 }
 
 dt[nMSR_ACE2 > threshold*median.nMSR,c("Kd_ACE2","Kd_SE_ACE2","response_ACE2","baseline_ACE2") := list(as.numeric(NA),as.numeric(NA),as.numeric(NA),as.numeric(NA))]
-
 ```
 
-Last, convert our *K*<sub>D,app</sub> to 1) a log<sub>10</sub>-scale, and 2) *K*<sub>A,app</sub>, the inverse of *K*<sub>D,app</sub>, such that higher values are associated with tighter binding, as is more intuitive. (If we want to continue to discuss in terms of *K*<sub>D,app</sub>, since people are often more familiar with *K*<sub>D</sub>, we can refer to the log<sub>10</sub>(*K*<sub>A,app</sub>) as -log<sub>10</sub>(*K*<sub>D,app</sub>), which are identical.
+<img src="compute_binding_Kd_files/figure-gfm/nMSR_v_cell_count-1.png" style="display: block; margin: auto;" />
 
-```{r convert_log10Ka}
+Last, convert our *K*<sub>D,app</sub> to 1) a log<sub>10</sub>-scale,
+and 2) *K*<sub>A,app</sub>, the inverse of *K*<sub>D,app</sub>, such
+that higher values are associated with tighter binding, as is more
+intuitive. (If we want to continue to discuss in terms of
+*K*<sub>D,app</sub>, since people are often more familiar with
+*K*<sub>D</sub>, we can refer to the
+log<sub>10</sub>(*K*<sub>A,app</sub>) as
+-log<sub>10</sub>(*K*<sub>D,app</sub>), which are identical.
+
+``` r
 dt[,log10Ka := -log10(Kd_ACE2),by=c("barcode","library")]
 ```
 
-Let's visualize the final binding measurements as violin plots for the different wildtype targets. In next notebook, we'll evaluate count depth and possibly apply further filtering to remove low-count expression estimates
+Let’s visualize the final binding measurements as violin plots for the
+different wildtype targets. In next notebook, we’ll evaluate count depth
+and possibly apply further filtering to remove low-count expression
+estimates
 
-```{r binding_distribution_vioplot, echo=T, fig.width=6, fig.height=18, fig.align="center", dpi=300,dev="png"}
+``` r
 p1 <- ggplot(dt[!is.na(log10Ka),],aes(x=variant_class,y=log10Ka))+
   geom_violin(scale="width")+stat_summary(fun=median,geom="point",size=1)+
   ggtitle("huACE2, log10(Ka)")+xlab("variant class")+theme(axis.text.x=element_text(angle=-90,hjust=0))+
   facet_wrap(~target,nrow=4)
 
 grid.arrange(p1,ncol=1)
+```
 
+<img src="compute_binding_Kd_files/figure-gfm/binding_distribution_vioplot-1.png" style="display: block; margin: auto;" />
+
+``` r
 #save pdf
 invisible(dev.print(pdf, paste(config$Titeseq_Kds_dir,"/violin-plot_log10Ka-by-target.pdf",sep="")))
 ```
 
-We have generated binding measurements for `r round(nrow(dt[!is.na(log10Ka)])/nrow(dt)*100,digits=2)`% of the barcodes in our libraries.
+We have generated binding measurements for 60.78% of the barcodes in our
+libraries.
 
 ## Data Output
 
-Finally, let's output our measurements for downstream analyses.
+Finally, let’s output our measurements for downstream analyses.
 
-```{r output_data}
+``` r
 dt[,.(library,barcode,target,variant_class,aa_substitutions,n_aa_substitutions,
      TiteSeq_avgcount,log10Ka)] %>%
   mutate_if(is.numeric, round, digits=6) %>%
   write.csv(file=config$Titeseq_Kds_file, row.names=F)
-
 ```
-
-
-
