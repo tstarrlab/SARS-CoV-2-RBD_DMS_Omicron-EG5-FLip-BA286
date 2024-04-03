@@ -289,7 +289,7 @@ dt[,TiteSeq_min_cell_filtered := sum(c(c(TiteSeq_01_totalcount,TiteSeq_02_totalc
 fit.titration <- function(y.vals,x.vals,count.vals,min.cfu=cutoff,
                           min.means=0.8,min.average=cutoff,Kd.start=1e-9,
                           a.start=3,a.lower=2,a.upper=3,
-                          b.start=1,b.lower=1,b.upper=1.5){
+                          b.start=1,b.lower=1,b.upper=2){ #increased b.upper to 2 b/c EG5 and esp FLip have higher baselines in many curves that are evident
   indices <- count.vals>min.cfu & !is.na(y.vals)
   y <- y.vals[indices]
   x <- x.vals[indices]
@@ -335,8 +335,8 @@ our library barcodes. We will also spot check titration curves from
 across our measurement range, and spot check curves whose fit parameters
 hit the different boundary conditions of the fit variables.
 
-We successfully generated *K*<sub>D</sub> estimates for 145284 of our
-pool1 barcodes (55.91%), and 167619 of our pool2 barcodes (66.33%).
+We successfully generated *K*<sub>D</sub> estimates for 152555 of our
+pool1 barcodes (58.71%), and 173502 of our pool2 barcodes (68.66%).
 
 Why were estimates not returned for some barcodes? The histograms below
 show that many barcodes with unsuccessful titration fits have lower
@@ -554,7 +554,7 @@ each background). Filter to NA fits with nMSR above this cutoff
 
 ``` r
 median.nMSR <- median(dt$nMSR_ACE2,na.rm=T)
-threshold <- 30
+threshold <- 20
 par(mfrow=c(2,2))
 for(bg in c("EG5","FLip","BA286")){
   plot(log10(dt[target==bg,TiteSeq_avgcount]),dt[target==bg,nMSR_ACE2],main=bg,pch=19,col="#00000010",xlab="average cell count (log10)",ylab="nMSR",xlim=c(0,6),ylim=c(0,0.5))
@@ -601,7 +601,7 @@ grid.arrange(p1,ncol=1)
 invisible(dev.print(pdf, paste(config$Titeseq_Kds_dir,"/violin-plot_log10Ka-by-target.pdf",sep="")))
 ```
 
-We have generated binding measurements for 60.78% of the barcodes in our
+We have generated binding measurements for 63.07% of the barcodes in our
 libraries.
 
 ## Data Output

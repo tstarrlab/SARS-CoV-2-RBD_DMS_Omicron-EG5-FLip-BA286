@@ -161,7 +161,7 @@ dt[,TiteSeq_min_cell_filtered := sum(c(c(TiteSeq_01_totalcount,TiteSeq_02_totalc
 fit.titration <- function(y.vals,x.vals,count.vals,min.cfu=cutoff,
                           min.means=0.8,min.average=cutoff,Kd.start=1e-9,
                           a.start=3,a.lower=2,a.upper=3,
-                          b.start=1,b.lower=1,b.upper=1.5){
+                          b.start=1,b.lower=1,b.upper=2){ #increased b.upper to 2 b/c EG5 and esp FLip have higher baselines in many curves that are evident
   indices <- count.vals>min.cfu & !is.na(y.vals)
   y <- y.vals[indices]
   x <- x.vals[indices]
@@ -363,7 +363,7 @@ Look at nMSR metric versus avgcoutn value, and layer on value of nMSR filtering 
 
 ```{r nMSR_v_cell_count, fig.width=8, fig.height=8, fig.align="center",dpi=300,dev="png"}
 median.nMSR <- median(dt$nMSR_ACE2,na.rm=T)
-threshold <- 30
+threshold <- 20
 par(mfrow=c(2,2))
 for(bg in c("EG5","FLip","BA286")){
   plot(log10(dt[target==bg,TiteSeq_avgcount]),dt[target==bg,nMSR_ACE2],main=bg,pch=19,col="#00000010",xlab="average cell count (log10)",ylab="nMSR",xlim=c(0,6),ylim=c(0,0.5))
