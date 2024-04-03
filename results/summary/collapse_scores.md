@@ -446,14 +446,6 @@ Merge with the prior VOC DMS experiments
 ``` r
 dt_voc <- data.table(read.csv(file=config$mut_bind_expr,stringsAsFactors=F))
 
-#add the deletion character for the earlier libraries when I didn't do indel
-for(bg in c("Alpha","Beta","Delta","Eta","Omicron_BA1","Omicron_BA2","Wuhan-Hu-1")){
-  for(pos in unique(dt_voc$position)){
-    wt <- dt_voc[target==bg & position==pos & wildtype==mutant,wildtype]
-    dt_voc <- rbind(dt_voc, data.frame(target=bg,position=pos,mutant="-",wildtype=wt,mutation=paste(wt,pos,"-",sep=""),n_bc_bind=0,n_libs_bind=0,n_bc_expr=0,n_libs_expr=0),fill=T)
-  }
-}
-
 setkey(dt_voc,target,position,mutant)
 
 #rename targets
