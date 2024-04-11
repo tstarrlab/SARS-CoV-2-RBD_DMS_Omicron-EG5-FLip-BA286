@@ -136,14 +136,14 @@ for(i in 1:nrow(barcode_runs)){
 }
 ```
 
-    ## [1] "reads < cells for pool1 SortSeq_bin1 , un-normalized (ratio 0.103514385024499 )"
-    ## [1] "reads < cells for pool1 SortSeq_bin2 , un-normalized (ratio 0.0165412498951575 )"
-    ## [1] "reads < cells for pool1 SortSeq_bin3 , un-normalized (ratio 0.0915926585266998 )"
-    ## [1] "reads < cells for pool1 SortSeq_bin4 , un-normalized (ratio 0.0183303090159855 )"
-    ## [1] "read:cell ratio for pool2 SortSeq_bin1 is 3.48360896415189"
-    ## [1] "read:cell ratio for pool2 SortSeq_bin2 is 3.59673358406217"
-    ## [1] "reads < cells for pool2 SortSeq_bin3 , un-normalized (ratio 0.96318922708046 )"
-    ## [1] "read:cell ratio for pool2 SortSeq_bin4 is 1.00312522694127"
+    ## [1] "reads < cells for pool1 SortSeq_bin1 , un-normalized (ratio 0.234353197370074 )"
+    ## [1] "reads < cells for pool1 SortSeq_bin2 , un-normalized (ratio 0.037312977033569 )"
+    ## [1] "reads < cells for pool1 SortSeq_bin3 , un-normalized (ratio 0.205629470844645 )"
+    ## [1] "reads < cells for pool1 SortSeq_bin4 , un-normalized (ratio 0.0385734047028868 )"
+    ## [1] "read:cell ratio for pool2 SortSeq_bin1 is 7.45210643191482"
+    ## [1] "read:cell ratio for pool2 SortSeq_bin2 is 7.77499591830257"
+    ## [1] "read:cell ratio for pool2 SortSeq_bin3 is 2.14726549849038"
+    ## [1] "read:cell ratio for pool2 SortSeq_bin4 is 2.13543493658534"
 
 ``` r
 #annotate each barcode as to whether it's a homolog variant, SARS-CoV-2 wildtype, synonymous muts only, stop, nonsynonymous, >1 nonsynonymous mutations
@@ -262,7 +262,7 @@ grid.arrange(p1,ncol=1)
 invisible(dev.print(pdf, paste(config$expression_sortseq_dir,"/violin-plot_meanF-by-target.pdf",sep="")))
 ```
 
-We have generated expression measurements for 48.47% of the barcodes in
+We have generated expression measurements for 58.99% of the barcodes in
 our libraries.
 
 ## Data Output

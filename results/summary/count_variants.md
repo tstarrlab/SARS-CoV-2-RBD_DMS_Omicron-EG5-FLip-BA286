@@ -278,7 +278,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>1.0</td>
       <td>240125</td>
       <td>384974</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s1-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s1-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s1-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -288,7 +288,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>1.0</td>
       <td>240125</td>
       <td>860724</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s1-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s1-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s1-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -298,7 +298,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>1.0</td>
       <td>240125</td>
       <td>2596538</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s1-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s1-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s1-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -308,7 +308,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>1.0</td>
       <td>240125</td>
       <td>6350060</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s1-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s1-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s1-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -318,7 +318,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>2.0</td>
       <td>240125</td>
       <td>630205</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s2-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s2-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s2-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -328,7 +328,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>2.0</td>
       <td>240125</td>
       <td>837133</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s2-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s2-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s2-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -338,7 +338,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>2.0</td>
       <td>240125</td>
       <td>2854102</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s2-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s2-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s2-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -348,7 +348,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>2.0</td>
       <td>240125</td>
       <td>5742632</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s2-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s2-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s2-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -358,7 +358,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>3.0</td>
       <td>240125</td>
       <td>982344</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s3-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s3-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s3-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -368,7 +368,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>3.0</td>
       <td>240125</td>
       <td>960420</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s3-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s3-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s3-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -378,7 +378,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>3.0</td>
       <td>240125</td>
       <td>3274652</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s3-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s3-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s3-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -388,7 +388,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>3.0</td>
       <td>240125</td>
       <td>4475613</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s3-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s3-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s3-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -398,7 +398,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>4.0</td>
       <td>240125</td>
       <td>1173631</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s4-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s4-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s4-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -408,7 +408,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>4.0</td>
       <td>240125</td>
       <td>1414259</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s4-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s4-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s4-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -418,7 +418,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>4.0</td>
       <td>240125</td>
       <td>4475535</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s4-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s4-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s4-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -428,7 +428,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>4.0</td>
       <td>240125</td>
       <td>2540383</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s4-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s4-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s4-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -438,7 +438,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>5.0</td>
       <td>240125</td>
       <td>2329147</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s5-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s5-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s5-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -448,7 +448,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>5.0</td>
       <td>240125</td>
       <td>3486729</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s5-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s5-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s5-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -458,7 +458,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>5.0</td>
       <td>240125</td>
       <td>4271970</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s5-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s5-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s5-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -468,7 +468,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>5.0</td>
       <td>240125</td>
       <td>629341</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s5-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s5-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s5-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -478,7 +478,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>6.0</td>
       <td>240125</td>
       <td>5231946</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s6-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s6-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s6-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -488,7 +488,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>6.0</td>
       <td>240125</td>
       <td>3850987</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s6-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s6-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s6-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -498,7 +498,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>6.0</td>
       <td>240125</td>
       <td>1008171</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s6-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s6-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s6-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -508,7 +508,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>6.0</td>
       <td>240125</td>
       <td>7913</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s6-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s6-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s6-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -518,7 +518,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>7.0</td>
       <td>240125</td>
       <td>7613259</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s7-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s7-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s7-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -528,7 +528,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>7.0</td>
       <td>240125</td>
       <td>2394536</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s7-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s7-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s7-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -538,7 +538,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>7.0</td>
       <td>240125</td>
       <td>187898</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s7-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s7-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s7-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -548,7 +548,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>7.0</td>
       <td>240125</td>
       <td>6682</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s7-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s7-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s7-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -558,7 +558,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>8.0</td>
       <td>240125</td>
       <td>7710354</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s8-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s8-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s8-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -568,7 +568,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>8.0</td>
       <td>240125</td>
       <td>1991881</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s8-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s8-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s8-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -578,7 +578,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>8.0</td>
       <td>240125</td>
       <td>101047</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s8-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s8-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s8-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -588,7 +588,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>8.0</td>
       <td>240125</td>
       <td>7211</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s8-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s8-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s8-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -598,7 +598,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>9.0</td>
       <td>240125</td>
       <td>8171174</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s9-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s9-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s9-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -608,7 +608,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>9.0</td>
       <td>240125</td>
       <td>1853609</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s9-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s9-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s9-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -618,7 +618,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>9.0</td>
       <td>240125</td>
       <td>71179</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s9-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s9-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s9-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -628,7 +628,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>9.0</td>
       <td>240125</td>
       <td>5544</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s9-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-s9-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-s9-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -638,7 +638,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>1.0</td>
       <td>240215</td>
       <td>1707353</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s1-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s1-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s1-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -648,7 +648,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>1.0</td>
       <td>240215</td>
       <td>824849</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s1-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s1-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s1-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -658,7 +658,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>1.0</td>
       <td>240215</td>
       <td>1655178</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s1-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s1-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s1-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -668,7 +668,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>1.0</td>
       <td>240215</td>
       <td>5955302</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s1-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s1-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s1-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -678,7 +678,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>2.0</td>
       <td>240215</td>
       <td>1715895</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s2-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s2-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s2-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -688,7 +688,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>2.0</td>
       <td>240215</td>
       <td>773681</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp2-s2-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp2-s2-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp2-s2-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -698,7 +698,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>2.0</td>
       <td>240215</td>
       <td>1705442</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp2-s2-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp2-s2-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp2-s2-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -708,7 +708,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>2.0</td>
       <td>240215</td>
       <td>5568746</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp2-s2-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp2-s2-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp2-s2-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -718,7 +718,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>3.0</td>
       <td>240215</td>
       <td>2327674</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp2-s3-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp2-s3-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp2-s3-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -728,7 +728,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>3.0</td>
       <td>240215</td>
       <td>933060</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp2-s3-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp2-s3-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp2-s3-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -738,7 +738,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>3.0</td>
       <td>240215</td>
       <td>2028246</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s3-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s3-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s3-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -748,7 +748,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>3.0</td>
       <td>240215</td>
       <td>4450399</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s3-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s3-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s3-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -758,7 +758,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>4.0</td>
       <td>240215</td>
       <td>3474208</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s4-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s4-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s4-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -768,7 +768,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>4.0</td>
       <td>240215</td>
       <td>1673592</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s4-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s4-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s4-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -778,7 +778,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>4.0</td>
       <td>240215</td>
       <td>2862696</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s4-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s4-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s4-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -788,7 +788,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>4.0</td>
       <td>240215</td>
       <td>1862063</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s4-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s4-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s4-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -798,7 +798,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>5.0</td>
       <td>240215</td>
       <td>4981328</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s5-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s5-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s5-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -808,7 +808,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>5.0</td>
       <td>240215</td>
       <td>2488502</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s5-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s5-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s5-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -818,7 +818,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>5.0</td>
       <td>240215</td>
       <td>2089100</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s5-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s5-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s5-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -828,7 +828,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>5.0</td>
       <td>240215</td>
       <td>535959</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s5-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s5-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s5-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -838,7 +838,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>6.0</td>
       <td>240215</td>
       <td>7238765</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s6-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s6-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s6-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -848,7 +848,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>6.0</td>
       <td>240215</td>
       <td>1981461</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s6-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s6-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s6-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -858,7 +858,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>6.0</td>
       <td>240215</td>
       <td>639508</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s6-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s6-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s6-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -868,7 +868,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>6.0</td>
       <td>240215</td>
       <td>13393</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s6-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s6-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s6-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -878,7 +878,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>7.0</td>
       <td>240215</td>
       <td>7196977</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s7-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s7-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s7-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -888,7 +888,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>7.0</td>
       <td>240215</td>
       <td>1669131</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s7-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s7-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s7-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -898,7 +898,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>7.0</td>
       <td>240215</td>
       <td>303510</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s7-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s7-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s7-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -908,7 +908,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>7.0</td>
       <td>240215</td>
       <td>9907</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s7-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s7-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s7-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -918,7 +918,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>8.0</td>
       <td>240215</td>
       <td>7996419</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s8-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s8-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s8-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -928,7 +928,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>8.0</td>
       <td>240215</td>
       <td>1905421</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s8-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s8-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s8-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -938,7 +938,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>8.0</td>
       <td>240215</td>
       <td>320064</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s8-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s8-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s8-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -948,7 +948,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>8.0</td>
       <td>240215</td>
       <td>12281</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s8-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s8-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s8-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -958,7 +958,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>9.0</td>
       <td>240215</td>
       <td>7552576</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s9-b1_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s9-b1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s9-b1_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -968,7 +968,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>9.0</td>
       <td>240215</td>
       <td>1475069</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s9-b2_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s9-b2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s9-b2_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -978,7 +978,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>9.0</td>
       <td>240215</td>
       <td>196742</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s9-b3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s9-b3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s9-b3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -988,7 +988,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>9.0</td>
       <td>240215</td>
       <td>8068</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s9-b4_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240215-exp3-s9-b4_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240215-exp3-s9-b4_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -998,7 +998,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>NaN</td>
       <td>240125</td>
       <td>3581850</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin1-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin1-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin1-3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin1-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin1-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin1-3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin1-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin1-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin1-3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -1008,7 +1008,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>NaN</td>
       <td>240125</td>
       <td>4649830</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin2-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin2-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin2-3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin2-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin2-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin2-3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin2-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin2-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin2-3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -1018,7 +1018,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>NaN</td>
       <td>240125</td>
       <td>8346717</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin3-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin3-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin3-3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin3-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin3-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin3-3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin3-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin3-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin3-3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -1028,7 +1028,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>NaN</td>
       <td>240125</td>
       <td>7841439</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin4-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin4-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin4-3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin4-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin4-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin4-3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin4-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin4-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin4-3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -1038,7 +1038,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>NaN</td>
       <td>240201</td>
       <td>2142177</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin1-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin1-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin1-3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin1-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin1-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin1-3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240201-exp2-RBD-bin1-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240201-exp2-RBD-bin1-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240201-exp2-RBD-bin1-3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -1048,7 +1048,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>NaN</td>
       <td>240201</td>
       <td>4158809</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin2-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin2-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin2-3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin2-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin2-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin2-3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240201-exp2-RBD-bin2-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240201-exp2-RBD-bin2-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240201-exp2-RBD-bin2-3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -1058,7 +1058,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>NaN</td>
       <td>240201</td>
       <td>5801807</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin3-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin3-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin3-3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin3-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin3-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin3-3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240201-exp2-RBD-bin3-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240201-exp2-RBD-bin3-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240201-exp2-RBD-bin3-3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -1068,7 +1068,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>NaN</td>
       <td>240201</td>
       <td>6361778</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin4-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin4-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin4-3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin4-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin4-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240201-exp2-RBD-bin4-3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240201-exp2-RBD-bin4-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240201-exp2-RBD-bin4-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240201-exp2-RBD-bin4-3_R1_001.fastq.gz]</td>
     </tr>
   </tbody>
 </table>
@@ -1186,12 +1186,12 @@ display(HTML(
   </thead>
   <tbody>
     <tr>
-      <td>pool1</td>
-      <td>259862</td>
-    </tr>
-    <tr>
       <td>pool2</td>
       <td>252698</td>
+    </tr>
+    <tr>
+      <td>pool1</td>
+      <td>259862</td>
     </tr>
   </tbody>
 </table>
@@ -1265,31 +1265,31 @@ display(HTML(fates.head().to_html(index=False)))
   <tbody>
     <tr>
       <td>CACTTATCACTAAAAC</td>
-      <td>2524</td>
+      <td>5657</td>
       <td>pool1</td>
       <td>TiteSeq_01_bin1</td>
     </tr>
     <tr>
       <td>CTCGTTTTACGCAATA</td>
-      <td>2363</td>
+      <td>5282</td>
       <td>pool1</td>
       <td>TiteSeq_01_bin1</td>
     </tr>
     <tr>
       <td>ACCGTTTATGCAGACA</td>
-      <td>2270</td>
+      <td>5082</td>
       <td>pool1</td>
       <td>TiteSeq_01_bin1</td>
     </tr>
     <tr>
       <td>TTTACATGACCATAAC</td>
-      <td>2104</td>
+      <td>4691</td>
       <td>pool1</td>
       <td>TiteSeq_01_bin1</td>
     </tr>
     <tr>
       <td>CGCGATTCTACCTGCA</td>
-      <td>2032</td>
+      <td>4579</td>
       <td>pool1</td>
       <td>TiteSeq_01_bin1</td>
     </tr>
@@ -1313,25 +1313,25 @@ display(HTML(fates.head().to_html(index=False)))
   <tbody>
     <tr>
       <td>valid barcode</td>
-      <td>3435720</td>
+      <td>7752659</td>
       <td>pool1</td>
       <td>TiteSeq_01_bin1</td>
     </tr>
     <tr>
       <td>invalid barcode</td>
-      <td>932236</td>
+      <td>2094275</td>
       <td>pool1</td>
       <td>TiteSeq_01_bin1</td>
     </tr>
     <tr>
       <td>low quality barcode</td>
-      <td>380724</td>
+      <td>833348</td>
       <td>pool1</td>
       <td>TiteSeq_01_bin1</td>
     </tr>
     <tr>
       <td>unparseable barcode</td>
-      <td>63304</td>
+      <td>165060</td>
       <td>pool1</td>
       <td>TiteSeq_01_bin1</td>
     </tr>
@@ -1405,643 +1405,643 @@ display(HTML(fates
       <th rowspan="40" valign="top">pool1</th>
       <th>SortSeq_bin1</th>
       <td>0</td>
-      <td>106369</td>
-      <td>43208</td>
-      <td>18984</td>
-      <td>370773</td>
+      <td>241231</td>
+      <td>94403</td>
+      <td>29930</td>
+      <td>839418</td>
     </tr>
     <tr>
       <th>SortSeq_bin2</th>
       <td>0</td>
-      <td>21480</td>
-      <td>9804</td>
-      <td>2039</td>
-      <td>76914</td>
+      <td>47710</td>
+      <td>20002</td>
+      <td>4261</td>
+      <td>173499</td>
     </tr>
     <tr>
       <th>SortSeq_bin3</th>
       <td>0</td>
-      <td>202116</td>
-      <td>91533</td>
-      <td>13769</td>
-      <td>764498</td>
+      <td>452154</td>
+      <td>191584</td>
+      <td>35501</td>
+      <td>1716331</td>
     </tr>
     <tr>
       <th>SortSeq_bin4</th>
       <td>0</td>
-      <td>36203</td>
-      <td>16526</td>
-      <td>2518</td>
-      <td>143736</td>
+      <td>76161</td>
+      <td>31484</td>
+      <td>6235</td>
+      <td>302471</td>
     </tr>
     <tr>
       <th>TiteSeq_01_bin1</th>
       <td>0</td>
-      <td>932236</td>
-      <td>380724</td>
-      <td>63304</td>
-      <td>3435720</td>
+      <td>2094275</td>
+      <td>833348</td>
+      <td>165060</td>
+      <td>7752659</td>
     </tr>
     <tr>
       <th>TiteSeq_01_bin2</th>
       <td>0</td>
-      <td>258514</td>
-      <td>118957</td>
-      <td>18065</td>
-      <td>979816</td>
+      <td>553817</td>
+      <td>236149</td>
+      <td>45157</td>
+      <td>2105095</td>
     </tr>
     <tr>
       <th>TiteSeq_01_bin3</th>
       <td>0</td>
-      <td>435455</td>
-      <td>193086</td>
-      <td>29438</td>
-      <td>1634775</td>
+      <td>975219</td>
+      <td>411807</td>
+      <td>79095</td>
+      <td>3678806</td>
     </tr>
     <tr>
       <th>TiteSeq_01_bin4</th>
       <td>0</td>
-      <td>1729589</td>
-      <td>866367</td>
-      <td>112796</td>
-      <td>6729150</td>
+      <td>3898293</td>
+      <td>1849456</td>
+      <td>303542</td>
+      <td>15230913</td>
     </tr>
     <tr>
       <th>TiteSeq_02_bin1</th>
       <td>0</td>
-      <td>155753</td>
-      <td>64753</td>
-      <td>10508</td>
-      <td>581241</td>
+      <td>353510</td>
+      <td>141851</td>
+      <td>27950</td>
+      <td>1323232</td>
     </tr>
     <tr>
       <th>TiteSeq_02_bin2</th>
       <td>0</td>
-      <td>2212805</td>
-      <td>997852</td>
-      <td>153628</td>
-      <td>8384239</td>
+      <td>4918826</td>
+      <td>2085901</td>
+      <td>398822</td>
+      <td>18727862</td>
     </tr>
     <tr>
       <th>TiteSeq_02_bin3</th>
       <td>0</td>
-      <td>536611</td>
-      <td>203960</td>
-      <td>34644</td>
-      <td>1983587</td>
+      <td>1075662</td>
+      <td>370323</td>
+      <td>86762</td>
+      <td>3996443</td>
     </tr>
     <tr>
       <th>TiteSeq_02_bin4</th>
       <td>0</td>
-      <td>1539434</td>
-      <td>750389</td>
-      <td>110386</td>
-      <td>6010924</td>
+      <td>3419654</td>
+      <td>1505323</td>
+      <td>283331</td>
+      <td>13431595</td>
     </tr>
     <tr>
       <th>TiteSeq_03_bin1</th>
       <td>0</td>
-      <td>255350</td>
-      <td>104328</td>
-      <td>17418</td>
-      <td>944405</td>
+      <td>570032</td>
+      <td>218861</td>
+      <td>46843</td>
+      <td>2117389</td>
     </tr>
     <tr>
       <th>TiteSeq_03_bin2</th>
       <td>0</td>
-      <td>255543</td>
-      <td>115467</td>
-      <td>17320</td>
-      <td>939382</td>
+      <td>456165</td>
+      <td>183825</td>
+      <td>37436</td>
+      <td>1680266</td>
     </tr>
     <tr>
       <th>TiteSeq_03_bin3</th>
       <td>0</td>
-      <td>753982</td>
-      <td>276825</td>
-      <td>46398</td>
-      <td>2754005</td>
+      <td>1680843</td>
+      <td>617115</td>
+      <td>124172</td>
+      <td>6157667</td>
     </tr>
     <tr>
       <th>TiteSeq_03_bin4</th>
       <td>0</td>
-      <td>1249695</td>
-      <td>620163</td>
-      <td>83485</td>
-      <td>4929456</td>
+      <td>2821961</td>
+      <td>1302854</td>
+      <td>223491</td>
+      <td>11187053</td>
     </tr>
     <tr>
       <th>TiteSeq_04_bin1</th>
       <td>0</td>
-      <td>2295307</td>
-      <td>995472</td>
-      <td>160113</td>
-      <td>8667919</td>
+      <td>4160095</td>
+      <td>1710464</td>
+      <td>346908</td>
+      <td>15755819</td>
     </tr>
     <tr>
       <th>TiteSeq_04_bin2</th>
       <td>0</td>
-      <td>205515</td>
-      <td>97441</td>
-      <td>13644</td>
-      <td>762249</td>
+      <td>458315</td>
+      <td>205793</td>
+      <td>35827</td>
+      <td>1707110</td>
     </tr>
     <tr>
       <th>TiteSeq_04_bin3</th>
       <td>0</td>
-      <td>1206838</td>
-      <td>563330</td>
-      <td>76811</td>
-      <td>4465849</td>
+      <td>2676282</td>
+      <td>1178321</td>
+      <td>197829</td>
+      <td>9951818</td>
     </tr>
     <tr>
       <th>TiteSeq_04_bin4</th>
       <td>0</td>
-      <td>957788</td>
-      <td>527557</td>
-      <td>70215</td>
-      <td>4060415</td>
+      <td>2150053</td>
+      <td>1127656</td>
+      <td>187384</td>
+      <td>9155115</td>
     </tr>
     <tr>
       <th>TiteSeq_05_bin1</th>
       <td>0</td>
-      <td>527818</td>
-      <td>258782</td>
-      <td>36528</td>
-      <td>1958719</td>
+      <td>1174507</td>
+      <td>534413</td>
+      <td>94802</td>
+      <td>4376151</td>
     </tr>
     <tr>
       <th>TiteSeq_05_bin2</th>
       <td>0</td>
-      <td>2855945</td>
-      <td>1283748</td>
-      <td>164682</td>
-      <td>10055383</td>
+      <td>6373025</td>
+      <td>2687387</td>
+      <td>433836</td>
+      <td>22521101</td>
     </tr>
     <tr>
       <th>TiteSeq_05_bin3</th>
       <td>0</td>
-      <td>850329</td>
-      <td>440048</td>
-      <td>57870</td>
-      <td>3281451</td>
+      <td>1906438</td>
+      <td>916214</td>
+      <td>151911</td>
+      <td>7391576</td>
     </tr>
     <tr>
       <th>TiteSeq_05_bin4</th>
       <td>0</td>
-      <td>98355</td>
-      <td>43805</td>
-      <td>9907</td>
-      <td>485327</td>
+      <td>178732</td>
+      <td>77204</td>
+      <td>20752</td>
+      <td>885017</td>
     </tr>
     <tr>
       <th>TiteSeq_06_bin1</th>
       <td>0</td>
-      <td>1242148</td>
-      <td>596066</td>
-      <td>80669</td>
-      <td>4514819</td>
+      <td>2699519</td>
+      <td>1166897</td>
+      <td>204966</td>
+      <td>9862474</td>
     </tr>
     <tr>
       <th>TiteSeq_06_bin2</th>
       <td>0</td>
-      <td>973709</td>
-      <td>443879</td>
-      <td>62286</td>
-      <td>3587030</td>
+      <td>2179288</td>
+      <td>945051</td>
+      <td>163126</td>
+      <td>8065715</td>
     </tr>
     <tr>
       <th>TiteSeq_06_bin3</th>
       <td>0</td>
-      <td>283564</td>
-      <td>159000</td>
-      <td>23788</td>
-      <td>1319740</td>
+      <td>628330</td>
+      <td>336164</td>
+      <td>61318</td>
+      <td>2943770</td>
     </tr>
     <tr>
       <th>TiteSeq_06_bin4</th>
       <td>0</td>
-      <td>2880</td>
-      <td>986</td>
-      <td>167</td>
-      <td>6984</td>
+      <td>5987</td>
+      <td>1885</td>
+      <td>356</td>
+      <td>14377</td>
     </tr>
     <tr>
       <th>TiteSeq_07_bin1</th>
       <td>0</td>
-      <td>2117651</td>
-      <td>1078965</td>
-      <td>135575</td>
-      <td>7963230</td>
+      <td>4726611</td>
+      <td>2272691</td>
+      <td>357112</td>
+      <td>17857829</td>
     </tr>
     <tr>
       <th>TiteSeq_07_bin2</th>
       <td>0</td>
-      <td>6898425</td>
-      <td>3680592</td>
-      <td>480602</td>
-      <td>27931300</td>
+      <td>15575720</td>
+      <td>7781433</td>
+      <td>1289703</td>
+      <td>63336708</td>
     </tr>
     <tr>
       <th>TiteSeq_07_bin3</th>
       <td>0</td>
-      <td>55375</td>
-      <td>27310</td>
-      <td>5217</td>
-      <td>279570</td>
+      <td>91730</td>
+      <td>44104</td>
+      <td>10576</td>
+      <td>461770</td>
     </tr>
     <tr>
       <th>TiteSeq_07_bin4</th>
       <td>0</td>
-      <td>2040</td>
-      <td>657</td>
-      <td>127</td>
-      <td>4840</td>
+      <td>4442</td>
+      <td>1342</td>
+      <td>254</td>
+      <td>10598</td>
     </tr>
     <tr>
       <th>TiteSeq_08_bin1</th>
       <td>0</td>
-      <td>2258903</td>
-      <td>1055110</td>
-      <td>139342</td>
-      <td>8219675</td>
+      <td>5024365</td>
+      <td>2218114</td>
+      <td>378548</td>
+      <td>18372790</td>
     </tr>
     <tr>
       <th>TiteSeq_08_bin2</th>
       <td>0</td>
-      <td>1411193</td>
-      <td>651434</td>
-      <td>97979</td>
-      <td>5179580</td>
+      <td>3161117</td>
+      <td>1345476</td>
+      <td>248369</td>
+      <td>11646742</td>
     </tr>
     <tr>
       <th>TiteSeq_08_bin3</th>
       <td>0</td>
-      <td>79986</td>
-      <td>42341</td>
-      <td>6068</td>
-      <td>378872</td>
+      <td>180856</td>
+      <td>94620</td>
+      <td>16400</td>
+      <td>859601</td>
     </tr>
     <tr>
       <th>TiteSeq_08_bin4</th>
       <td>0</td>
-      <td>2684</td>
-      <td>753</td>
-      <td>128</td>
-      <td>5278</td>
+      <td>6129</td>
+      <td>1683</td>
+      <td>336</td>
+      <td>12090</td>
     </tr>
     <tr>
       <th>TiteSeq_09_bin1</th>
       <td>0</td>
-      <td>1581953</td>
-      <td>737734</td>
-      <td>109321</td>
-      <td>5926033</td>
+      <td>3457426</td>
+      <td>1470118</td>
+      <td>272037</td>
+      <td>13016272</td>
     </tr>
     <tr>
       <th>TiteSeq_09_bin2</th>
       <td>0</td>
-      <td>224614</td>
-      <td>109740</td>
-      <td>16236</td>
-      <td>935484</td>
+      <td>497438</td>
+      <td>221499</td>
+      <td>41928</td>
+      <td>2081201</td>
     </tr>
     <tr>
       <th>TiteSeq_09_bin3</th>
       <td>0</td>
-      <td>90735</td>
-      <td>52599</td>
-      <td>8892</td>
-      <td>452880</td>
+      <td>192129</td>
+      <td>97386</td>
+      <td>20754</td>
+      <td>961426</td>
     </tr>
     <tr>
       <th>TiteSeq_09_bin4</th>
       <td>0</td>
-      <td>2011</td>
-      <td>631</td>
-      <td>16279</td>
-      <td>3914</td>
+      <td>4372</td>
+      <td>1262</td>
+      <td>16421</td>
+      <td>8897</td>
     </tr>
     <tr>
       <th rowspan="40" valign="top">pool2</th>
       <th>SortSeq_bin1</th>
       <td>0</td>
-      <td>2178967</td>
-      <td>962040</td>
-      <td>135219</td>
-      <td>7462507</td>
+      <td>4639906</td>
+      <td>1968595</td>
+      <td>342825</td>
+      <td>15963731</td>
     </tr>
     <tr>
       <th>SortSeq_bin2</th>
       <td>0</td>
-      <td>3831435</td>
-      <td>2010386</td>
-      <td>258920</td>
-      <td>14958128</td>
+      <td>8225590</td>
+      <td>3955832</td>
+      <td>657360</td>
+      <td>32334723</td>
     </tr>
     <tr>
       <th>SortSeq_bin3</th>
       <td>0</td>
-      <td>1450711</td>
-      <td>712898</td>
-      <td>108031</td>
-      <td>5588238</td>
+      <td>3214436</td>
+      <td>1497815</td>
+      <td>271061</td>
+      <td>12458020</td>
     </tr>
     <tr>
       <th>SortSeq_bin4</th>
       <td>0</td>
-      <td>1454523</td>
-      <td>703851</td>
-      <td>103342</td>
-      <td>6381660</td>
+      <td>3078084</td>
+      <td>1401313</td>
+      <td>264690</td>
+      <td>13585163</td>
     </tr>
     <tr>
       <th>TiteSeq_01_bin1</th>
       <td>0</td>
-      <td>566744</td>
-      <td>318702</td>
-      <td>34919</td>
-      <td>2179005</td>
+      <td>1326248</td>
+      <td>686155</td>
+      <td>116248</td>
+      <td>5126486</td>
     </tr>
     <tr>
       <th>TiteSeq_01_bin2</th>
       <td>0</td>
-      <td>302890</td>
-      <td>171084</td>
-      <td>18819</td>
-      <td>1176585</td>
+      <td>715022</td>
+      <td>364064</td>
+      <td>63940</td>
+      <td>2795028</td>
     </tr>
     <tr>
       <th>TiteSeq_01_bin3</th>
       <td>0</td>
-      <td>550151</td>
-      <td>216921</td>
-      <td>36521</td>
-      <td>2111539</td>
+      <td>828283</td>
+      <td>346060</td>
+      <td>82342</td>
+      <td>3182614</td>
     </tr>
     <tr>
       <th>TiteSeq_01_bin4</th>
       <td>0</td>
-      <td>2149437</td>
-      <td>1125487</td>
-      <td>143371</td>
-      <td>8933158</td>
+      <td>4842381</td>
+      <td>2276438</td>
+      <td>461544</td>
+      <td>20207272</td>
     </tr>
     <tr>
       <th>TiteSeq_02_bin1</th>
       <td>0</td>
-      <td>533530</td>
-      <td>278551</td>
-      <td>31043</td>
-      <td>2011862</td>
+      <td>1240533</td>
+      <td>595114</td>
+      <td>106621</td>
+      <td>4710956</td>
     </tr>
     <tr>
       <th>TiteSeq_02_bin2</th>
       <td>0</td>
-      <td>296052</td>
-      <td>153517</td>
-      <td>22751</td>
-      <td>1139927</td>
+      <td>686489</td>
+      <td>320225</td>
+      <td>65869</td>
+      <td>2658493</td>
     </tr>
     <tr>
       <th>TiteSeq_02_bin3</th>
       <td>0</td>
-      <td>675647</td>
-      <td>345938</td>
-      <td>40043</td>
-      <td>2554955</td>
+      <td>1563988</td>
+      <td>728540</td>
+      <td>134694</td>
+      <td>5942458</td>
     </tr>
     <tr>
       <th>TiteSeq_02_bin4</th>
       <td>0</td>
-      <td>1981267</td>
-      <td>1134244</td>
-      <td>132746</td>
-      <td>8306811</td>
+      <td>4652603</td>
+      <td>2404102</td>
+      <td>450873</td>
+      <td>19619280</td>
     </tr>
     <tr>
       <th>TiteSeq_03_bin1</th>
       <td>0</td>
-      <td>843752</td>
-      <td>429173</td>
-      <td>52605</td>
-      <td>3228137</td>
+      <td>1860492</td>
+      <td>835951</td>
+      <td>166152</td>
+      <td>7146414</td>
     </tr>
     <tr>
       <th>TiteSeq_03_bin2</th>
       <td>0</td>
-      <td>410576</td>
-      <td>209283</td>
-      <td>28470</td>
-      <td>1581619</td>
+      <td>943591</td>
+      <td>423128</td>
+      <td>87884</td>
+      <td>3652949</td>
     </tr>
     <tr>
       <th>TiteSeq_03_bin3</th>
       <td>0</td>
-      <td>797528</td>
-      <td>385553</td>
-      <td>50637</td>
-      <td>3072332</td>
+      <td>1615141</td>
+      <td>683958</td>
+      <td>146088</td>
+      <td>6242314</td>
     </tr>
     <tr>
       <th>TiteSeq_03_bin4</th>
       <td>0</td>
-      <td>1600001</td>
-      <td>885166</td>
-      <td>108992</td>
-      <td>6545689</td>
+      <td>3666772</td>
+      <td>1838046</td>
+      <td>350357</td>
+      <td>15087669</td>
     </tr>
     <tr>
       <th>TiteSeq_04_bin1</th>
       <td>0</td>
-      <td>1323216</td>
-      <td>723717</td>
-      <td>89837</td>
-      <td>5100595</td>
+      <td>3058547</td>
+      <td>1486977</td>
+      <td>278911</td>
+      <td>11839219</td>
     </tr>
     <tr>
       <th>TiteSeq_04_bin2</th>
       <td>0</td>
-      <td>617699</td>
-      <td>298692</td>
-      <td>39575</td>
-      <td>2368790</td>
+      <td>1448055</td>
+      <td>643047</td>
+      <td>134547</td>
+      <td>5599889</td>
     </tr>
     <tr>
       <th>TiteSeq_04_bin3</th>
       <td>0</td>
-      <td>990071</td>
-      <td>399833</td>
-      <td>70820</td>
-      <td>3895303</td>
+      <td>2297160</td>
+      <td>903319</td>
+      <td>226663</td>
+      <td>9074818</td>
     </tr>
     <tr>
       <th>TiteSeq_04_bin4</th>
       <td>0</td>
-      <td>620106</td>
-      <td>335851</td>
-      <td>45148</td>
-      <td>2737065</td>
+      <td>1440319</td>
+      <td>713920</td>
+      <td>145646</td>
+      <td>6382980</td>
     </tr>
     <tr>
       <th>TiteSeq_05_bin1</th>
       <td>0</td>
-      <td>1641978</td>
-      <td>974679</td>
-      <td>103651</td>
-      <td>6422605</td>
+      <td>3730947</td>
+      <td>2099013</td>
+      <td>328212</td>
+      <td>14669337</td>
     </tr>
     <tr>
       <th>TiteSeq_05_bin2</th>
       <td>0</td>
-      <td>790280</td>
-      <td>435852</td>
-      <td>58405</td>
-      <td>3132331</td>
+      <td>1841773</td>
+      <td>892109</td>
+      <td>181384</td>
+      <td>7335441</td>
     </tr>
     <tr>
       <th>TiteSeq_05_bin3</th>
       <td>0</td>
-      <td>788695</td>
-      <td>414843</td>
-      <td>51291</td>
-      <td>3177216</td>
+      <td>1823981</td>
+      <td>865002</td>
+      <td>169828</td>
+      <td>7389843</td>
     </tr>
     <tr>
       <th>TiteSeq_05_bin4</th>
       <td>0</td>
-      <td>185950</td>
-      <td>117096</td>
-      <td>13347</td>
-      <td>896513</td>
+      <td>408560</td>
+      <td>225831</td>
+      <td>41120</td>
+      <td>1980659</td>
     </tr>
     <tr>
       <th>TiteSeq_06_bin1</th>
       <td>0</td>
-      <td>2773742</td>
-      <td>1461010</td>
-      <td>184701</td>
-      <td>10913672</td>
+      <td>6540195</td>
+      <td>3041436</td>
+      <td>597912</td>
+      <td>25853174</td>
     </tr>
     <tr>
       <th>TiteSeq_06_bin2</th>
       <td>0</td>
-      <td>787205</td>
-      <td>395784</td>
-      <td>48923</td>
-      <td>3281969</td>
+      <td>1789148</td>
+      <td>755912</td>
+      <td>147309</td>
+      <td>7486209</td>
     </tr>
     <tr>
       <th>TiteSeq_06_bin3</th>
       <td>0</td>
-      <td>178959</td>
-      <td>81451</td>
-      <td>12271</td>
-      <td>838993</td>
+      <td>231333</td>
+      <td>114503</td>
+      <td>24284</td>
+      <td>1084670</td>
     </tr>
     <tr>
       <th>TiteSeq_06_bin4</th>
       <td>0</td>
-      <td>28884</td>
-      <td>8923</td>
-      <td>7998</td>
-      <td>46975</td>
+      <td>65095</td>
+      <td>17627</td>
+      <td>9743</td>
+      <td>105959</td>
     </tr>
     <tr>
       <th>TiteSeq_07_bin1</th>
       <td>0</td>
-      <td>5356588</td>
-      <td>3010060</td>
-      <td>350364</td>
-      <td>20966673</td>
+      <td>12127184</td>
+      <td>6075472</td>
+      <td>1119149</td>
+      <td>47724777</td>
     </tr>
     <tr>
       <th>TiteSeq_07_bin2</th>
       <td>0</td>
-      <td>587004</td>
-      <td>306564</td>
-      <td>39204</td>
-      <td>2520884</td>
+      <td>1385850</td>
+      <td>675666</td>
+      <td>132243</td>
+      <td>5973654</td>
     </tr>
     <tr>
       <th>TiteSeq_07_bin3</th>
       <td>0</td>
-      <td>96521</td>
-      <td>50338</td>
-      <td>5879</td>
-      <td>419086</td>
+      <td>208865</td>
+      <td>99626</td>
+      <td>19370</td>
+      <td>907233</td>
     </tr>
     <tr>
       <th>TiteSeq_07_bin4</th>
       <td>0</td>
-      <td>9654</td>
-      <td>1941</td>
-      <td>165</td>
-      <td>8625</td>
+      <td>19927</td>
+      <td>3459</td>
+      <td>545</td>
+      <td>17910</td>
     </tr>
     <tr>
       <th>TiteSeq_08_bin1</th>
       <td>0</td>
-      <td>3160370</td>
-      <td>1692300</td>
-      <td>207296</td>
-      <td>12443737</td>
+      <td>7226774</td>
+      <td>3393178</td>
+      <td>666460</td>
+      <td>28613813</td>
     </tr>
     <tr>
       <th>TiteSeq_08_bin2</th>
       <td>0</td>
-      <td>700882</td>
-      <td>431406</td>
-      <td>45832</td>
-      <td>2982071</td>
+      <td>1595742</td>
+      <td>879205</td>
+      <td>149987</td>
+      <td>6816172</td>
     </tr>
     <tr>
       <th>TiteSeq_08_bin3</th>
       <td>0</td>
-      <td>105945</td>
-      <td>65044</td>
-      <td>6539</td>
-      <td>442796</td>
+      <td>247986</td>
+      <td>139384</td>
+      <td>22637</td>
+      <td>1039244</td>
     </tr>
     <tr>
       <th>TiteSeq_08_bin4</th>
       <td>0</td>
-      <td>7738</td>
-      <td>1620</td>
-      <td>146</td>
-      <td>7503</td>
+      <td>14453</td>
+      <td>2710</td>
+      <td>421</td>
+      <td>13999</td>
     </tr>
     <tr>
       <th>TiteSeq_09_bin1</th>
       <td>0</td>
-      <td>3004054</td>
-      <td>1735398</td>
-      <td>188001</td>
-      <td>11562475</td>
+      <td>7053210</td>
+      <td>3634170</td>
+      <td>637912</td>
+      <td>27298594</td>
     </tr>
     <tr>
       <th>TiteSeq_09_bin2</th>
       <td>0</td>
-      <td>523773</td>
-      <td>310533</td>
-      <td>32730</td>
-      <td>2167625</td>
+      <td>1194491</td>
+      <td>637572</td>
+      <td>105688</td>
+      <td>4965173</td>
     </tr>
     <tr>
       <th>TiteSeq_09_bin3</th>
       <td>0</td>
-      <td>73273</td>
-      <td>34267</td>
-      <td>4236</td>
-      <td>309089</td>
+      <td>115942</td>
+      <td>53809</td>
+      <td>10636</td>
+      <td>489155</td>
     </tr>
     <tr>
       <th>TiteSeq_09_bin4</th>
       <td>0</td>
-      <td>12979</td>
-      <td>2452</td>
-      <td>236</td>
-      <td>9697</td>
+      <td>30160</td>
+      <td>5174</td>
+      <td>814</td>
+      <td>22340</td>
     </tr>
   </tbody>
 </table>
