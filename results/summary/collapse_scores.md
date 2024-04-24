@@ -213,21 +213,21 @@ for(lib in c("pool1","pool2")){
 setkey(dt_mutant_bind,library,target,position,mutant)
 
 #reset index for BA.2.86 which has site 483 deletion, or site 153 in 1-indexed numbering
-dt_mutant_bind[target=="BA28686" & position>=153,position:=position+1]
-dt_mutant_bind[target=="BA28686" & position==202,position:=153]
-dt_mutant_bind[target=="BA28686" & position==153,wildtype:="-"]
+dt_mutant_bind[target=="BA286" & position>=153,position:=position+1]
+dt_mutant_bind[target=="BA286" & position==202,position:=153]
+dt_mutant_bind[target=="BA286" & position==153,wildtype:="-"]
 setkey(dt_mutant_bind,library,target,position,mutant)
 
 
 #fill in wildtype values -- should vectorize in data table but being so stupid so just going to write for loop
-for(bg in c("BA28686","EG5","FLip")){
+for(bg in c("BA286","EG5","FLip")){
   for(lib in c("pool1","pool2")){
     dt_mutant_bind[library==lib & target==bg & wildtype==mutant, c("mean_bind","sd_bind","n_bc_bind","avg_count_bind"):=dt_bind[library==lib & target==bg & variant_class=="wildtype",.(mean_bind,sd_bind,n_bc_bind,avg_count_bind)]]
   }
 }
 
 #add delta bind measures
-for(bg in c("BA28686","EG5","FLip")){
+for(bg in c("BA286","EG5","FLip")){
   for(lib in c("pool1","pool2")){
     ref_bind <- dt_bind[library==lib & target==bg & variant_class=="wildtype",mean_bind]
     dt_mutant_bind[library==lib & target==bg,delta_bind := mean_bind - ref_bind]
@@ -263,20 +263,20 @@ for(lib in c("pool1","pool2")){
 setkey(dt_mutant_expr,library,target,position,mutant)
 
 #reset index for BA.2.86 which has site 483 deletion, or site 153 in 1-indexed numbering
-dt_mutant_expr[target=="BA28686" & position>=153,position:=position+1]
-dt_mutant_expr[target=="BA28686" & position==202,position:=153]
-dt_mutant_expr[target=="BA28686" & position==153,wildtype:="-"]
+dt_mutant_expr[target=="BA286" & position>=153,position:=position+1]
+dt_mutant_expr[target=="BA286" & position==202,position:=153]
+dt_mutant_expr[target=="BA286" & position==153,wildtype:="-"]
 setkey(dt_mutant_expr,library,target,position,mutant)
 
 #fill in wildtype values -- should vectorize in data table but being so stupid so just going to write for loop
-for(bg in c("BA28686","EG5","FLip")){
+for(bg in c("BA286","EG5","FLip")){
   for(lib in c("pool1","pool2")){
     dt_mutant_expr[library==lib & target==bg & wildtype==mutant, c("mean_expr","sd_expr","n_bc_expr","avg_count_expr"):=dt_expr[library==lib & target==bg & variant_class=="wildtype",.(mean_expr,sd_expr,n_bc_expr,avg_count_expr)]]
   }
 }
 
 #add delta expr measures
-for(bg in c("BA28686","EG5","FLip")){
+for(bg in c("BA286","EG5","FLip")){
   for(lib in c("pool1","pool2")){
     ref_expr <- dt_expr[library==lib & target==bg & variant_class=="wildtype",mean_expr]
     dt_mutant_expr[library==lib & target==bg,delta_expr := mean_expr - ref_expr]
@@ -297,6 +297,24 @@ x <- dt_mutant_bind[library=="pool1" & wildtype!=mutant,mean_bind]; y <- dt_muta
 
 ``` r
 invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/replicate_correlations.pdf",sep=""),useDingbats=F))
+```
+
+Binding correlations, separate per background:
+
+``` r
+par(mfrow=c(1,3))
+
+x <- dt_mutant_bind[library=="pool1" & wildtype!=mutant & target=="BA286",mean_bind]; y <- dt_mutant_bind[library=="pool2" & wildtype!=mutant & target=="BA286",mean_bind]; plot(x,y,pch=16,col="#00000020",xlab="replicate 1",ylab="replicate 2",main="binding affinity, BA286");model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+x <- dt_mutant_bind[library=="pool1" & wildtype!=mutant & target=="EG5",mean_bind]; y <- dt_mutant_bind[library=="pool2" & wildtype!=mutant & target=="EG5",mean_bind]; plot(x,y,pch=16,col="#00000020",xlab="replicate 1",ylab="replicate 2",main="binding affinity, EG5");model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+x <- dt_mutant_bind[library=="pool1" & wildtype!=mutant & target=="FLip",mean_bind]; y <- dt_mutant_bind[library=="pool2" & wildtype!=mutant & target=="FLip",mean_bind]; plot(x,y,pch=16,col="#00000020",xlab="replicate 1",ylab="replicate 2",main="binding affinity, FLip");model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+```
+
+<img src="collapse_scores_files/figure-gfm/plot_correlations_separate-backgrounds-1.png" style="display: block; margin: auto;" />
+
+``` r
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/replicate_correlations_bind_separate-backgrounds.pdf",sep=""),useDingbats=F))
 ```
 
 ## Calculate per-mutant score across libraries
@@ -374,7 +392,7 @@ replicate? Don’t do this for now.
 ```
 
 Coverage stats on n_barcodes for different measurements in the final
-pooled measurements, just for new BA1 and BA286 libs.
+pooled measurements
 
 ``` r
 par(mfrow=c(3,2))
