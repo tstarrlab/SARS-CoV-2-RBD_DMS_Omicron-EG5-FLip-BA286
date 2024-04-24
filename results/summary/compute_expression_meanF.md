@@ -136,10 +136,10 @@ for(i in 1:nrow(barcode_runs)){
 }
 ```
 
-    ## [1] "reads < cells for pool1 SortSeq_bin1 , un-normalized (ratio 0.234353197370074 )"
-    ## [1] "reads < cells for pool1 SortSeq_bin2 , un-normalized (ratio 0.037312977033569 )"
-    ## [1] "reads < cells for pool1 SortSeq_bin3 , un-normalized (ratio 0.205629470844645 )"
-    ## [1] "reads < cells for pool1 SortSeq_bin4 , un-normalized (ratio 0.0385734047028868 )"
+    ## [1] "read:cell ratio for pool1 SortSeq_bin1 is 3.4611547105546"
+    ## [1] "read:cell ratio for pool1 SortSeq_bin2 is 3.09386321650469"
+    ## [1] "read:cell ratio for pool1 SortSeq_bin3 is 4.318660498493"
+    ## [1] "read:cell ratio for pool1 SortSeq_bin4 is 3.70419000900217"
     ## [1] "read:cell ratio for pool2 SortSeq_bin1 is 7.45210643191482"
     ## [1] "read:cell ratio for pool2 SortSeq_bin2 is 7.77499591830257"
     ## [1] "read:cell ratio for pool2 SortSeq_bin3 is 2.14726549849038"
@@ -262,7 +262,7 @@ grid.arrange(p1,ncol=1)
 invisible(dev.print(pdf, paste(config$expression_sortseq_dir,"/violin-plot_meanF-by-target.pdf",sep="")))
 ```
 
-We have generated expression measurements for 58.99% of the barcodes in
+We have generated expression measurements for 82.13% of the barcodes in
 our libraries.
 
 ## Data Output

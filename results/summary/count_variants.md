@@ -998,7 +998,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>NaN</td>
       <td>240125</td>
       <td>3581850</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin1-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin1-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin1-3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin1-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin1-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin1-3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240417_Illumina_merbeco-sarbeco-sera-mAbs-breadth/240125-omi-expression-b1-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240417_Illumina_merbeco-sarbeco-sera-mAbs-breadth/240125-omi-expression-b1-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240417_Illumina_merbeco-sarbeco-sera-mAbs-breadth/240125-omi-expression-b1-3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -1008,7 +1008,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>NaN</td>
       <td>240125</td>
       <td>4649830</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin2-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin2-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin2-3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin2-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin2-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin2-3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240417_Illumina_merbeco-sarbeco-sera-mAbs-breadth/240125-omi-expression-b2-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240417_Illumina_merbeco-sarbeco-sera-mAbs-breadth/240125-omi-expression-b2-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240417_Illumina_merbeco-sarbeco-sera-mAbs-breadth/240125-omi-expression-b2-3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -1018,7 +1018,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>NaN</td>
       <td>240125</td>
       <td>8346717</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin3-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin3-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin3-3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin3-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin3-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin3-3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240417_Illumina_merbeco-sarbeco-sera-mAbs-breadth/240125-omi-expression-b3-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240417_Illumina_merbeco-sarbeco-sera-mAbs-breadth/240125-omi-expression-b3-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240417_Illumina_merbeco-sarbeco-sera-mAbs-breadth/240125-omi-expression-b3-3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool1</td>
@@ -1028,7 +1028,7 @@ display(HTML(barcode_runs.to_html(index=False)))
       <td>NaN</td>
       <td>240125</td>
       <td>7841439</td>
-      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin4-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin4-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240313_Illumina_OmiBA286-EG5-FLip_animal-polish_sarbeco-combo-polish/240125-exp1-RBD-bin4-3_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin4-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin4-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240410_Illumina-v2_OmiBA286-EG5-FLip/240125-exp1-RBD-bin4-3_R1_001.fastq.gz]</td>
+      <td>[/uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240417_Illumina_merbeco-sarbeco-sera-mAbs-breadth/240125-omi-expression-b4-1_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240417_Illumina_merbeco-sarbeco-sera-mAbs-breadth/240125-omi-expression-b4-2_R1_001.fastq.gz, /uufs/chpc.utah.edu/common/home/u6042467/starr-group1/sequencing/TNS/2024/240417_Illumina_merbeco-sarbeco-sera-mAbs-breadth/240125-omi-expression-b4-3_R1_001.fastq.gz]</td>
     </tr>
     <tr>
       <td>pool2</td>
@@ -1405,34 +1405,34 @@ display(HTML(fates
       <th rowspan="40" valign="top">pool1</th>
       <th>SortSeq_bin1</th>
       <td>0</td>
-      <td>241231</td>
-      <td>94403</td>
-      <td>29930</td>
-      <td>839418</td>
+      <td>3606780</td>
+      <td>3155021</td>
+      <td>317450</td>
+      <td>12397337</td>
     </tr>
     <tr>
       <th>SortSeq_bin2</th>
       <td>0</td>
-      <td>47710</td>
-      <td>20002</td>
-      <td>4261</td>
-      <td>173499</td>
+      <td>3941003</td>
+      <td>3195241</td>
+      <td>362831</td>
+      <td>14385938</td>
     </tr>
     <tr>
       <th>SortSeq_bin3</th>
       <td>0</td>
-      <td>452154</td>
-      <td>191584</td>
-      <td>35501</td>
-      <td>1716331</td>
+      <td>9529787</td>
+      <td>8011889</td>
+      <td>913919</td>
+      <td>36046637</td>
     </tr>
     <tr>
       <th>SortSeq_bin4</th>
       <td>0</td>
-      <td>76161</td>
-      <td>31484</td>
-      <td>6235</td>
-      <td>302471</td>
+      <td>7484649</td>
+      <td>6298677</td>
+      <td>731485</td>
+      <td>29046180</td>
     </tr>
     <tr>
       <th>TiteSeq_01_bin1</th>
