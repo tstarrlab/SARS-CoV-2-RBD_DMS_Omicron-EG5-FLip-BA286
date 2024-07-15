@@ -43,7 +43,9 @@ To run using the cluster configuration for the CHPC server, simply run the bash 
 
 You likely want to submit [run_CHPC_cluster.bash](run_CHPC_cluster.bash) itself to the cluster (since it takes a while to run) with:
 
-    sbatch -t 2-0 run_CHPC_cluster.bash
+    sbatch -t 0-2 run_CHPC_cluster.bash -A starr-np -p starr-shared-np
+
+You can leave out the -A and -p flags and run the script `run_CHPC_cluster_shared.bash` if you want to run on general shared nodes instead of our starr-lab personal compute nodes.
 
 ### Configure `.git` to not track Jupyter notebook metadata
 To simplify git tracking of Jupyter notebooks, we have added the filter described [here](https://stackoverflow.com/questions/28908319/how-to-clear-an-ipython-notebooks-output-in-all-cells-from-the-linux-terminal/58004619#58004619) to strip notebook metadata to [.gitattributes](.gitattributes) and [.gitconfig](.gitconfig).
