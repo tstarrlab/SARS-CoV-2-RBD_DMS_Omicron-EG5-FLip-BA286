@@ -15,10 +15,10 @@ To use this tool, select the RBD variants that you wish to display in each heatm
 
 #### Technical Details
 
-The impact on ACE2 receptor-binding affinity ($$\Delta$$ log10 $$K_D$$) or RBD expression ($$\Delta$$ log(MFI)) of every single amino-acid mutation in SARS-CoV-2 RBDs, as determined by high-throughput titration assays. Wildtype amino acids are indicated by an 'x', and gray squares indicate missing mutations from each library. The number of internally replicated barcodes with which a mutation was measured is visible as `Barcode Count` in the tooltips, where higher numbers indicate higher-confidence measurements. The experiments underlying these data can be found in our preprint [here](https://www.biorxiv.org/content/10.1101/2022.09.20.508745v1).
+The impact on ACE2 receptor-binding affinity ($$\Delta$$ log10 $$K_D$$) or RBD expression ($$\Delta$$ log(MFI)) of every single amino-acid mutation in SARS-CoV-2 RBDs, as determined by high-throughput titration assays. Wildtype amino acids are indicated by an 'x', and gray squares indicate missing mutations from each library. The number of internally replicated barcodes with which a mutation was measured is visible as `Barcode Count` in the tooltips, where higher numbers indicate higher-confidence measurements. The experiments underlying these data can be found in our preprint [here](to_add).
 
-Data for variants from Wuhan-Hu-1 through Omicron BA.2 are from previously published studies [here](https://www.science.org/doi/10.1126/science.abo7896) and [here](https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1010951).
+Data for variants from Wuhan-Hu-1 through Omicron XBB.1.5 are from previously published studies [here](https://www.science.org/doi/10.1126/science.abo7896), [here](https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1010951), and [here](https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1011901).
 
 ### Data
 
-Raw data  can be found [here](https://github.com/tstarrlab/SARS-CoV-2-RBD_DMS_Omicron-XBB-BQ/blob/main/results/final_variant_scores/final_variant_scores.csv). The code used to make these plots can be found [here](https://github.com/tstarrlab/SARS-CoV-2-RBD_DMS_Omicron-XBB-BQ/blob/main/RBD-Heatmaps-Interactive-Visualization.ipynb).
+Raw data  can be found [here](https://github.com/tstarrlab/SARS-CoV-2-RBD_DMS_Omicron-EG5-FLip-BA286/blob/main/results/final_variant_scores/final_variant_scores.csv). The code used to make these plots can be found [here](https://github.com/tstarrlab/SARS-CoV-2-RBD_DMS_Omicron-EG5-FLip-BA286/blob/main/RBD-Heatmaps-Interactive-Visualization.ipynb).

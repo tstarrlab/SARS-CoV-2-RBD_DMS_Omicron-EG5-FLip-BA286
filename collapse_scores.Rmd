@@ -239,7 +239,17 @@ x <- dt_mutant_bind[library=="pool1" & wildtype!=mutant & target=="FLip",mean_bi
 
 invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/replicate_correlations_bind_separate-backgrounds.pdf",sep=""),useDingbats=F))
 ```
+```{r plot_expr_correlations_separate-backgrounds, echo=T, fig.width=12, fig.height=4, fig.align="center", dpi=300,dev="png"}
+par(mfrow=c(1,3))
 
+x <- dt_mutant_expr[library=="pool1" & wildtype!=mutant & target=="BA286",mean_expr]; y <- dt_mutant_expr[library=="pool2" & wildtype!=mutant & target=="BA286",mean_expr]; plot(x,y,pch=16,col="#00000020",xlab="replicate 1",ylab="replicate 2",main="expression, BA286");model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+x <- dt_mutant_expr[library=="pool1" & wildtype!=mutant & target=="EG5",mean_expr]; y <- dt_mutant_expr[library=="pool2" & wildtype!=mutant & target=="EG5",mean_expr]; plot(x,y,pch=16,col="#00000020",xlab="replicate 1",ylab="replicate 2",main="expression, EG5");model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+x <- dt_mutant_expr[library=="pool1" & wildtype!=mutant & target=="FLip",mean_expr]; y <- dt_mutant_expr[library=="pool2" & wildtype!=mutant & target=="FLip",mean_expr]; plot(x,y,pch=16,col="#00000020",xlab="replicate 1",ylab="replicate 2",main="expression, FLip");model <- lm(y~x);abline(a=0,b=1,lty=2,col="red");legend("topleft",legend=paste("R2: ",round(summary(model)$r.squared,3),sep=""),bty="n")
+
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/replicate_correlations_expr_separate-backgrounds.pdf",sep=""),useDingbats=F))
+```
 ## Calculate per-mutant score across libraries
 
 Collapse down to mean from both replicates, and total n barcodes between the two/three replicates. Also record the number of the replicates the variant was quantified within. Note, we are currently keeping a value even if it's determined from a single bc fit in a single pool. Later on, we may want to require some combination of minimum number of bcs within or between libraries for retention.
@@ -452,6 +462,23 @@ p1
 invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/heatmap_SSM_delta-log10Ka-by-target.pdf",sep="")))
 ```
 
+Just BA.2.86:
+
+```{r heatmap_DMS_delta-log10Ka-BA286, fig.width=25,fig.height=15,fig.align="center", dpi=500,dev="png",echo=T}
+p1 <- ggplot(temp[measurement=="delta_bind" & target=="Omicron_BA286",],aes(position,mutant))+geom_tile(aes(fill=value),color="black",lwd=0.1)+
+  scale_fill_gradientn(colours=c("#A94E35","#A94E35","#F48365","#FFFFFF","#7378B9","#383C6C"),limits=c(-5.5,1),values=c(0/6.5,1.5/6.5,3.5/6.5,5.5/6.5,6/6.5,6.5/6.5),na.value="#a7a9ac")+
+  scale_x_continuous(expand=c(0,0),breaks=c(331,seq(335,530,by=5)))+
+  labs(x="",y="")+theme_classic(base_size=9)+
+  coord_equal()+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.6,face="bold",size=10),axis.text.y=element_text(face="bold",size=10))+
+  facet_wrap(~target,ncol=1)+
+  guides(y.sec=guide_axis_label_trans())+
+  geom_text(aes(label=wildtype_indicator),size=2,color="gray10")+
+  theme(strip.text.x = element_text(size = 18))
+
+p1
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/heatmap_SSM_delta-log10Ka_BA286.pdf",sep="")))
+```
+
 Make heatmaps faceted by target, showing raw expression and delta-expression of muts relative to respective wildtype
 
 ```{r heatmap_DMS_expression-by-target, fig.width=25,fig.height=15,fig.align="center", dpi=500,dev="png",echo=T}
@@ -485,6 +512,92 @@ p1 <- ggplot(temp[measurement=="delta_expr",],aes(position,mutant))+geom_tile(ae
 
 p1
 invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/heatmap_SSM_delta-expression-by-target.pdf",sep="")))
+```
+Just BA.2.86:
+
+```{r heatmap_DMS_delta-expression-BA286, fig.width=25,fig.height=15,fig.align="center", dpi=500,dev="png",echo=T}
+p1 <- ggplot(temp[measurement=="delta_expr" & target=="Omicron_BA286",],aes(position,mutant))+geom_tile(aes(fill=value),color="black",lwd=0.1)+
+  scale_fill_gradientn(colours=c("#A94E35","#A94E35","#F48365","#FFFFFF","#7378B9","#383C6C"),limits=c(-2,1),values=c(0/3,0.5/3,1.25/3,2/3,2.5/3,3/3),na.value="yellow")+
+  scale_x_continuous(expand=c(0,0),breaks=c(331,seq(335,530,by=5)))+
+  labs(x="",y="")+theme_classic(base_size=9)+
+  coord_equal()+theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.6,face="bold",size=10),axis.text.y=element_text(face="bold",size=10))+
+  facet_wrap(~target,ncol=1)+
+  guides(y.sec=guide_axis_label_trans())+
+  geom_text(aes(label=wildtype_indicator),size=2,color="gray10")+
+  theme(strip.text.x = element_text(size = 18))
+
+p1
+invisible(dev.print(pdf, paste(config$final_variant_scores_dir,"/heatmap_SSM_delta-expression_BA286.pdf",sep="")))
+```
+
+Map mean, max, and impact of deletion to the structure:
+
+```{r map_del_to_pdb_BA286}
+#get summary stats into RBD sites table
+sites <- read.csv(file=config$RBD_sites,stringsAsFactors = F)
+
+#remove the ba286 del
+sites <- sites[sites$site!=483,]
+
+sites$mean_bind <- NA
+sites$max_bind <- NA
+sites$del_bind <- NA
+sites$mean_expr <- NA
+sites$max_expr <- NA
+sites$del_expr <- NA
+
+for(i in 1:nrow(sites)){
+  if(!is.na(sites[i,"site_8qsq"])){
+    sites$mean_bind[i] <- mean(dt_final[position==sites[i,"site"] & target=="Omicron_BA286" & wildtype != mutant & mutant!= "-" & n_bc_bind>1,delta_bind],na.rm=T)
+    sites$max_bind[i] <- max(dt_final[position==sites[i,"site"] & target=="Omicron_BA286" & wildtype != mutant & mutant!= "-" & n_bc_bind>1,delta_bind],na.rm=T)
+    sites$del_bind[i] <- dt_final[position==sites[i,"site"] & target=="Omicron_BA286" & mutant== "-",delta_bind]
+    
+    sites$mean_expr[i] <- mean(dt_final[position==sites[i,"site"] & target=="Omicron_BA286" & wildtype != mutant & mutant!= "-" & n_bc_expr>1,delta_expr],na.rm=T)
+    sites$max_expr[i] <- max(dt_final[position==sites[i,"site"] & target=="Omicron_BA286" & wildtype != mutant & mutant!= "-" & n_bc_expr>1,delta_expr],na.rm=T)
+    sites$del_expr[i] <- dt_final[position==sites[i,"site"] & target=="Omicron_BA286" & mutant== "-",delta_expr]
+  }
+}
+
+pdb <- read.pdb(file=config$pdb_8qsq)
+
+b_mean_bind <- rep(0, length(pdb$atom$b))
+b_max_bind <- rep(0, length(pdb$atom$b))
+b_del_bind <- rep(0, length(pdb$atom$b))
+
+b_mean_expr <- rep(0, length(pdb$atom$b))
+b_max_expr <- rep(0, length(pdb$atom$b))
+b_del_expr <- rep(0, length(pdb$atom$b))
+
+for(i in 1:nrow(pdb$atom)){
+  res <- pdb$atom$resno[i]
+  if(pdb$atom$chain[i] %in% c("A") & res %in% sites$site_8qsq){
+    b_mean_bind[i] <- sites[sites$site_8qsq==res,"mean_bind"]
+    b_max_bind[i] <- sites[sites$site_8qsq==res,"max_bind"]
+    b_del_bind[i] <- sites[sites$site_8qsq==res,"del_bind"]
+    b_mean_expr[i] <- sites[sites$site_8qsq==res,"mean_expr"]
+    b_max_expr[i] <- sites[sites$site_8qsq==res,"max_expr"]
+    b_del_expr[i] <- sites[sites$site_8qsq==res,"del_expr"]
+  }
+}
+
+#replace NaN with -10 for missing in the dels
+b_del_bind[is.na(b_del_bind)] <- -10
+b_del_expr[is.na(b_del_expr)] <- -10
+
+
+write.pdb(pdb=pdb, file=paste(config$final_variant_scores_dir,"/pdbs/bind_mean.pdb",sep=""), b=b_mean_bind)
+write.pdb(pdb=pdb, file=paste(config$final_variant_scores_dir,"/pdbs/bind_max.pdb",sep=""), b=b_max_bind)
+write.pdb(pdb=pdb, file=paste(config$final_variant_scores_dir,"/pdbs/bind_del.pdb",sep=""), b=b_del_bind)
+write.pdb(pdb=pdb, file=paste(config$final_variant_scores_dir,"/pdbs/expr_mean.pdb",sep=""), b=b_mean_expr)
+write.pdb(pdb=pdb, file=paste(config$final_variant_scores_dir,"/pdbs/expr_max.pdb",sep=""), b=b_max_expr)
+write.pdb(pdb=pdb, file=paste(config$final_variant_scores_dir,"/pdbs/expr_del.pdb",sep=""), b=b_del_expr)
+
+#output contact residues from this ba286 structure (structure numbering, have to convert back to WH1)
+binding.site(pdb,
+             a.inds=atom.select(pdb,chain=c("A")),
+             b.inds=atom.select(pdb,chain=c("B")),
+             cutoff=5,hydrogens=F)$resnames
+
 ```
 
 Save output files.
