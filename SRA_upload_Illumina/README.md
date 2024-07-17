@@ -22,7 +22,7 @@ You will now be at the *Sample Type* page, and you have to select the package th
 Click *Microbe*--although we are studying a pathogen it's not a direct clinical sample but an experiment using yeast on a pathogen, which is why we choose this sample type.
 Then click `Continue`.
 Now you enter the sample attributes.
-For the sample name, provide a short name that describes the sample, such as `variant_RBD_DMS`.
+For the sample name, provide a short name that describes the sample, such as `BA286_EG5_FLip_DMS`.
 Also provide the rest of the information:
 
   - Organism: Severe acute respiratory syndrome-related coronavirus
@@ -31,7 +31,7 @@ Also provide the rest of the information:
 
   - isolation source: plasmid
 
-  - collection date: 2021
+  - collection date: 2023
 
   - geographic location: USA
 
@@ -43,7 +43,7 @@ We are adding to an existing BioProject, so enter [PRJNA770094](https://www.ncbi
 Finally, add a sample title, such as "Illumina barcode sequencing for SARS2 variant RBD ACE2 and expression DMS."
 Then hit `Continue`, make sure everything looks correct, then hit `Submit`.
 
-After a brief bit of processing, the *BioSample* submission should show up, along with a sample accession that will be in the format of *SAMN37185929*.
+After a brief bit of processing, the *BioSample* submission should show up, along with a sample accession that will be in the format of *SAMN42557522*.
 Add this sample accession to [upload_config.yaml](upload_config.yaml) as the value for the *biosample_accession* key.
 
 ## Upload the sequencing data
@@ -100,7 +100,7 @@ It then uses FTP to upload them to the SRA.
 You can run the notebook interactively, but it will take a little while so make sure it doesn't time out.
 If you want to instead submit it via `slurm`, do this with:
 
-    sbatch --wrap="jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=-1 make_and_upload_tar.ipynb" --time 1-0
+    sbatch --wrap="jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=-1 make_and_upload_tar.ipynb" --time 1-0 -A starr-np -p starr-shared-np
 
 After you have finished running [make_and_upload_tar.ipynb](make_and_upload_tar.ipynb), check carefully to make sure the FTP upload was completed.
 If needed, you can manually log into the FTP site to see the file and use `ls` to see the size of what has been transferred.
