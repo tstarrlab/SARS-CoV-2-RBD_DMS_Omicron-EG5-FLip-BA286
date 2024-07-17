@@ -4,7 +4,7 @@ Analysis of deep mutational scanning of barcoded codon variants of SARS-CoV-2 Om
 
 Study and analysis by Tyler Starr, Ashley Taylor, and co-authors.
 
-Interactive visualizations of the key deep mutational scanning data are available [here](https://tstarrlab.github.io/SARS-CoV-2-RBD_DMS_Omicron-XBB-BQ/).
+Interactive visualizations of the key deep mutational scanning data are available [here](https://tstarrlab.github.io/SARS-CoV-2-RBD_DMS_Omicron-EG5-FLip-BA286/).
 
 ## Summary of workflow and results
 For a summary of the workflow and links to key results files, [click here](results/summary/summary.md).
