@@ -6,6 +6,8 @@ Study and analysis by Tyler Starr, Ashley Taylor, and co-authors.
 
 Interactive visualizations of the key deep mutational scanning data are available [here](https://tstarrlab.github.io/SARS-CoV-2-RBD_DMS_Omicron-EG5-FLip-BA286/).
 
+Find the published version of the manuscript [here](https://academic.oup.com/ve/article/10/1/veae067/7747405?searchresult=1).
+
 ## Summary of workflow and results
 For a summary of the workflow and links to key results files, [click here](results/summary/summary.md).
 Reading this summary is the best way to understand the analysis.
